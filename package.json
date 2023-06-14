@@ -29,8 +29,10 @@
   },
   "homepage": "https://github.com/IDSAD-XL/bragiliev#readme",
   "dependencies": {
+    "autoprefixer": "^10.4.14",
     "eslint-config-next": "13.2.4",
     "next": "13.1.1",
+    "postcss": "^8.4.24",
     "prettier-plugin-tailwindcss": "^0.3.0",
     "react": "18.2.0",
     "react-dom": "18.2.0",
