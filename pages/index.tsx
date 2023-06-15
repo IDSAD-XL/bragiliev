@@ -1,7 +1,12 @@
 import React from 'react'
+import Main from '../src/pages/Main'
 
-const Index = (): JSX.Element => {
-  return <React.Fragment></React.Fragment>
+const Index: React.FC = () => {
+  return (
+    <div>
+      <Main />
+    </div>
+  )
 }
 
 export default Index
