@@ -20,7 +20,10 @@ module.exports = {
         'main-bg': '#FFFFFF',
         'secondary-bg': '#F9F9F9',
         'dark-bg': '#040302',
-        'light-gray': '#F3F3F3',
+        'light-gray-bg': '#F3F3F3',
+      },
+      colors: {
+        'dark-grey': '#26262B',
       },
       borderWidth: {
         1: '1px',
