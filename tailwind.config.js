@@ -10,6 +10,7 @@ module.exports = {
       sm: '320px',
       md: '640px',
       lg: '976px',
+      dsk: '1260px',
       xl: '1600px',
     },
     extend: {
@@ -24,14 +25,17 @@ module.exports = {
       },
       colors: {
         'dark-grey': '#26262B',
+        'hover-blue': '#267DFF',
       },
       borderWidth: {
         1: '1px',
       },
       borderColor: {
-        color: '#E1E1E1',
+        'half-grey': 'rgba(135, 135, 135, 0.3);',
       },
       width: {
+        212: '212px',
+        365: '365px',
         400: '400px',
         760: '760px',
         780: '780px',
@@ -42,9 +46,13 @@ module.exports = {
       },
       height: {
         80: '80px',
+        100: '100px',
       },
       minHeight: {
         590: '590px',
+      },
+      padding: {
+        40: '40px',
       },
     },
   },

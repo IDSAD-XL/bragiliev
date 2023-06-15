@@ -1,5 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;600;700&display=swap');
 
+* {
+  font-family: 'Raleway', sans-serif;
+  font-style: normal;
+}
+
 .title1 {
   font-size: 70px;
   line-height: 82px;
@@ -66,4 +71,47 @@ h4 {
 
 h5 {
   @extend .title5
+}
+
+.link-plus {
+  @extend .text-regular;
+  text-transform: uppercase;
+  position: relative;
+  margin-left: 25px;
+  cursor: pointer;
+  transition: color .2s ease;
+
+  &::before {
+    position: absolute;
+    left: -25px;
+    top: -5px;
+    content: "+";
+    font-weight: 400;
+    font-size: 32px;
+    line-height: 32px;
+    font-family: 'Inter', serif;
+    text-decoration: none;
+  }
+  &::after {
+    content: "";
+    width: 100%;
+    height: 1px;
+    position: absolute;
+    left: 0;
+    bottom: -3px;
+    background: #000000;
+  }
+  &:hover {
+    color: #267DFF;
+  }
+  &--white {
+    &::after {
+      background: #ffffff;
+    }
+    &:hover {
+      &::after {
+        background: #267DFF;
+      }
+    }
+  }
 }
