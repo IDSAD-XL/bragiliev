@@ -1,10 +1,11 @@
 import React from 'react'
+import Main from '../src/pages/Main'
 
-const Index = (): JSX.Element => {
+const Index: React.FC = () => {
   return (
-    <React.Fragment>
-      <h1 className="mt-3 text-3xl">Bragiliev</h1>
-    </React.Fragment>
+    <div>
+      <Main />
+    </div>
   )
 }
 
