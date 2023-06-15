@@ -1,0 +1,69 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;600;700&display=swap');
+
+.title1 {
+  font-size: 70px;
+  line-height: 82px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.title2 {
+  font-size: 56px;
+  line-height: 70px;
+  font-weight: 600;
+}
+
+.title3 {
+  font-size: 48px;
+  line-height: 70px;
+  font-weight: 600;
+}
+
+.title4 {
+  font-size: 36px;
+  line-height: 40px;
+  font-weight: 600;
+}
+
+.title5 {
+  font-size: 30px;
+  line-height: 45px;
+  font-weight: 500;
+  letter-spacing: -1px;
+}
+
+.text-medium {
+  @extend .title5
+}
+
+.text-regular {
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 22px;
+}
+
+.text-light {
+  font-weight: 500;
+  font-size: 11px;
+  line-height: 14px;
+}
+
+h1 {
+  @extend .title1
+}
+
+h2 {
+  @extend .title2
+}
+
+h3 {
+  @extend .title3
+}
+
+h4 {
+  @extend .title4
+}
+
+h5 {
+  @extend .title5
+}
