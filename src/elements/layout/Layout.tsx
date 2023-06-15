@@ -1,6 +1,6 @@
 import React from 'react'
 import Header from './Header'
-import { ReactNode } from '../../types/ReactNode'
+import type { ReactNode } from '../../types/ReactNode'
 import Footer from './Footer'
 
 interface ILayout {

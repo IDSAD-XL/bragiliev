@@ -1,4 +1,4 @@
-import { ReactElement, ReactPortal } from 'react'
+import { type ReactElement, type ReactPortal } from 'react'
 
 type ReactText = string | number
 type ReactChild = ReactElement | ReactText

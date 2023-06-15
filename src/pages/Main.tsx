@@ -2,11 +2,15 @@ import React from 'react'
 import Layout from '../elements/layout/Layout'
 import Image from 'next/image'
 
-interface IMainContent {}
+interface IMainContent {
+  image?: string
+}
 
-const mainContent: IMainContent = {}
+// const mainContent: IMainContent = {}
 
-const Main: React.FC = () => {
+interface IMain extends IMainContent {}
+
+const Main: React.FC<IMain> = () => {
   return (
     <Layout>
       <Image
