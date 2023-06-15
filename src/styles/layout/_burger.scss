@@ -1,7 +1,10 @@
 .burger {
   display: flex;
   flex-direction: column;
+  justify-content: center;
   cursor: pointer;
+  width: 40px;
+  height: 40px;
   span {
     position: absolute;;
     width: 40px;
@@ -10,7 +13,6 @@
     background-color: #fff;
     transform-origin: center;
     transition: transform .4s ease, color .4s ease;
-    margin-left: -20px;
     &:nth-child(1) {
       transform: translateY(-5px);
     }

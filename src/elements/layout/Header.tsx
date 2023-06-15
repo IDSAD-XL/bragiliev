@@ -3,34 +3,34 @@ import Burger from './Burger'
 import Link from 'next/link'
 
 interface IHeaderContent {
-  items?: {
+  items?: Array<{
     name: string
     link?: string
     count?: number
     icon?: string
-  }[]
+  }>
 }
 
-const headerContent: IHeaderContent = {
-  items: [
-    {
-      name: 'Услуги',
-      link: '/services',
-    },
-    {
-      name: 'До/После',
-      link: '/services',
-    },
-    {
-      name: 'Обо мне',
-      link: '/services',
-    },
-  ],
-}
+// const headerContent: IHeaderContent = {
+//   items: [
+//     {
+//       name: 'Услуги',
+//       link: '/services',
+//     },
+//     {
+//       name: 'До/После',
+//       link: '/services',
+//     },
+//     {
+//       name: 'Обо мне',
+//       link: '/services',
+//     },
+//   ],
+// }
 
 interface IHeader extends IHeaderContent {}
 
-const Header: React.FC<IHeader> = ({ items }) => {
+const Header: React.FC<IHeader> = () => {
   return (
     <React.Fragment>
       <header className="flex h-100 w-full border-b-1 border-half-grey">
@@ -42,19 +42,19 @@ const Header: React.FC<IHeader> = ({ items }) => {
         <div className="header__items flex w-full justify-end">
           <Link
             className="header__item header__item--hover hidden border-r-1 border-half-grey dsk:flex"
-            href="/services"
+            href="/"
           >
             <span className="text-regular text-white">Услуги</span>
           </Link>
           <Link
             className="header__item header__item--hover hidden border-r-1 border-half-grey dsk:flex"
-            href="/results"
+            href="/"
           >
             <span className="text-regular text-white">До/После</span>
           </Link>
           <Link
             className="header__item header__item--hover hidden  border-r-1 border-half-grey dsk:flex"
-            href="/about"
+            href="/"
           >
             <span className="text-regular text-white">Обо мне</span>
           </Link>
