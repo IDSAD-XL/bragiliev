@@ -1,0 +1,33 @@
+.burger {
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+  span {
+    position: absolute;;
+    width: 40px;
+    height: 2px;
+    display: block;
+    background-color: #fff;
+    transform-origin: center;
+    transition: transform .4s ease, color .4s ease;
+    margin-left: -20px;
+    &:nth-child(1) {
+      transform: translateY(-5px);
+    }
+    &:nth-child(2) {
+      transform: translateY(5px);
+    }
+  }
+
+  &.open {
+    span {
+      background-color: #10100E;
+    }
+    span:nth-child(1) {
+      transform: rotate(45deg);
+    }
+    span:nth-child(2) {
+      transform: rotate(-45deg);
+    }
+  }
+}

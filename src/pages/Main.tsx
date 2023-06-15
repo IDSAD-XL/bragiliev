@@ -1,8 +1,25 @@
 import React from 'react'
-import Layout from '../elements/Layout'
+import Layout from '../elements/layout/Layout'
+import Image from 'next/image'
+
+interface IMainContent {}
+
+const mainContent: IMainContent = {}
 
 const Main: React.FC = () => {
-  return <Layout>123</Layout>
+  return (
+    <Layout>
+      <Image
+        style={{
+          width: '100%',
+          zIndex: '-1',
+        }}
+        src="/assets/main-bg.jpg"
+        alt=""
+        fill={true}
+      />
+    </Layout>
+  )
 }
 
 export default Main
