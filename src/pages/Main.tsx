@@ -1,5 +1,5 @@
 import React from 'react'
-import Layout from '../elements/layout/Layout'
+import Layout from '../components/layout/Layout'
 import Image from 'next/image'
 
 interface IMainContent {
