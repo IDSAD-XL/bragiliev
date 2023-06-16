@@ -20,9 +20,10 @@ body {
     --bg-main: #FFFFFF;
     --bg-secondary: #F9F9F9;
     --bg-dark: #040302;
-    --bg-light-grey: #F3F3F3;
+    --bg-light-gray: #F3F3F3;
 
-    --color-dark-grey: #26262B;
+    --color-dark-gray: #26262B;
     --color-hover-blue: #267DFF;
     --color-semi-black: #10100E;
+    --color-light-gray: #A8A8A8;
 }
