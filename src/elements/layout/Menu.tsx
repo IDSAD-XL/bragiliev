@@ -51,12 +51,12 @@ const Menu: React.FC = () => {
             </a>
           </p>
           <p className="gap mt-[47px] flex justify-center gap-[54px]">
-            <a href="/" className="link-underlined font-[Inter]">
+            <Link href="/" className="link-underlined font-[Inter]">
               TELEGRAM
-            </a>
-            <a href="/" className="link-underlined font-500 font-[Inter]">
+            </Link>
+            <Link href="/" className="link-underlined font-500 font-[Inter]">
               VKONTAKTE
-            </a>
+            </Link>
           </p>
         </div>
       </div>
