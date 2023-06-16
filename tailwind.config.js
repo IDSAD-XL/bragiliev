@@ -3,15 +3,24 @@ module.exports = {
   content: ['./src/**/*.{js,jsx,ts,tsx}', './pages/**/*.{js,jsx,ts,tsx}'],
   theme: {
     fontFamily: {
-      display: ['Open Sans', 'sans-serif'],
-      body: ['Open Sans', 'sans-serif'],
+      display: ['Raleway', 'sans-serif'],
+      body: ['Raleway', 'sans-serif'],
     },
     screens: {
       sm: '320px',
       md: '640px',
       lg: '976px',
-      dsk: '1260px',
-      xl: '1600px',
+      dsk: '1351px',
+      xl: '1601px',
+    },
+    container: {
+      padding: {
+        DEFAULT: '10px',
+        sm: '10px',
+        lg: '38px',
+        dsk: '38px',
+        xl: '50px',
+      },
     },
     extend: {
       fontSize: {
@@ -24,15 +33,16 @@ module.exports = {
         'light-gray-bg': 'var(--bg-light-gray)',
       },
       colors: {
-        'dark-grey': 'var(--color-dark-grey)',
+        'dark-gray': 'var(--color-dark-gray)',
         'hover-blue': 'var(--color-hover-blue)',
         'semi-black': 'var(--color-semi-black)',
+        'light-gray': 'var(--color-light-gray)',
       },
       borderWidth: {
         1: '1px',
       },
       borderColor: {
-        'half-grey': 'rgba(135, 135, 135, 0.3);',
+        'half-gray': 'rgba(135, 135, 135, 0.3);',
       },
       width: {
         212: '212px',

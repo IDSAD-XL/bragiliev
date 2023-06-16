@@ -37,6 +37,14 @@
   letter-spacing: -1px;
 }
 
+.title6 {
+  font-family: 'Raleway', sans-serif;
+  font-size: 24px;
+  line-height: 28px;
+  font-weight: 500;
+  letter-spacing: -1px;
+}
+
 .text-medium {
   @extend .title5
 }
@@ -73,8 +81,21 @@ h5 {
   @extend .title5
 }
 
+h6 {
+  @extend .title6
+}
+
+.link-hover-effect {
+  cursor: pointer;
+  transition: color .2s ease;
+  &:hover {
+    color: var(--color-hover-blue);
+  }
+}
+
 .link-underlined {
   @extend .text-regular;
+  @extend .link-hover-effect;
   text-transform: uppercase;
   position: relative;
   cursor: pointer;
@@ -87,9 +108,6 @@ h5 {
     left: 0;
     bottom: 1px;
     background: currentColor;
-  }
-  &:hover {
-    color: var(--color-hover-blue);
   }
 }
 
@@ -111,6 +129,7 @@ h5 {
 }
 
 .link-menu {
+  @extend .link-hover-effect;
   font-weight: 800;
   font-size: 21px;
   line-height: 25px;
@@ -118,7 +137,4 @@ h5 {
   text-transform: uppercase;
   transition: color .2s ease;
   color: var(--color-semi-black);
-  &:hover {
-    color: var(--color-hover-blue);
-  }
 }
