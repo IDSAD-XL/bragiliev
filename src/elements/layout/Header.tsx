@@ -1,6 +1,7 @@
 import React from 'react'
 import Burger from './Burger'
 import Link from 'next/link'
+import { useAppSelector } from '../../hooks/redux'
 
 interface IHeaderContent {
   items?: Array<{
@@ -31,11 +32,17 @@ interface IHeaderContent {
 interface IHeader extends IHeaderContent {}
 
 const Header: React.FC<IHeader> = () => {
+  const { menuOpen } = useAppSelector((state) => state.appSlice)
+
   return (
     <React.Fragment>
-      <header className="flex h-100 w-full border-b-1 border-half-grey">
+      <header
+        className={`fixed z-20 flex h-100 w-full border-b-1 border-half-grey ${
+          menuOpen ? 'header--menu-open' : 'header--menu-closed'
+        }`}
+      >
         <div className="header__logo flex h-full items-center pl-40">
-          <span style={{ fontWeight: '700' }} className="title5 text-white">
+          <span style={{ fontWeight: '700' }} className={`title5 text-white`}>
             Bragilev
           </span>
         </div>

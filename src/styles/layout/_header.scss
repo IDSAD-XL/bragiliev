@@ -1,8 +1,13 @@
 .header {
+  span {
+    transition: color .2s ease;
+  }
   &__item {
     justify-content: center;
     align-items: center;
     width: min(212px, 20%);
+    transition: color .2s ease, opacity .2s ease;
+    opacity: 1;
     &-big {
       width: 365px;
     }
@@ -16,5 +21,13 @@
   &__items {
     display: flex;
     justify-content: flex-end;
+  }
+  &--menu-open {
+    span {
+      color: #10100E;
+    }
+    .header__item--hover {
+      opacity: 0;
+    }
   }
 }

@@ -18,14 +18,15 @@ module.exports = {
         14: '14px',
       },
       backgroundColor: {
-        'main-bg': '#FFFFFF',
-        'secondary-bg': '#F9F9F9',
-        'dark-bg': '#040302',
-        'light-gray-bg': '#F3F3F3',
+        'main-bg': 'var(--bg-main)',
+        'secondary-bg': 'var(--bg-secondary)',
+        'dark-bg': 'var(--bg-dark)',
+        'light-gray-bg': 'var(--bg-light-gray)',
       },
       colors: {
-        'dark-grey': '#26262B',
-        'hover-blue': '#267DFF',
+        'dark-grey': 'var(--color-dark-grey)',
+        'hover-blue': 'var(--color-hover-blue)',
+        'semi-black': 'var(--color-semi-black)',
       },
       borderWidth: {
         1: '1px',
@@ -53,6 +54,11 @@ module.exports = {
       },
       padding: {
         40: '40px',
+        100: '100px',
+      },
+      margin: {
+        40: '40px',
+        100: '100px',
       },
     },
   },
