@@ -30,5 +30,6 @@ module.exports = {
         },
       },
     ],
+    '@typescript-eslint/strict-boolean-expressions': 0,
   },
 }
