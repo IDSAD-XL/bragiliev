@@ -25,7 +25,7 @@ const PageHead: React.FC<IInfoBlock> = ({
       />
       <div className="container flex gap-[108px]">
         <div className="hidden flex-[50%] flex-shrink-0 flex-grow-0 dsk:flex"></div>
-        <div className="flex flex-[50%] flex-col justify-end pb-[56px] text-white md:pb-[93px] dsk:pb-0">
+        <div className="flex flex-[50%] flex-col justify-end pb-[56px] text-white md:pb-[93px] dsk:justify-center dsk:pb-0">
           {!!name && (
             <p className="text-section-title mb-[10px] md:mb-[23px] dsk:mb-[35px]">
               {name ?? ''}
