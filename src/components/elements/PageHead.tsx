@@ -2,14 +2,14 @@ import React from 'react'
 import { type ReactNode } from '../../types/ReactNode'
 import Image from 'next/image'
 
-interface IInfoBlock {
+interface IPageHead {
   name?: string
   title?: string
   image?: string
-  children: ReactNode
+  children?: ReactNode
 }
 
-const PageHead: React.FC<IInfoBlock> = ({
+const PageHead: React.FC<IPageHead> = ({
   name,
   title,
   image = '',
@@ -23,7 +23,7 @@ const PageHead: React.FC<IInfoBlock> = ({
         alt=""
         fill={true}
       />
-      <div className="container flex gap-[108px]">
+      <div className="flex-cols-2 container">
         <div className="hidden flex-[50%] flex-shrink-0 flex-grow-0 dsk:flex"></div>
         <div className="flex flex-[50%] flex-col justify-end pb-[56px] text-white md:pb-[93px] dsk:justify-center dsk:pb-0">
           {!!name && (
