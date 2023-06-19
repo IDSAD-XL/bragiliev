@@ -37,14 +37,12 @@ const Header: React.FC<IHeader> = () => {
   return (
     <React.Fragment>
       <header
-        className={`fixed z-20 flex h-100 w-full border-b-1 border-half-gray ${
+        className={`fixed z-20 flex h-[60px] w-full border-b-1 border-half-gray md:h-[100px] ${
           menuOpen ? 'header--menu-open' : 'header--menu-closed'
         }`}
       >
         <div className="header__logo flex h-full items-center pl-40">
-          <span style={{ fontWeight: '700' }} className={`title5 text-white`}>
-            Bragilev
-          </span>
+          <span className={`title-logo text-white`}>Bragilev</span>
         </div>
         <div className="header__items flex w-full justify-end">
           <Link
@@ -65,12 +63,12 @@ const Header: React.FC<IHeader> = () => {
           >
             <span className="text-regular text-white">Обо мне</span>
           </Link>
-          <div className="header__item header__item-big flex border-r-1 border-half-gray">
+          <div className="header__item header__item-big hidden border-l-1 border-r-1 border-half-gray md:flex dsk:border-l-0">
             <span className="link-plus link-plus--white text-white">
               запись на прием
             </span>
           </div>
-          <div className="header__item flex">
+          <div className="header__item header__item--burger flex border-l-1 border-half-gray md:border-l-0">
             <Burger />
           </div>
         </div>

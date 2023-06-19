@@ -17,6 +17,12 @@
         background: rgba(255, 255, 255, 0.15);
       }
     }
+    &--burger {
+      width: 120px;
+      @include md(dsk) {
+        width: min(212px, 20%);
+      }
+    }
   }
   &__items {
     display: flex;
