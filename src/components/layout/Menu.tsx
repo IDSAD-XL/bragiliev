@@ -6,7 +6,7 @@ const Menu: React.FC = () => {
   const { menuOpen } = useAppSelector((state) => state.appSlice)
   return (
     <menu
-      className={`menu fixed z-10 h-full w-full bg-main-bg transition-transform duration-500 ease-in-out ${
+      className={`menu fixed z-10 h-full w-full overflow-auto bg-main-bg transition-transform duration-500 ease-in-out ${
         menuOpen
           ? 'menu--open pointer-events-auto translate-y-0'
           : 'menu--closed pointer-events-none translate-y-[-100%]'
