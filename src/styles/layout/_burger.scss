@@ -10,7 +10,7 @@
     width: 40px;
     height: 2px;
     display: block;
-    background-color: #fff;
+    background-color: currentColor;
     transform-origin: center;
     transition: transform .4s ease, color .4s ease;
     &:nth-child(1) {

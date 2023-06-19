@@ -1,4 +1,6 @@
 .header {
+  transition: background .3s ease;
+  background: rgba(255, 255, 255, 0);
   span {
     transition: color .2s ease;
   }
@@ -34,6 +36,12 @@
     }
     .header__item--hover {
       opacity: 0;
+    }
+  }
+  &--have-bg {
+    background: rgba(255, 255, 255, 1);
+    span {
+      color: #10100E;
     }
   }
 }
