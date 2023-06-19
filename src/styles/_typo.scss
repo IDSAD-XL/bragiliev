@@ -18,9 +18,13 @@
 }
 
 .title2 {
-  font-size: 56px;
-  line-height: 70px;
+  font-size: 36px;
+  line-height: 40px;
   font-weight: 600;
+  @include md(md) {
+    font-size: 56px;
+    line-height: 70px;
+  }
 }
 
 .title3 {
@@ -36,10 +40,14 @@
 }
 
 .title5 {
-  font-size: 30px;
-  line-height: 45px;
+  font-size: 18px;
+  line-height: 28px;
   font-weight: 500;
   letter-spacing: -1px;
+  @include md(md) {
+    font-size: 30px;
+    line-height: 45px;
+  }
 }
 
 .title6 {
