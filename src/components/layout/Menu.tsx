@@ -36,7 +36,7 @@ const Menu: React.FC = () => {
             Контакты
           </Link>
         </div>
-        <div className="menu__footer mt-[80px] text-center">
+        <div className="menu__footer mb-[70px] mt-[80px] text-center">
           <p className="text-regular">
             г. Санкт-Петербург, <br /> Спасский 14/35 (вход с Садовой, 35)
           </p>
