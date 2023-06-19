@@ -6,6 +6,7 @@ module.exports = {
       display: ['Raleway', 'sans-serif'],
       body: ['Raleway', 'sans-serif'],
     },
+    // if changing breakpoints, change them into ./src/styles/_mixins.scss too
     screens: {
       sm: '320px',
       md: '640px',
@@ -54,10 +55,6 @@ module.exports = {
         1000: '1000px',
         1200: '1200px',
         1400: '1400px',
-      },
-      height: {
-        80: '80px',
-        100: '100px',
       },
       minHeight: {
         590: '590px',

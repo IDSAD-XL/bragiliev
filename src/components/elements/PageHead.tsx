@@ -16,7 +16,7 @@ const PageHead: React.FC<IInfoBlock> = ({
   children,
 }) => {
   return (
-    <div className="flex h-screen w-full justify-center">
+    <div className="flex h-screen w-full justify-start dsk:justify-center">
       <Image
         className="-z-10 object-cover object-center"
         src={image}
@@ -24,12 +24,19 @@ const PageHead: React.FC<IInfoBlock> = ({
         fill={true}
       />
       <div className="container flex gap-[108px]">
-        <div className="flex-[50%] flex-shrink-0 flex-grow-0"></div>
-        <div className="flex flex-[50%] flex-col justify-center text-white">
+        <div className="hidden flex-[50%] flex-shrink-0 flex-grow-0 dsk:flex"></div>
+        <div className="flex flex-[50%] flex-col justify-end pb-[56px] text-white md:pb-[93px] dsk:pb-0">
           {!!name && (
-            <p className="text-section-title mb-[35px]">{name ?? ''}</p>
+            <p className="text-section-title mb-[10px] md:mb-[23px] dsk:mb-[35px]">
+              {name ?? ''}
+            </p>
           )}
-          {!!title && <h1 dangerouslySetInnerHTML={{ __html: title ?? '' }} />}
+          {!!title && (
+            <h1
+              className="uppercase md:normal-case dsk:uppercase"
+              dangerouslySetInnerHTML={{ __html: title ?? '' }}
+            />
+          )}
           {children}
         </div>
       </div>

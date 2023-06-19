@@ -15,15 +15,15 @@ const Main: React.FC<IMain> = () => {
     <Layout>
       <PageHead
         name="[ Пластический хирург ]"
-        title={`<b>Брагилев</b> <br> Вадим <br> Алексеевич`}
+        title={`<b class="font-[700]">Брагилев</b> <br> Вадим <br> Алексеевич`}
         image="/assets/main-bg.jpg"
       >
-        <p className="mt-[31px] text-light-gray">
+        <p className="mt-[20px] text-light-gray md:mt-[17px] dsk:mt-[31px]">
           Врач хирург высшей категории. Кандидат медицинских наук. Автор более
           50 научных работ. Доцент кафедры пластической и реконструктивной
           хирургии И.И. Мечникова
         </p>
-        <p className="mt-[25px] leading-[39px]">
+        <p className="mt-[20px] leading-[39px] md:mt-[41px] dsk:mt-[25px]">
           <span className="link-plus link-plus--white text-white">
             запись на прием
           </span>

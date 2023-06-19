@@ -4,10 +4,17 @@
 }
 
 .title1 {
-  font-size: 70px;
-  line-height: 82px;
+  font-size: 44px;
+  line-height: 52px;
   font-weight: 400;
-  text-transform: uppercase;
+  @include md(md) {
+    font-weight: 300;
+  }
+  @include md(dsk) {
+    font-weight: 400;
+    font-size: 70px;
+    line-height: 82px;
+  }
 }
 
 .title2 {
@@ -43,6 +50,20 @@
   letter-spacing: -1px;
 }
 
+.title-logo {
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 28px;
+  @include md(md) {
+    font-size: 36px;
+    line-height: 42px;
+  }
+  @include md(dsk) {
+    font-size: 30px;
+    line-height: 35px;
+  }
+}
+
 .text-medium {
   @extend .title5
 }
@@ -59,6 +80,14 @@
   font-weight: 400;
   font-size: 12px;
   line-height: 18px;
+  @include md(md) {
+    font-size: 18px;
+    line-height: 18px;
+  }
+  @include md(dsk) {
+    font-size: 12px;
+    line-height: 18px;
+  }
 }
 
 .text-light {
