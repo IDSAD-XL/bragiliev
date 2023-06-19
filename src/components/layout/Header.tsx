@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react'
 import Burger from './Burger'
 import Link from 'next/link'
 import { useAppSelector } from '../../hooks/redux'
-import useThrottle from '../../hooks/useThrottle'
 import { useDebounce } from '../../hooks/useDebounce'
 
 interface IHeaderContent {
