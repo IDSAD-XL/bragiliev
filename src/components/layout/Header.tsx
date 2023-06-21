@@ -4,7 +4,7 @@ import Link from 'next/link'
 import { useAppSelector } from '../../hooks/redux'
 import { useDebounce } from '../../hooks/useDebounce'
 
-interface IHeaderContent {
+export interface IHeaderContent {
   items?: Array<{
     name: string
     link?: string
@@ -13,26 +13,9 @@ interface IHeaderContent {
   }>
 }
 
-// const headerContent: IHeaderContent = {
-//   items: [
-//     {
-//       name: 'Услуги',
-//       link: '/services',
-//     },
-//     {
-//       name: 'До/После',
-//       link: '/services',
-//     },
-//     {
-//       name: 'Обо мне',
-//       link: '/services',
-//     },
-//   ],
-// }
-
 interface IHeader extends IHeaderContent {}
 
-const Header: React.FC<IHeader> = () => {
+const Header: React.FC<IHeader> = ({ items, children }) => {
   const { menuOpen } = useAppSelector((state) => state.appSlice)
 
   const [haveBg, setHaveBg] = useState<boolean>(false)
@@ -70,28 +53,26 @@ const Header: React.FC<IHeader> = () => {
           <span className={`title-logo`}>Bragilev</span>
         </div>
         <div className="header__items flex w-full justify-end">
-          <Link
-            className="header__item header__item--hover hidden border-l-1 border-r-1 border-half-gray dsk:flex"
-            href="/"
-          >
-            <span className="text-regular">Услуги</span>
-          </Link>
-          <Link
-            className="header__item header__item--hover hidden border-r-1 border-half-gray dsk:flex"
-            href="/"
-          >
-            <span className="text-regular">До/После</span>
-          </Link>
-          <Link
-            className="header__item header__item--hover hidden  border-r-1 border-half-gray dsk:flex"
-            href="/"
-          >
-            <span className="text-regular">Обо мне</span>
-          </Link>
-          <div className="header__item header__item-big hidden border-l-1 border-r-1 border-half-gray md:flex dsk:border-l-0">
+          {!!items &&
+            items.map((item) => {
+              return (
+                <Link
+                  className="header__item header__item--hover  relative hidden border-l-1 border-half-gray dsk:flex"
+                  href={item.link ?? '#'}
+                >
+                  <span className="text-regular">{item.name}</span>
+                  {!!item.count && (
+                    <span className="text-light absolute bottom-[20px] left-[20px]">
+                      {item.count}
+                    </span>
+                  )}
+                </Link>
+              )
+            })}
+          <div className="header__item header__item-big hidden border-l-1 border-half-gray md:flex">
             <span className="link-plus link-plus--white">запись на прием</span>
           </div>
-          <div className="header__item header__item--burger flex border-l-1 border-half-gray md:border-l-0">
+          <div className="header__item header__item--burger flex border-l-1 border-half-gray">
             <Burger />
           </div>
         </div>

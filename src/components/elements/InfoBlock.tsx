@@ -2,7 +2,7 @@ import React from 'react'
 import { type ReactNode } from '../../types/ReactNode'
 import Link from 'next/link'
 
-interface IInfoBlock {
+export interface IInfoBlock {
   name?: string
   title?: string
   subtitle?: string
@@ -18,7 +18,7 @@ const InfoBlock: React.FC<IInfoBlock> = ({
   children,
 }) => {
   return (
-    <div className="flex w-full justify-center bg-secondary-bg dsk:justify-center">
+    <div className="flex w-full justify-center bg-secondary dsk:justify-center">
       <div className="container mb-[60px] mt-[60px] flex flex-col md:mb-[90px] md:mt-[90px]">
         {!!name && (
           <p className="text-section-title mb-[10px] md:mb-[20px]">

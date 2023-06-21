@@ -28,10 +28,10 @@ module.exports = {
         14: '14px',
       },
       backgroundColor: {
-        'main-bg': 'var(--bg-main)',
-        'secondary-bg': 'var(--bg-secondary)',
-        'dark-bg': 'var(--bg-dark)',
-        'light-gray-bg': 'var(--bg-light-gray)',
+        main: 'var(--bg-main)',
+        secondary: 'var(--bg-secondary)',
+        dark: 'var(--bg-dark)',
+        'light-gray': 'var(--bg-light-gray)',
       },
       colors: {
         'dark-gray': 'var(--color-dark-gray)',

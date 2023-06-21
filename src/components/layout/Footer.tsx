@@ -3,7 +3,7 @@ import Link from 'next/link'
 
 const Footer = (): JSX.Element => {
   return (
-    <footer className="flex w-full flex-col items-center bg-main-bg pb-[60px] pt-[84px] md:pt-[72px] lg:h-[392px] lg:pt-[83px]">
+    <footer className="flex w-full flex-col items-center bg-main pb-[60px] pt-[84px] md:pt-[72px] lg:h-[392px] lg:pt-[83px]">
       <div className="container mb-[75px] grid grid-cols-4 grid-rows-[min-content] gap-y-[50px]">
         <div className="col-span-4 lg:col-span-2">
           <h6>
