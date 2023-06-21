@@ -3,6 +3,7 @@ import Header from './Header'
 import type { ReactNode } from '../../types/ReactNode'
 import Footer from './Footer'
 import Menu from './Menu'
+import { headerContent } from '../../mock/layout'
 
 interface ILayout {
   children: ReactNode
@@ -11,7 +12,7 @@ interface ILayout {
 const Layout: React.FC<ILayout> = ({ children }) => {
   return (
     <React.Fragment>
-      <Header />
+      <Header items={headerContent.items} />
       <Menu />
       <div className="h-full flex-1">{children}</div>
       <Footer />

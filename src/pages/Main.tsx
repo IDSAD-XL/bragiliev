@@ -2,28 +2,24 @@ import React from 'react'
 import Layout from '../components/layout/Layout'
 import PageHead from '../components/elements/PageHead'
 import InfoBlock from '../components/elements/InfoBlock'
-
-interface IMainContent {
-  image?: string
-}
+import { IMainContent } from '../types/content/MainPage'
 
 // const mainContent: IMainContent = {}
 
 interface IMain extends IMainContent {}
 
-const Main: React.FC<IMain> = () => {
+const Main: React.FC<IMain> = ({ pageHead, infoBlock }) => {
   return (
     <Layout>
       <PageHead
-        name="[ Пластический хирург ]"
-        title={`<b class="font-[700]">Брагилев</b> <br> Вадим <br> Алексеевич`}
-        image="/assets/main-bg.jpg"
+        name={pageHead.name}
+        title={pageHead.title}
+        image={pageHead.image}
       >
-        <p className="mt-[20px] text-light-gray md:mt-[17px] dsk:mt-[31px]">
-          Врач хирург высшей категории. Кандидат медицинских наук. Автор более
-          50 научных работ. Доцент кафедры пластической и реконструктивной
-          хирургии И.И. Мечникова
-        </p>
+        <p
+          className="mt-[20px] text-light-gray md:mt-[17px] dsk:mt-[31px]"
+          dangerouslySetInnerHTML={{ __html: pageHead.text ?? '' }}
+        />
         <p className="mt-[20px] leading-[39px] md:mt-[41px] dsk:mt-[25px]">
           <span className="link-plus link-plus--white text-white">
             запись на прием
@@ -31,21 +27,19 @@ const Main: React.FC<IMain> = () => {
         </p>
       </PageHead>
       <InfoBlock
-        name="[ история ]"
-        title="Обо мне"
-        subtitle="Так уж сложилось, что маммопластика стала одной из моих любимых дисциплин. А толчком послужил случай почти тридцатилетней давности..."
-        link="/"
+        name={infoBlock.name}
+        title={infoBlock.title}
+        subtitle={infoBlock.subtitle}
+        link={infoBlock.link}
       >
-        <span className="text-regular hidden dsk:block">
-          Стандарты красоты? Их&nbsp;нет. Есть&nbsp;магия пропорций,
-          привлекательность асимметрии, ценность непохожести на&nbsp;других.
-          Нужно быть самим собой. Но&nbsp;в&nbsp;лучшей версии
-        </span>
-        <span className="text-regular hidden dsk:block">
-          Улыбчивое лицо. Элегантные руки. Вдумчивая речь. Решительные поступки.
-          Наблюдателен и&nbsp;неутомим. Да, вот&nbsp;такой он&nbsp;— Вадим
-          Алексеевич Брагилев!
-        </span>
+        {infoBlock.texts?.map((item) => {
+          return (
+            <span
+              className="text-regular hidden dsk:block"
+              dangerouslySetInnerHTML={{ __html: item.text }}
+            />
+          )
+        })}
       </InfoBlock>
     </Layout>
   )

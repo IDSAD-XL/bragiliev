@@ -2,7 +2,7 @@ import React from 'react'
 import { type ReactNode } from '../../types/ReactNode'
 import Image from 'next/image'
 
-interface IPageHead {
+export interface IPageHead {
   name?: string
   title?: string
   image?: string
