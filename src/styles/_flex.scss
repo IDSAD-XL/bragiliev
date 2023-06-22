@@ -7,4 +7,12 @@
       gap: 108px;
     }
   }
+  &-4 {
+    display: flex;
+    flex-wrap: wrap;
+    @include md(dsk) {
+      flex-wrap: nowrap;
+      gap: 20px;
+    }
+  }
 }
