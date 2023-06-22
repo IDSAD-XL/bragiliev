@@ -70,13 +70,15 @@ const Accordion: React.FC<IAccordion> = ({
         </div>
         <div className="relative flex h-[43px] w-[43px] items-center justify-center">
           <span
-            className={`absolute h-[2px] w-[22px] bg-dark ${
-              open ? 'bg-[--color-hover-blue]' : ''
+            className={`absolute h-[2px] w-[22px] ${
+              open ? 'bg-[--color-hover-blue]' : 'bg-dark'
             }`}
           ></span>
           <span
-            className={`absolute h-[2px] w-[22px] rotate-[90deg] bg-dark transition-transform ${
-              open ? 'rotate-0 bg-[--color-hover-blue]' : ''
+            className={`absolute h-[2px] w-[22px] transition-transform ${
+              open
+                ? 'rotate-0 bg-[--color-hover-blue]'
+                : 'rotate-[90deg] bg-dark'
             }`}
           ></span>
         </div>
