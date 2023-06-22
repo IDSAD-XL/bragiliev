@@ -1,5 +1,10 @@
-import React, { MouseEventHandler, useEffect, useRef, useState } from 'react'
-import { ReactNode } from '../../types/ReactNode'
+import React, {
+  type MouseEventHandler,
+  useEffect,
+  useRef,
+  useState,
+} from 'react'
+import { type ReactNode } from '../../types/ReactNode'
 import Link from 'next/link'
 import { CSSProperties } from 'react'
 import Image from 'next/image'

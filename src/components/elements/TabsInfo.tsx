@@ -5,11 +5,11 @@ import Accordion, { IAccordionContent } from './Accordion'
 
 interface ITabInfoItem {
   title?: string
-  content: Array<IAccordionContent>
+  content: IAccordionContent[]
 }
 
 export interface ITabsInfo {
-  tabs?: Array<ITabInfoItem>
+  tabs?: ITabInfoItem[]
 }
 
 const TabsInfo: React.FC<ITabsInfo> = ({ tabs }) => {
@@ -54,7 +54,7 @@ const TabsInfo: React.FC<ITabsInfo> = ({ tabs }) => {
                       const num =
                         index < 9 ? `[0${index + 1}]` : `[${index + 1}]`
                       return (
-                        <div className="mb-[24px]">
+                        <div className="mb-[24px]" key={index}>
                           <Accordion
                             key={index}
                             name={cont.name}
