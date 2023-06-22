@@ -33,18 +33,21 @@ module.exports = {
         dark: 'var(--bg-dark)',
         'light-gray': 'var(--bg-light-gray)',
         blue: 'var(--color-hover-blue)',
+        black: 'var(--bg-black)',
       },
       colors: {
         'dark-gray': 'var(--color-dark-gray)',
         'hover-blue': 'var(--color-hover-blue)',
         'semi-black': 'var(--color-semi-black)',
         'light-gray': 'var(--color-light-gray)',
+        'dark-hover': 'var(--color-hover-black)',
       },
       borderWidth: {
         1: '1px',
       },
       borderColor: {
-        'half-gray': 'rgba(135, 135, 135, 0.3);',
+        'half-gray': 'var(--color-half-gray)',
+        'half-white': 'var(--color-half-white)',
       },
       width: {
         212: '212px',

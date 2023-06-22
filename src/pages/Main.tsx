@@ -4,12 +4,19 @@ import PageHead from '../components/elements/PageHead'
 import InfoBlock from '../components/elements/InfoBlock'
 import { IMainContent } from '../types/content/MainPage'
 import TabsInfo from '../components/elements/TabsInfo'
+import Results from '../components/elements/Results'
+import results from '../components/elements/Results'
 
 // const mainContent: IMainContent = {}
 
 interface IMain extends IMainContent {}
 
-const Main: React.FC<IMain> = ({ pageHead, infoBlock, servicesBlock }) => {
+const Main: React.FC<IMain> = ({
+  pageHead,
+  infoBlock,
+  servicesBlock,
+  resultsBlock,
+}) => {
   return (
     <Layout>
       <PageHead
@@ -44,6 +51,11 @@ const Main: React.FC<IMain> = ({ pageHead, infoBlock, servicesBlock }) => {
         })}
       </InfoBlock>
       <TabsInfo tabs={servicesBlock.tabs} />
+      <Results
+        selects={resultsBlock.selects}
+        name={resultsBlock.name}
+        title={resultsBlock.title}
+      />
     </Layout>
   )
 }
