@@ -5,7 +5,6 @@ import InfoBlock from '../components/elements/InfoBlock'
 import { IMainContent } from '../types/content/MainPage'
 import TabsInfo from '../components/elements/TabsInfo'
 import Results from '../components/elements/Results'
-import results from '../components/elements/Results'
 
 // const mainContent: IMainContent = {}
 

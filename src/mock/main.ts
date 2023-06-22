@@ -1,5 +1,4 @@
 import { IMainContent } from '../types/content/MainPage'
-import { id } from 'postcss-selector-parser'
 
 export const mainContent: IMainContent = {
   pageHead: {
