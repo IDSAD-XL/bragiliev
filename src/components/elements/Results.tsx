@@ -1,5 +1,5 @@
-import React, { useEffect, useRef, useState } from 'react'
-import Select, { ISelect, ISelectContent, ISelectVariant } from './Select'
+import React, { useEffect, useState } from 'react'
+import Select, { ISelectContent, ISelectVariant } from './Select'
 
 export interface IResultsContent {
   name: string
@@ -11,7 +11,7 @@ export interface IResults extends IResultsContent {}
 
 const Results: React.FC<IResults> = ({ name, title, selects = [] }) => {
   const [activePart, setActivePart] = useState<number | null>(null)
-  const [activeOperation, setActiveOperation] = useState<number>()
+  const [, setActiveOperation] = useState<number>()
   const [filteredOperation, setFilteredOperation] = useState<ISelectVariant[]>(
     selects[1].variants
   )
@@ -36,7 +36,7 @@ const Results: React.FC<IResults> = ({ name, title, selects = [] }) => {
       )
     }
     setFilteredOperation(filteredOperations)
-  }, [activePart])
+  }, [activePart, selects])
 
   return (
     <div
