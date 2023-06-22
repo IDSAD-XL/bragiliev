@@ -14,7 +14,7 @@ export interface ITabsInfo {
 
 const TabsInfo: React.FC<ITabsInfo> = ({ tabs }) => {
   const [openTab, setOpenTab] = useState<number | null>(null)
-  const [imagePath, setImagePath] = useState<string>('')
+  const [imagePath, setImagePath] = useState<string>('/assets/main-image-1.png')
 
   const setImageByIndex = (tabIdx: number, itemIdx: number) => {
     if (tabs) {
