@@ -15,7 +15,7 @@ export interface IHeaderContent {
 
 interface IHeader extends IHeaderContent {}
 
-const Header: React.FC<IHeader> = ({ items, children }) => {
+const Header: React.FC<IHeader> = ({ items }) => {
   const { menuOpen } = useAppSelector((state) => state.appSlice)
 
   const [haveBg, setHaveBg] = useState<boolean>(false)
@@ -54,9 +54,10 @@ const Header: React.FC<IHeader> = ({ items, children }) => {
         </div>
         <div className="header__items flex w-full justify-end">
           {!!items &&
-            items.map((item) => {
+            items.map((item, idx) => {
               return (
                 <Link
+                  key={idx}
                   className="header__item header__item--hover  relative hidden border-l-1 border-half-gray dsk:flex"
                   href={item.link ?? '#'}
                 >
