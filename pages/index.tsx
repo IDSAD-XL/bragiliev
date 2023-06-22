@@ -3,9 +3,7 @@ import Main from '../src/pages/Main'
 import { mainContent } from '../src/mock/main'
 
 const Index: React.FC = () => {
-  return (
-    <Main pageHead={mainContent.pageHead} infoBlock={mainContent.infoBlock} />
-  )
+  return <Main {...mainContent} />
 }
 
 export default Index

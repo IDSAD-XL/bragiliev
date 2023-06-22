@@ -32,6 +32,7 @@ module.exports = {
         secondary: 'var(--bg-secondary)',
         dark: 'var(--bg-dark)',
         'light-gray': 'var(--bg-light-gray)',
+        blue: 'var(--color-hover-blue)',
       },
       colors: {
         'dark-gray': 'var(--color-dark-gray)',
@@ -69,5 +70,5 @@ module.exports = {
       },
     },
   },
-  plugins: [],
+  plugins: [require('@headlessui/tailwindcss')],
 }

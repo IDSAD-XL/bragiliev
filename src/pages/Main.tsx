@@ -3,12 +3,13 @@ import Layout from '../components/layout/Layout'
 import PageHead from '../components/elements/PageHead'
 import InfoBlock from '../components/elements/InfoBlock'
 import { IMainContent } from '../types/content/MainPage'
+import TabsInfo from '../components/elements/TabsInfo'
 
 // const mainContent: IMainContent = {}
 
 interface IMain extends IMainContent {}
 
-const Main: React.FC<IMain> = ({ pageHead, infoBlock }) => {
+const Main: React.FC<IMain> = ({ pageHead, infoBlock, servicesBlock }) => {
   return (
     <Layout>
       <PageHead
@@ -32,15 +33,17 @@ const Main: React.FC<IMain> = ({ pageHead, infoBlock }) => {
         subtitle={infoBlock.subtitle}
         link={infoBlock.link}
       >
-        {infoBlock.texts?.map((item) => {
+        {infoBlock.texts?.map((item, index) => {
           return (
             <span
+              key={index}
               className="text-regular hidden dsk:block"
               dangerouslySetInnerHTML={{ __html: item.text }}
             />
           )
         })}
       </InfoBlock>
+      <TabsInfo tabs={servicesBlock.tabs} />
     </Layout>
   )
 }
