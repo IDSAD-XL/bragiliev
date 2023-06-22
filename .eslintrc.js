@@ -31,5 +31,7 @@ module.exports = {
       },
     ],
     '@typescript-eslint/strict-boolean-expressions': 0,
+    '@typescript-eslint/consistent-type-imports': 0,
+    '@typescript-eslint/consistent-type-assertions': 0,
   },
 }
