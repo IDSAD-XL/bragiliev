@@ -277,5 +277,112 @@ export const mainContent: IMainContent = {
         ],
       },
     ],
+    results: [
+      {
+        id: 1,
+        title: 'Ринопластика 1',
+        subtitle: 'Закрытая хранящая риносептопластика, 1 год после операции',
+        images: {
+          before1: '/assets/main-res-1.png',
+          before2: '/assets/main-res-1.png',
+          after1: '/assets/main-res-2.png',
+          after2: '/assets/main-res-2.png',
+        },
+        dependencies: [
+          {
+            id: 1,
+            key: 'part',
+          },
+          {
+            id: 1,
+            key: 'operation',
+          },
+        ],
+      },
+      {
+        id: 2,
+        title: 'Ринопластика 2',
+        subtitle: 'Закрытая хранящая риносептопластика, 1 год после операции',
+        images: {
+          before1: '/assets/main-res-1.png',
+          before2: '/assets/main-res-1.png',
+          after1: '/assets/main-res-2.png',
+          after2: '/assets/main-res-2.png',
+        },
+        dependencies: [
+          {
+            id: 1,
+            key: 'part',
+          },
+          {
+            id: 1,
+            key: 'operation',
+          },
+        ],
+      },
+      {
+        id: 3,
+        title: 'Ринопластика 3',
+        subtitle: 'Закрытая хранящая риносептопластика, 1 год после операции',
+        images: {
+          before1: '/assets/main-res-1.png',
+          before2: '/assets/main-res-1.png',
+          after1: '/assets/main-res-2.png',
+          after2: '/assets/main-res-2.png',
+        },
+        dependencies: [
+          {
+            id: 1,
+            key: 'part',
+          },
+          {
+            id: 1,
+            key: 'operation',
+          },
+        ],
+      },
+      {
+        id: 4,
+        title: 'Операция 2',
+        subtitle: 'Закрытая хранящая риносептопластика, 1 год после операции',
+        images: {
+          before1: '/assets/main-res-1.png',
+          before2: '/assets/main-res-1.png',
+          after1: '/assets/main-res-2.png',
+          after2: '/assets/main-res-2.png',
+        },
+        dependencies: [
+          {
+            id: 2,
+            key: 'part',
+          },
+          {
+            id: 6,
+            key: 'operation',
+          },
+        ],
+      },
+      {
+        id: 5,
+        title: 'Операция 3',
+        subtitle: 'Закрытая хранящая риносептопластика, 1 год после операции',
+        images: {
+          before1: '/assets/main-res-1.png',
+          before2: '/assets/main-res-1.png',
+          after1: '/assets/main-res-2.png',
+          after2: '/assets/main-res-2.png',
+        },
+        dependencies: [
+          {
+            id: 2,
+            key: 'part',
+          },
+          {
+            id: 6,
+            key: 'operation',
+          },
+        ],
+      },
+    ],
   },
 }

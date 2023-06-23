@@ -34,6 +34,7 @@ module.exports = {
         'light-gray': 'var(--bg-light-gray)',
         blue: 'var(--color-hover-blue)',
         black: 'var(--bg-black)',
+        'half-black': 'var(--color-half-black)',
       },
       colors: {
         'dark-gray': 'var(--color-dark-gray)',

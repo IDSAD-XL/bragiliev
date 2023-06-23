@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { Listbox, Transition } from '@headlessui/react'
 
-interface ISelectVariantDependence {
+export interface ISelectVariantDependence {
   id: number
   key: string
 }
