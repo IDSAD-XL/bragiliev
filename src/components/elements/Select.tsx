@@ -1,9 +1,9 @@
-import React, { useState } from 'react'
-import { Listbox, Transition } from '@headlessui/react'
+import React from 'react'
+import { Listbox } from '@headlessui/react'
 
 export interface ISelectVariantDependence {
   id: number
-  key: string
+  key: 'part' | 'operation'
 }
 
 export interface ISelectVariant {
@@ -18,6 +18,7 @@ export interface ISelectContent {
 }
 
 export interface ISelect extends ISelectContent {
+  value: ISelectVariant | null
   onChange?: (val: ISelectVariant) => void
 }
 
@@ -25,23 +26,19 @@ const Select: React.FC<ISelect> = ({
   variants = [],
   placeholder,
   onChange,
+  value,
 }) => {
-  const [selectedPerson, setSelectedPerson] = useState<ISelectVariant | null>(
-    null
-  )
-
   const handleChange = (value: ISelectVariant) => {
-    setSelectedPerson(value)
     if (onChange) {
       onChange(value)
     }
   }
 
   return (
-    <Listbox value={selectedPerson} onChange={handleChange}>
+    <Listbox value={value} onChange={handleChange}>
       <div className="relative">
-        <Listbox.Button className="text-regular flex h-[80px] w-full items-center justify-between border-b-1 border-half-white pl-[18px] text-left">
-          <span>{selectedPerson ? selectedPerson.name : placeholder}</span>
+        <Listbox.Button className="text-regular z-10 flex h-[80px] w-full items-center justify-between border-b-1 border-half-white pl-[18px] text-left md:!text-[21px] dsk:!text-[14px]">
+          <span>{value ? value.name : placeholder}</span>
           <span className="transition-transform ui-open:rotate-180">
             <svg
               width="19"
@@ -58,27 +55,18 @@ const Select: React.FC<ISelect> = ({
             </svg>
           </span>
         </Listbox.Button>
-        <Transition
-          enter="transition duration-100 ease-out"
-          enterFrom="transform scale-95 opacity-0"
-          enterTo="transform scale-100 opacity-100"
-          leave="transition duration-75 ease-out"
-          leaveFrom="transform scale-100 opacity-100"
-          leaveTo="transform scale-95 opacity-0"
-        >
-          <Listbox.Options className="text-regular absolute top-[100%] max-h-[300px] w-full overflow-auto bg-dark">
-            {variants.length > 0 &&
-              variants.map((variant) => (
-                <Listbox.Option
-                  key={variant.id}
-                  value={variant}
-                  className="flex h-[60px] w-full cursor-pointer items-center bg-dark pl-[18px] hover:bg-dark-hover"
-                >
-                  {variant.name}
-                </Listbox.Option>
-              ))}
-          </Listbox.Options>
-        </Transition>
+        <Listbox.Options className="text-regular absolute top-[100%] z-10 max-h-[300px] w-full overflow-auto bg-dark">
+          {variants.length > 0 &&
+            variants.map((variant) => (
+              <Listbox.Option
+                key={variant.id}
+                value={variant}
+                className="flex h-[60px] w-full cursor-pointer items-center bg-dark pl-[18px] hover:bg-dark-hover"
+              >
+                {variant.name}
+              </Listbox.Option>
+            ))}
+        </Listbox.Options>
       </div>
     </Listbox>
   )
