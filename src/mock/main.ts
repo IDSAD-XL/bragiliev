@@ -383,6 +383,69 @@ export const mainContent: IMainContent = {
           },
         ],
       },
+      {
+        id: 6,
+        title: 'Операция лицо 2 (1)',
+        subtitle: 'Закрытая хранящая риносептопластика, 1 год после операции',
+        images: {
+          before1: '/assets/main-res-1.png',
+          before2: '/assets/main-res-1.png',
+          after1: '/assets/main-res-2.png',
+          after2: '/assets/main-res-2.png',
+        },
+        dependencies: [
+          {
+            id: 1,
+            key: 'part',
+          },
+          {
+            id: 2,
+            key: 'operation',
+          },
+        ],
+      },
+      {
+        id: 7,
+        title: 'Операция лицо 2 (2)',
+        subtitle: 'Закрытая хранящая риносептопластика, 1 год после операции',
+        images: {
+          before1: '/assets/main-res-1.png',
+          before2: '/assets/main-res-1.png',
+          after1: '/assets/main-res-2.png',
+          after2: '/assets/main-res-2.png',
+        },
+        dependencies: [
+          {
+            id: 1,
+            key: 'part',
+          },
+          {
+            id: 2,
+            key: 'operation',
+          },
+        ],
+      },
+      {
+        id: 8,
+        title: 'Операция лицо 2 (3)',
+        subtitle: 'Закрытая хранящая риносептопластика, 1 год после операции',
+        images: {
+          before1: '/assets/main-res-1.png',
+          before2: '/assets/main-res-1.png',
+          after1: '/assets/main-res-2.png',
+          after2: '/assets/main-res-2.png',
+        },
+        dependencies: [
+          {
+            id: 1,
+            key: 'part',
+          },
+          {
+            id: 2,
+            key: 'operation',
+          },
+        ],
+      },
     ],
   },
 }
