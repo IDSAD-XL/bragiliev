@@ -5,9 +5,12 @@
   bottom: unset !important;
   left: unset !important;
   position: relative !important;
-  width: calc(100% - 60px) !important;
+  width: calc(100% - 20px) !important;
   & > * {
     background-color: #FFFFFF !important;
     height: 2px !important;
+  }
+  @include md(md) {
+    width: calc(100% - 60px) !important;
   }
 }
