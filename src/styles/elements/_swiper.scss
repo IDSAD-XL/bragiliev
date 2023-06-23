@@ -1,0 +1,13 @@
+.swiper-custom-scrollbar {
+  background: var(--color-half-black) !important;
+  height: 1px !important;
+  top: unset !important;
+  bottom: unset !important;
+  left: unset !important;
+  position: relative !important;
+  width: calc(100% - 60px) !important;
+  & > * {
+    background-color: #FFFFFF !important;
+    height: 2px !important;
+  }
+}

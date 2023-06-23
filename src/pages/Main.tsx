@@ -54,6 +54,7 @@ const Main: React.FC<IMain> = ({
         selects={resultsBlock.selects}
         name={resultsBlock.name}
         title={resultsBlock.title}
+        results={resultsBlock.results}
       />
     </Layout>
   )
