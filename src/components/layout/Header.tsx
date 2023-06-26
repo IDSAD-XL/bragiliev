@@ -70,7 +70,7 @@ const Header: React.FC<IHeader> = ({ items }) => {
                 </Link>
               )
             })}
-          <div className="header__item header__item-big hidden border-l-1 border-half-gray md:flex">
+          <div className="header__item header__item-big hidden border-l-1 border-half-gray md:flex md:!w-[240px] dsk:!w-[365px]">
             <span className="link-plus link-plus--white">запись на прием</span>
           </div>
           <div className="header__item header__item--burger flex border-l-1 border-half-gray">
