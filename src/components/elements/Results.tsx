@@ -154,8 +154,8 @@ const Results: React.FC<IResults> = ({
         <div className="mt-[30px] dsk:mt-[27px]">
           <ResultsSlider slides={filteredResults} />
         </div>
-        <div className="mt-[30px] flex justify-center md:mt-[60px]">
-          <div className="block dsk:hidden">
+        <div className="mt-[30px] flex justify-center md:mt-[60px] dsk:hidden">
+          <div>
             <Link
               className="button1 flex h-[60px] w-[300px] items-center justify-center md:h-[80px]"
               href={'/'}
