@@ -28,7 +28,7 @@ const ResultsSlider: React.FC<IResultsSlider> = ({ slides }) => {
               <p className="text-light mt-[5px] !text-[14px] !leading-[22px] md:!text-[16px] dsk:!text-[14px]">
                 {res.subtitle}
               </p>
-              <div className="mt-[22px] flex min-h-[450px] w-full gap-[20px]">
+              <div className="mt-[22px] flex w-full gap-[20px]">
                 <div className="flex flex-[100%] flex-grow-0 flex-wrap border-1 border-half-white md:flex-nowrap dsk:flex-[50%]">
                   <div className="relative aspect-[300/332] flex-[100%] flex-grow-0 border-b-1 border-half-white md:aspect-[314/459] md:h-full md:flex-[50%] md:border-b-0 md:border-r-1">
                     <Image
