@@ -29,20 +29,19 @@ const QuestionsBlock: React.FC<IQuestionsBlock> = ({
           />
         )}
         <div className="grid grid-cols-1 gap-x-[20px] gap-y-[25px] lg:grid-cols-2">
-          {questions &&
-            questions.map((item, index) => {
-              return (
-                <Accordion
-                  key={index}
-                  name={item.name}
-                  content={item.content}
-                  open={openQuestion === index}
-                  onClick={() => {
-                    setQuestion(index)
-                  }}
-                />
-              )
-            })}
+          {questions?.map((item, index) => {
+            return (
+              <Accordion
+                key={index}
+                name={item.name}
+                content={item.content}
+                open={openQuestion === index}
+                onClick={() => {
+                  setQuestion(index)
+                }}
+              />
+            )
+          })}
         </div>
       </div>
     </div>
