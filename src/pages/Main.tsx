@@ -8,6 +8,7 @@ import Results from '../components/elements/Results'
 import ReviewsBlock from '../components/elements/ReviewsBlock'
 import InfoBlockWithImage from '../components/elements/InfoBlockWithImage'
 import Link from 'next/link'
+import QuestionsBlock from '../components/elements/QuestionsBlock'
 
 // const mainContent: IMainContent = {}
 
@@ -20,6 +21,7 @@ const Main: React.FC<IMain> = ({
   resultsBlock,
   reviewsBlock,
   aboutBlock,
+  questionsBlock,
 }) => {
   return (
     <Layout>
@@ -98,6 +100,11 @@ const Main: React.FC<IMain> = ({
           </Link>
         </p>
       </InfoBlockWithImage>
+      <QuestionsBlock
+        name={questionsBlock.name}
+        title={questionsBlock.title}
+        questions={questionsBlock.questions}
+      />
     </Layout>
   )
 }
