@@ -4,9 +4,6 @@ import Select, {
   ISelectVariant,
   ISelectVariantDependence,
 } from './Select'
-import { Swiper, SwiperSlide } from 'swiper/react'
-import { Navigation, Scrollbar } from 'swiper'
-import Image from 'next/image'
 import 'swiper/css'
 import 'swiper/css/navigation'
 import 'swiper/css/scrollbar'
