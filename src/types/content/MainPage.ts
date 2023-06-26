@@ -4,6 +4,7 @@ import { ITabsInfo } from '../../components/elements/TabsInfo'
 import { IResultsContent } from '../../components/elements/Results'
 import { IReviewsBlockContent } from '../../components/elements/ReviewsBlock'
 import { IInfoBlockWithImage } from '../../components/elements/InfoBlockWithImage'
+import { IQuestionsBlock } from '../../components/elements/QuestionsBlock'
 
 interface IPageHeadContent extends IPageHead {
   text?: string
@@ -25,4 +26,5 @@ export interface IMainContent {
   resultsBlock: IResultsContent
   reviewsBlock: IReviewsBlockContent
   aboutBlock: IInfoBlockWithImageContent
+  questionsBlock: IQuestionsBlock
 }
