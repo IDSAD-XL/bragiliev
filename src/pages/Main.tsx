@@ -74,7 +74,7 @@ const Main: React.FC<IMain> = ({
         image={aboutBlock.image}
         subtitle={aboutBlock.subtitle}
       >
-        <div className="gap-y[45px] hidden flex-grow justify-end gap-x-[75px] md:flex md:flex-col dsk:flex-row dsk:flex-nowrap dsk:justify-start">
+        <div className="gap-y[45px] hidden flex-grow justify-end gap-x-[75px] md:flex md:flex-col dsk:flex-grow-0 dsk:flex-row dsk:flex-nowrap dsk:justify-start">
           {aboutBlock?.texts && aboutBlock.texts[0] && (
             <span
               className="mt-[20px] text-white md:mt-[17px] md:text-[#A3A3A3] dsk:mt-[31px] dsk:flex-[50%] dsk:text-white"
