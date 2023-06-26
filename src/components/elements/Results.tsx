@@ -28,6 +28,7 @@ export interface IResultsContent {
   title: string
   selects: ISelectContent[]
   results: IResultsSlides[]
+  link: string
 }
 
 export interface IResults extends IResultsContent {}
@@ -37,6 +38,7 @@ const Results: React.FC<IResults> = ({
   title,
   selects = [],
   results,
+  link,
 }) => {
   const [activePart, setActivePart] = useState<ISelectVariant | null>(null)
   const [activeOperation, setActiveOperation] = useState<ISelectVariant | null>(
@@ -146,9 +148,12 @@ const Results: React.FC<IResults> = ({
           </div>
           <div className="hidden dsk:block"></div>
           <div className="hidden dsk:block">
-            <div className="button1 flex h-[80px] items-center justify-center">
+            <Link
+              href={link ?? '#'}
+              className="button1 flex h-[80px] items-center justify-center"
+            >
               <span className="link-plus no-underline">Все кейсы</span>
-            </div>
+            </Link>
           </div>
         </div>
         <div className="mt-[30px] dsk:mt-[27px]">
@@ -158,7 +163,7 @@ const Results: React.FC<IResults> = ({
           <div>
             <Link
               className="button1 flex h-[60px] w-[300px] items-center justify-center md:h-[80px]"
-              href={'/'}
+              href={link ?? '#'}
             >
               <span className="link-plus no-underline">Все кейсы</span>
             </Link>
