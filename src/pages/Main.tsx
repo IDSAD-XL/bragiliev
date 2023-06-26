@@ -5,6 +5,7 @@ import InfoBlock from '../components/elements/InfoBlock'
 import { IMainContent } from '../types/content/MainPage'
 import TabsInfo from '../components/elements/TabsInfo'
 import Results from '../components/elements/Results'
+import ReviewsBlock from '../components/elements/ReviewsBlock'
 
 // const mainContent: IMainContent = {}
 
@@ -15,6 +16,7 @@ const Main: React.FC<IMain> = ({
   infoBlock,
   servicesBlock,
   resultsBlock,
+  reviewsBlock,
 }) => {
   return (
     <Layout>
@@ -55,6 +57,13 @@ const Main: React.FC<IMain> = ({
         name={resultsBlock.name}
         title={resultsBlock.title}
         results={resultsBlock.results}
+        link={resultsBlock.link}
+      />
+      <ReviewsBlock
+        name={reviewsBlock.name}
+        title={reviewsBlock.title}
+        slides={reviewsBlock.slides}
+        link={reviewsBlock.link}
       />
     </Layout>
   )

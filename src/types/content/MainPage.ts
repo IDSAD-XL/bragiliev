@@ -2,6 +2,7 @@ import { IPageHead } from '../../components/elements/PageHead'
 import { IInfoBlock } from '../../components/elements/InfoBlock'
 import { ITabsInfo } from '../../components/elements/TabsInfo'
 import { IResultsContent } from '../../components/elements/Results'
+import { IReviewsBlockContent } from '../../components/elements/ReviewsBlock'
 
 interface IPageHeadContent extends IPageHead {
   text?: string
@@ -16,4 +17,5 @@ export interface IMainContent {
   infoBlock: IPageInfoBlock
   servicesBlock: ITabsInfo
   resultsBlock: IResultsContent
+  reviewsBlock: IReviewsBlockContent
 }
