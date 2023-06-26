@@ -33,7 +33,7 @@ const ReviewsItem: React.FC<IReviewsItem> = ({
           + ЧИТАТЬ ДАЛЕЕ
         </span>
         <Link
-          href="/"
+          href={link ?? '#'}
           className="relative box-border h-[40px] flex-[142px] border-1 border-white bg-white transition-all group-hover:border-[#cdcdcd]"
         >
           <Image
