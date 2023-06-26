@@ -49,6 +49,7 @@ module.exports = {
       borderColor: {
         'half-gray': 'var(--color-half-gray)',
         'half-white': 'var(--color-half-white)',
+        'light-gray': 'var(--bg-light-gray)',
       },
       width: {
         212: '212px',

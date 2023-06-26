@@ -1,9 +1,15 @@
+$sm: 320px;
+$md: 640px;
+$lg: 976px;
+$dsk: 1351px;
+$xl: 1601px;
+
 $media: (
-        sm: 320px,
-        md: 640px,
-        lg: 976px,
-        dsk: 1351px,
-        xl: 1601px,
+        sm: $sm,
+        md: $md,
+        lg: $lg,
+        dsk: $dsk,
+        xl: $xl,
 );
 
 @mixin md($breakpoint) {
