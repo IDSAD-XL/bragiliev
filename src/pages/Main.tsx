@@ -6,6 +6,8 @@ import { IMainContent } from '../types/content/MainPage'
 import TabsInfo from '../components/elements/TabsInfo'
 import Results from '../components/elements/Results'
 import ReviewsBlock from '../components/elements/ReviewsBlock'
+import InfoBlockWithImage from '../components/elements/InfoBlockWithImage'
+import Link from 'next/link'
 
 // const mainContent: IMainContent = {}
 
@@ -17,6 +19,7 @@ const Main: React.FC<IMain> = ({
   servicesBlock,
   resultsBlock,
   reviewsBlock,
+  aboutBlock,
 }) => {
   return (
     <Layout>
@@ -65,6 +68,36 @@ const Main: React.FC<IMain> = ({
         slides={reviewsBlock.slides}
         link={reviewsBlock.link}
       />
+      <InfoBlockWithImage
+        name={aboutBlock.name}
+        title={aboutBlock.title}
+        image={aboutBlock.image}
+        subtitle={aboutBlock.subtitle}
+      >
+        <div className="gap-y[45px] hidden flex-grow justify-end gap-x-[75px] md:flex md:flex-col dsk:flex-nowrap">
+          {aboutBlock?.texts && aboutBlock.texts[0] && (
+            <span
+              className="mt-[20px] text-white md:mt-[17px] md:text-[#A3A3A3] dsk:mt-[31px] dsk:flex-[50%] dsk:text-white"
+              dangerouslySetInnerHTML={{
+                __html: aboutBlock.texts[0].text ?? '',
+              }}
+            />
+          )}
+          {aboutBlock?.texts && aboutBlock.texts[1] && (
+            <span
+              className="mt-[20px] text-white md:mt-[17px] md:text-[#A3A3A3] dsk:mt-[31px] dsk:flex-[50%] dsk:text-white"
+              dangerouslySetInnerHTML={{
+                __html: aboutBlock.texts[1].text ?? '',
+              }}
+            />
+          )}
+        </div>
+        <p className="mt-[20px] leading-[39px] md:mt-[41px] dsk:mt-[48px]">
+          <Link href="/" className="link-plus link-plus--white text-white">
+            Узнать больше
+          </Link>
+        </p>
+      </InfoBlockWithImage>
     </Layout>
   )
 }

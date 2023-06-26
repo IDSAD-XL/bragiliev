@@ -10,9 +10,6 @@
     width: min(212px, 20%);
     transition: color .2s ease, opacity .2s ease;
     opacity: 1;
-    &-big {
-      width: 365px;
-    }
     &--hover {
       transition: background .2s;
       &:hover {
