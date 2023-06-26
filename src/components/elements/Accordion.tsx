@@ -61,7 +61,7 @@ const Accordion: React.FC<IAccordion> = ({
       }`}
     >
       <div
-        className={`flex h-[72px] w-full cursor-pointer items-center justify-between text-left`}
+        className={`flex min-h-[72px] w-full cursor-pointer items-center justify-between text-left`}
         onClick={onClick}
       >
         <div>
