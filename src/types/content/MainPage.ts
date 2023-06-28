@@ -5,6 +5,7 @@ import { IResultsContent } from '../../components/elements/Results'
 import { IReviewsBlockContent } from '../../components/elements/ReviewsBlock'
 import { IInfoBlockWithImage } from '../../components/elements/InfoBlockWithImage'
 import { IQuestionsBlock } from '../../components/elements/QuestionsBlock'
+import { IRegForm } from '../../components/elements/RegForm'
 
 interface IPageHeadContent extends IPageHead {
   text?: string
@@ -27,4 +28,5 @@ export interface IMainContent {
   reviewsBlock: IReviewsBlockContent
   aboutBlock: IInfoBlockWithImageContent
   questionsBlock: IQuestionsBlock
+  regFormBlock: IRegForm
 }
