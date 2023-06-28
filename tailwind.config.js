@@ -43,6 +43,7 @@ module.exports = {
         'semi-black': 'var(--color-semi-black)',
         'light-gray': 'var(--color-light-gray)',
         'dark-hover': 'var(--color-hover-black)',
+        red: 'var(--color-red)',
       },
       borderWidth: {
         1: '1px',
