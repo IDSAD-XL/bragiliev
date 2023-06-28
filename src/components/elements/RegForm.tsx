@@ -316,7 +316,9 @@ const RegForm: React.FC<IRegForm> = ({ name, title, subtitle }) => {
                       <button
                         className="absolute right-[6px] top-[6px] border-0 bg-none mix-blend-difference"
                         type="button"
-                        onClick={() => removeFile(item)}
+                        onClick={() => {
+                          removeFile(item)
+                        }}
                       >
                         <svg
                           width="8"
