@@ -15,7 +15,7 @@ export interface IRegForm {
 
 const RegForm: React.FC<IRegForm> = ({ name, title, subtitle }) => {
   const [loaded, setIsLoaded] = useState<boolean>(false)
-  const [dateValue, onChangeDateValue] = useState<any>(
+  const [dateValue, onChangeDateValue] = useState<Date | string>(
     new Date(new Date().setHours(0, 0, 0, 0))
   )
 
@@ -56,7 +56,7 @@ const RegForm: React.FC<IRegForm> = ({ name, title, subtitle }) => {
               date: string
               comment: string
             }
-            values.date = dateValue
+            values.date = dateValue.toString()
             if (!values.name) {
               errors.name = 'Обязательное поле'
             }
@@ -67,7 +67,7 @@ const RegForm: React.FC<IRegForm> = ({ name, title, subtitle }) => {
           }}
           onSubmit={(values, { setSubmitting }) => {
             setTimeout(() => {
-              values.date = dateValue
+              values.date = dateValue.toString()
               alert(JSON.stringify(values, null, 2))
               setSubmitting(false)
             }, 400)
@@ -111,7 +111,7 @@ const RegForm: React.FC<IRegForm> = ({ name, title, subtitle }) => {
                 {loaded && (
                   <DateTimePicker
                     onChange={(e) => {
-                      onChangeDateValue(e)
+                      if (e) onChangeDateValue(e)
                     }}
                     className="input-text"
                     minDate={new Date(new Date().setHours(0, 0, 0, 0))}
