@@ -572,4 +572,10 @@ export const mainContent: IMainContent = {
       },
     ],
   },
+  regFormBlock: {
+    name: '[ Первичная консультация ]',
+    title: 'Запись на прием',
+    subtitle:
+      'Наши операторы свяжутся с&nbsp;вами для&nbsp;выбора оптимального времени посещения',
+  },
 }
