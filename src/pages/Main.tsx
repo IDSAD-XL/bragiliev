@@ -9,6 +9,7 @@ import ReviewsBlock from '../components/elements/ReviewsBlock'
 import InfoBlockWithImage from '../components/elements/InfoBlockWithImage'
 import Link from 'next/link'
 import QuestionsBlock from '../components/elements/QuestionsBlock'
+import RegForm from '../components/elements/RegForm'
 
 // const mainContent: IMainContent = {}
 
@@ -22,6 +23,7 @@ const Main: React.FC<IMain> = ({
   reviewsBlock,
   aboutBlock,
   questionsBlock,
+  regFormBlock,
 }) => {
   return (
     <Layout>
@@ -104,6 +106,11 @@ const Main: React.FC<IMain> = ({
         name={questionsBlock.name}
         title={questionsBlock.title}
         questions={questionsBlock.questions}
+      />
+      <RegForm
+        name={regFormBlock.name}
+        title={regFormBlock.title}
+        subtitle={regFormBlock.subtitle}
       />
     </Layout>
   )
