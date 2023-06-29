@@ -27,11 +27,7 @@ const Main: React.FC<IMain> = ({
 }) => {
   return (
     <Layout>
-      <PageHead
-        name={pageHead.name}
-        title={pageHead.title}
-        image={pageHead.image}
-      >
+      <PageHead {...pageHead}>
         <p
           className="mt-[20px] text-light-gray md:mt-[17px] dsk:mt-[31px]"
           dangerouslySetInnerHTML={{ __html: pageHead.text ?? '' }}
@@ -58,30 +54,14 @@ const Main: React.FC<IMain> = ({
           )
         })}
       </InfoBlock>
-      <TabsInfo tabs={servicesBlock.tabs} />
-      <Results
-        selects={resultsBlock.selects}
-        name={resultsBlock.name}
-        title={resultsBlock.title}
-        results={resultsBlock.results}
-        link={resultsBlock.link}
-      />
-      <ReviewsBlock
-        name={reviewsBlock.name}
-        title={reviewsBlock.title}
-        slides={reviewsBlock.slides}
-        link={reviewsBlock.link}
-      />
-      <InfoBlockWithImage
-        name={aboutBlock.name}
-        title={aboutBlock.title}
-        image={aboutBlock.image}
-        subtitle={aboutBlock.subtitle}
-      >
+      <TabsInfo {...servicesBlock} />
+      <Results {...resultsBlock} />
+      <ReviewsBlock {...reviewsBlock} />
+      <InfoBlockWithImage {...aboutBlock}>
         <div className="gap-y[45px] hidden flex-grow justify-end gap-x-[75px] md:flex md:flex-col dsk:flex-grow-0 dsk:flex-row dsk:flex-nowrap dsk:justify-start">
           {aboutBlock?.texts && aboutBlock.texts[0] && (
             <span
-              className="mt-[20px] text-white md:mt-[17px] md:text-[#A3A3A3] dsk:mt-[31px] dsk:flex-[50%] dsk:text-white"
+              className="mt-[20px] text-white md:mt-[17px] dsk:mt-[31px] dsk:flex-[50%]"
               dangerouslySetInnerHTML={{
                 __html: aboutBlock.texts[0].text ?? '',
               }}
@@ -89,7 +69,7 @@ const Main: React.FC<IMain> = ({
           )}
           {aboutBlock?.texts && aboutBlock.texts[1] && (
             <span
-              className="mt-[20px] text-white md:mt-[17px] md:text-[#A3A3A3] dsk:mt-[31px] dsk:flex-[50%] dsk:text-white"
+              className="mt-[20px] text-white md:mt-[17px] dsk:mt-[31px] dsk:flex-[50%]"
               dangerouslySetInnerHTML={{
                 __html: aboutBlock.texts[1].text ?? '',
               }}
@@ -102,16 +82,8 @@ const Main: React.FC<IMain> = ({
           </Link>
         </p>
       </InfoBlockWithImage>
-      <QuestionsBlock
-        name={questionsBlock.name}
-        title={questionsBlock.title}
-        questions={questionsBlock.questions}
-      />
-      <RegForm
-        name={regFormBlock.name}
-        title={regFormBlock.title}
-        subtitle={regFormBlock.subtitle}
-      />
+      <QuestionsBlock {...questionsBlock} />
+      <RegForm {...regFormBlock} />
     </Layout>
   )
 }

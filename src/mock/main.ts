@@ -5,6 +5,7 @@ export const mainContent: IMainContent = {
     title: `<b class="font-[700]">Брагилев</b> <br> Вадим <br> Алексеевич`,
     name: '[ Пластический хирург ]',
     image: '/assets/main-bg.jpg',
+    imageMobile: '/assets/main-bg-mobile.jpg',
     text: 'Врач хирург высшей категории. Кандидат медицинских наук. Автор более 50 научных работ. Доцент кафедры пластической и реконструктивной хирургии И.И. Мечникова',
   },
   infoBlock: {
@@ -516,6 +517,7 @@ export const mainContent: IMainContent = {
     subtitle:
       'Я веду прием более 20 лет в клинике GRANDMED, и являюсь учредителем холдинга вместе с пятью выдающимися врачами.',
     image: '/assets/main-bg-2.jpg',
+    imageMobile: '/assets/main-bg-2-mobile.jpg',
     texts: [
       {
         text: 'Холдинг Grandmed находится&nbsp;в самом сердце Санкт-Петербурга и вот уже более 20 лет занимает лидирующие позиции на рынке медицинских услуг России.',
