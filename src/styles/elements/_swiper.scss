@@ -19,13 +19,16 @@
   display: flex;
   justify-content: center;
   .swiper-wrapper {
+    @media screen and (min-width: $dsk) {
+      padding-left: 70px;
+    }
     @media screen and (max-width: $dsk) {
       max-width: $lg;
       padding-left: 70px;
     }
     @media screen and (max-width: $lg) {
       max-width: $md;
-      padding-left: 18px;
+      padding-left: 70px;
     }
     @media screen and (max-width: $md) {
       max-width: 100%;
