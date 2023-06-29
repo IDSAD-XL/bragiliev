@@ -1,0 +1,44 @@
+.swiper-custom-scrollbar {
+  background: var(--color-half-black) !important;
+  height: 1px !important;
+  top: unset !important;
+  bottom: unset !important;
+  left: unset !important;
+  position: relative !important;
+  width: calc(100% - 20px) !important;
+  & > * {
+    background-color: #FFFFFF !important;
+    height: 2px !important;
+  }
+  @include md(md) {
+    width: calc(100% - 60px) !important;
+  }
+}
+
+.swiper-reviews {
+  display: flex;
+  justify-content: center;
+  .swiper-wrapper {
+    @media screen and (max-width: $dsk) {
+      max-width: $lg;
+    }
+    @media screen and (max-width: $lg) {
+      max-width: $md;
+    }
+    @media screen and (max-width: $md) {
+      max-width: 100%;
+    }
+  }
+  @media screen and (min-width: $sm) {
+    padding-left: 10px !important;
+  }
+  @media screen and (min-width: $md) {
+    padding-left: 34px !important;
+  }
+  @media screen and (min-width: $lg) {
+    padding-left: 70px !important;
+  }
+  @media screen and (min-width: $dsk) {
+    padding-left: 70px !important;
+  }
+}
