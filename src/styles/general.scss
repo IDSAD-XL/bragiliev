@@ -1,0 +1,32 @@
+@import "mixins";
+@import "typo";
+@import "flex";
+@import "layout/header";
+@import "layout/burger";
+@import "layout/menu";
+@import "elements/swiper";
+@import "elements/form";
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  min-height: 100svh;
+}
+
+#__next {
+  min-height: 100vh;
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+}
+
+.container {
+  @media screen and (max-width: 640px) {
+    max-width: 100%;
+  }
+}

@@ -1,19 +1,68 @@
 {
   "name": "bragiliev",
   "version": "1.0.0",
-  "description": "��#\u0000 \u0000b\u0000r\u0000a\u0000g\u0000i\u0000l\u0000i\u0000e\u0000v\u0000\r\u0000 \u0000",
+  "description": "Bragiliev web app",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "next dev",
+    "build": "next build && next export",
+    "start": "next start",
+    "type-check": "tsc",
+    "lint": "next lint --fix",
+    "format": "prettier . --write",
+    "prepare": "husky install"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/IDSAD-XL/bragiliev.git"
+  },
+  "lint-staged": {
+    "**/*": "prettier --write --ignore-unknown",
+    "*.{js, ts, jsx, tsx}": "eslint --cache --fix",
+    "*.--write": "prettier --write"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/IDSAD-XL/bragiliev/issues"
   },
-  "homepage": "https://github.com/IDSAD-XL/bragiliev#readme"
+  "homepage": "https://github.com/IDSAD-XL/bragiliev#readme",
+  "dependencies": {
+    "@headlessui/react": "^1.7.15",
+    "@headlessui/tailwindcss": "^0.1.3",
+    "@reduxjs/toolkit": "^1.9.5",
+    "autoprefixer": "^10.4.14",
+    "eslint-config-next": "13.2.4",
+    "formik": "^2.4.2",
+    "next": "13.1.1",
+    "postcss": "^8.4.24",
+    "prettier-plugin-tailwindcss": "^0.3.0",
+    "react": "18.2.0",
+    "react-date-picker": "^10.2.0",
+    "react-datetime-picker": "^5.2.0",
+    "react-dom": "18.2.0",
+    "react-phone-input-2": "^2.15.1",
+    "react-redux": "^8.1.0",
+    "sass": "^1.63.3",
+    "swiper": "^9.4.1"
+  },
+  "devDependencies": {
+    "@types/node": "^12.12.21",
+    "@types/react": "^17.0.2",
+    "@types/react-dom": "^17.0.1",
+    "@typescript-eslint/eslint-plugin": "^5.56.0",
+    "eslint": "^8.36.0",
+    "eslint-config-prettier": "^8.8.0",
+    "eslint-config-standard-with-typescript": "^34.0.1",
+    "eslint-plugin-import": "^2.27.5",
+    "eslint-plugin-n": "^15.6.1",
+    "eslint-plugin-promise": "^6.1.1",
+    "eslint-plugin-react": "^7.32.2",
+    "husky": "^8.0.3",
+    "lint-staged": "^13.2.0",
+    "prettier": "^2.8.7",
+    "tailwindcss": "^3.3.2",
+    "typescript": "^4.8.3"
+  }
 }

@@ -1,0 +1,128 @@
+.input-text {
+  width: 100%;
+  background-color: transparent;
+  color: #ffffff;
+  font-size: 14px;
+  line-height: 22px;
+  height: 70px;
+  margin-top: 30px;
+  display: flex;
+  align-items: center;
+  border: 0;
+  border-radius: 0;
+  border-bottom: 1px solid #ffffff;
+  outline: none;
+}
+
+.input-error {
+  position: absolute;
+  bottom: -20px;
+  font-size: 12px;
+  color: var(--color-red);
+}
+
+.form {
+  .input-phone-wrapper {
+    display: flex;
+    align-items: flex-end;
+    font-family: 'Raleway', sans-serif !important;
+    .form-control {
+      padding-left: 55px;
+    }
+    input {
+      @extend .input-text
+    }
+    .flag-dropdown {
+      background: transparent !important;
+      border: 0;
+      width: 45px;
+      &:after {
+        content: "";
+        position: absolute;
+        width: 1px;
+        height: 30px;
+        background-color: rgba(255, 255, 255, 0.20);
+        right: 0;
+        top: 20px;
+      }
+    }
+    .selected-flag {
+      background: transparent !important;
+    }
+    .country-list {
+      background-color: var(--bg-dark) !important;
+    }
+    .country:hover, .country.highlight {
+      background-color: var(--color-half-black) !important;
+    }
+  }
+}
+
+.react-calendar {
+  background-color: #FFFFFF !important;
+  color: #14143C;
+  border: 0 !important;
+  width: 100% !important;
+  padding: 30px 50px 27px 50px;
+}
+
+.react-datetime-picker__calendar {
+  inset: 0 !important;
+  top: 100% !important;
+  width: 100% !important;
+}
+
+.react-datetime-picker__clock {
+  display: none;
+}
+
+.react-datetime-picker__wrapper {
+  border: 0 !important;
+  input {
+    outline: none;
+  }
+}
+
+.react-calendar__month-view__weekdays__weekday {
+  font-family: Inter, sans-serif;
+  font-size: 12px;
+  text-transform: uppercase;
+  color: #98A1A7;
+  font-weight: 500;
+  abbr {
+    text-decoration: none;
+  }
+}
+
+.react-calendar__navigation {
+  margin-bottom: 16px !important;
+  padding-bottom: 17px;
+  border-bottom: 1px solid #E4E5E7;
+}
+
+.react-calendar__navigation__label {
+ max-width: 120px;
+}
+
+.react-calendar__navigation__label__labelText {
+  text-transform: capitalize;
+  font-weight: 500;
+}
+
+.react-calendar__navigation__prev-button,
+.react-calendar__navigation__next-button{
+  min-width: 10px;
+}
+
+.react-calendar__navigation__next2-button, .react-calendar__navigation__prev2-button {
+  display: none;
+}
+
+.react-datetime-picker__calendar-button {
+  width: 30px;
+}
+
+.react-calendar__tile {
+
+}
+
