@@ -14,7 +14,7 @@ const Menu: React.FC = () => {
     >
       <div className="menu__body mt-[100px] flex flex-col justify-center pt-[62px]">
         <div className="menu__items flex flex-col justify-center gap-[30px] text-center">
-          <Link href="/" className="link-menu">
+          <Link href="/services" className="link-menu">
             Услуги
           </Link>
           <Link href="/" className="link-menu">
