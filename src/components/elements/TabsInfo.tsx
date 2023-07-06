@@ -24,9 +24,9 @@ const TabsInfo: React.FC<ITabsInfo> = ({ tabs }) => {
   }
 
   return (
-    <div className="relative flex w-full flex-col items-center md:h-auto dsk:h-[1130px]">
+    <div className="tabsInfo relative flex w-full flex-col items-center md:h-auto dsk:h-[1130px]">
       <div className="flex-cols-2 container dsk:h-[900px]">
-        <div className="flex-[100%] flex-shrink-0 flex-grow-0 pt-[60px] dsk:flex-[50%] dsk:pt-[90px]">
+        <div className="tabsInfo__tab-group flex-[100%] flex-shrink-0 flex-grow-0 pt-[60px] dsk:flex-[50%] dsk:pt-[90px]">
           <Tab.Group
             onChange={() => {
               setOpenTab(null)
@@ -46,7 +46,7 @@ const TabsInfo: React.FC<ITabsInfo> = ({ tabs }) => {
                 )
               })}
             </Tab.List>
-            <Tab.Panels className="mt-[72px] h-full overflow-auto">
+            <Tab.Panels className="tabsInfo__tab-panel mt-[72px] h-full overflow-auto">
               {tabs?.map((item, idx) => {
                 return (
                   <Tab.Panel key={idx}>

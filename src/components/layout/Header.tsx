@@ -23,7 +23,7 @@ const Header: React.FC<IHeader> = ({ items }) => {
   const debouncedValueBg = useDebounce<boolean>(haveBg, 50)
 
   const handleScroll = () => {
-    if (window.scrollY === 0) {
+    if (window.scrollY === 0 ) {
       setHaveBg(false)
     } else {
       setHaveBg(true)
@@ -31,15 +31,14 @@ const Header: React.FC<IHeader> = ({ items }) => {
   }
 
   useEffect(() => {
+    if(window.location.pathname === '/services') {
+      return
+    }
     handleScroll()
     window.addEventListener('scroll', handleScroll)
     return () => {
       window.removeEventListener('scroll', handleScroll)
     }
-  })
-
-  useEffect(() => {
-    console.log(debouncedValueBg)
   }, [debouncedValueBg])
 
   return (
