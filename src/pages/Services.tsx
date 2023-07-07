@@ -1,6 +1,6 @@
 import React from 'react'
 import Layout from '../components/layout/Layout'
-import InfoBlock from '../components/elements/InfoBlock'
+import TitleBlock from '../components/elements/TitleBlock'
 import { IServicesContent } from '../types/content/ServicesPage'
 import TabsInfo from '../components/elements/TabsInfo'
 import RegForm from '../components/elements/RegForm'
@@ -14,7 +14,7 @@ const Services: React.FC<IServices> = ({
 }) => {
   return (
     <Layout>
-      <InfoBlock name={infoBlock.name} title={infoBlock.title} />
+      <TitleBlock name={infoBlock.name} title={infoBlock.title} />
       <TabsInfo {...servicesBlock} />
       <RegForm {...regFormBlock} />
     </Layout>
