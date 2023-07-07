@@ -18,8 +18,8 @@ const InfoBlock: React.FC<IInfoBlock> = ({
   children,
 }) => {
   return (
-    <div className="infoBlock flex w-full justify-center bg-secondary dsk:justify-center">
-      <div className="infoBlock__name container mb-[60px] mt-[60px] flex flex-col md:mb-[90px] md:mt-[90px]">
+    <div className="flex w-full justify-center bg-secondary dsk:justify-center">
+      <div className="container mb-[60px] mt-[60px] flex flex-col md:mb-[90px] md:mt-[90px]">
         {!!name && (
           <p className="text-section-title mb-[10px] md:mb-[20px]">
             {name ?? ''}
@@ -27,12 +27,12 @@ const InfoBlock: React.FC<IInfoBlock> = ({
         )}
         {!!title && (
           <h2
-            className="infoBlock__title flex h-[85px] items-center md:mb-[15px]"
+            className="flex h-[85px] items-center md:mb-[15px]"
             dangerouslySetInnerHTML={{ __html: title ?? '' }}
           />
         )}
         {!!subtitle && (
-          <div className="infoBlock__subtitle lex-cols-2">
+          <div className="lex-cols-2">
             <div className="flex-grow-1 flex-[100%] dsk:flex-[50%]">
               <p
                 className="title5"
@@ -45,7 +45,7 @@ const InfoBlock: React.FC<IInfoBlock> = ({
           </div>
         )}
         {!!link && (
-          <div className="infoBlock__link mt-[30px] md:mt-[55px]">
+          <div className="mt-[30px] md:mt-[55px]">
             <Link href={link} className="link-plus">
               УЗНАТЬ БОЛЬШЕ
             </Link>
