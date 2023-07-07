@@ -23,7 +23,7 @@ const Menu: React.FC = () => {
           <Link href="/services" onClick={linkHandler} className="link-menu">
             Услуги
           </Link>
-          <Link href="/" className="link-menu">
+          <Link href="/results" onClick={linkHandler} className="link-menu">
             До/после
           </Link>
           <Link href="/" className="link-menu">

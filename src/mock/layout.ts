@@ -9,7 +9,7 @@ const headerContent: IHeaderContent = {
     },
     {
       name: 'До/После',
-      link: '/services',
+      link: '/results',
       count: 59,
     },
     {
