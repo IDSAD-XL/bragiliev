@@ -54,7 +54,9 @@ const Header: React.FC<IHeader> = ({ items }) => {
         } ${menuOpen ? 'header--menu-open' : 'header--menu-closed'}`}
       >
         <div className="header__logo flex h-full items-center pl-40">
-          <span className={`title-logo`}>Bragilev</span>
+          <Link href="/" className={`title-logo`}>
+            Bragilev
+          </Link>
         </div>
         <div className="header__items flex w-full justify-end">
           {!!items &&
