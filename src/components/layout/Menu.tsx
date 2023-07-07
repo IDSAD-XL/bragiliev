@@ -1,9 +1,15 @@
 import Link from 'next/link'
 import React from 'react'
-import { useAppSelector } from '../../hooks/redux'
+import { useAppDispatch, useAppSelector } from '../../hooks/redux'
+import { closeMenu } from '../../redux/Actions/appActions'
 
 const Menu: React.FC = () => {
   const { menuOpen } = useAppSelector((state) => state.appSlice)
+  const dispatch = useAppDispatch()
+  const linkHandler = () => {
+    dispatch(closeMenu)
+  }
+
   return (
     <menu
       className={`menu fixed z-10 h-full w-full overflow-auto bg-main transition-transform duration-500 ease-in-out ${
@@ -14,7 +20,7 @@ const Menu: React.FC = () => {
     >
       <div className="menu__body mt-[100px] flex flex-col justify-center pt-[62px]">
         <div className="menu__items flex flex-col justify-center gap-[30px] text-center">
-          <Link href="/services" className="link-menu">
+          <Link href="/services" onClick={linkHandler} className="link-menu">
             Услуги
           </Link>
           <Link href="/" className="link-menu">

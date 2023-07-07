@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { useRouter } from 'next/router'
 import Image from 'next/image'
 import { Tab } from '@headlessui/react'
 import Accordion, { IAccordionContent } from './Accordion'
@@ -15,6 +16,7 @@ export interface ITabsInfo {
 const TabsInfo: React.FC<ITabsInfo> = ({ tabs }) => {
   const [openTab, setOpenTab] = useState<number | null>(null)
   const [imagePath, setImagePath] = useState<string>('/assets/main-image-1.png')
+  const router = useRouter()
 
   const setImageByIndex = (tabIdx: number, itemIdx: number) => {
     if (tabs) {
@@ -23,10 +25,22 @@ const TabsInfo: React.FC<ITabsInfo> = ({ tabs }) => {
     }
   }
 
+  function isHeadBlock(): boolean {
+    if (router.pathname !== '/services') {
+      return true
+    } else {
+      return false
+    }
+  }
+
   return (
     <div className="relative flex w-full flex-col items-center md:h-auto dsk:h-[1130px]">
       <div className="flex-cols-2 container dsk:h-[900px]">
-        <div className="flex-[100%] flex-shrink-0 flex-grow-0 pt-[60px] dsk:flex-[50%] dsk:pt-[90px]">
+        <div
+          className={`flex-[100%] flex-shrink-0 flex-grow-0 dsk:flex-[50%] ${
+            isHeadBlock() ? 'pt-[60px] dsk:pt-[90px]' : 'pt-[0px]'
+          }`}
+        >
           <Tab.Group
             onChange={() => {
               setOpenTab(null)

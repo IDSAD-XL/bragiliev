@@ -32,7 +32,7 @@ const InfoBlock: React.FC<IInfoBlock> = ({
           />
         )}
         {!!subtitle && (
-          <div className="lex-cols-2">
+          <div className="flex-cols-2">
             <div className="flex-grow-1 flex-[100%] dsk:flex-[50%]">
               <p
                 className="title5"
@@ -51,7 +51,6 @@ const InfoBlock: React.FC<IInfoBlock> = ({
             </Link>
           </div>
         )}
-        
       </div>
     </div>
   )
