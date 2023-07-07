@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react'
 import Layout from '../components/layout/Layout'
 import InfoBlock from '../components/elements/InfoBlock'
 import { IServicesContent } from '../types/content/ServicesPage'
@@ -13,15 +13,12 @@ const Services: React.FC<IServices> = ({
   regFormBlock,
 }) => {
   return (
-    <div className="services">
-      <Layout>
-              <InfoBlock name={infoBlock.name} title={infoBlock.title} />
-              <TabsInfo {...servicesBlock} />
-              <RegForm {...regFormBlock} />
-      </Layout>
-    </div>
+    <Layout>
+      <InfoBlock name={infoBlock.name} title={infoBlock.title} />
+      <TabsInfo {...servicesBlock} />
+      <RegForm {...regFormBlock} />
+    </Layout>
   )
 }
-
 
 export default Services
