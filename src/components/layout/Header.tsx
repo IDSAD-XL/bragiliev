@@ -35,7 +35,10 @@ const Header: React.FC<IHeader> = ({ items }) => {
   }
 
   useEffect(() => {
-    if (window.location.pathname === '/services') {
+    if (
+      window.location.pathname === '/services' ||
+      window.location.pathname === '/reviews'
+    ) {
       setBg()
       return
     }
