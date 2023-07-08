@@ -16,7 +16,7 @@ const TitleBlock: React.FC<ITitleBlock> = ({ name, title }) => {
         )}
         {!!title && (
           <h2
-            className="flex h-[85px] items-center"
+            className="flex h-[79px] items-center"
             dangerouslySetInnerHTML={{ __html: title ?? '' }}
           />
         )}

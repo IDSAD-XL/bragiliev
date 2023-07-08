@@ -34,6 +34,14 @@ const Select: React.FC<ISelect> = ({
     }
   }
 
+  function isWhiteBlock(): boolean {
+    if (window.location.pathname === '/reviews') {
+      return true
+    } else {
+      return false
+    }
+  }
+
   return (
     <Listbox value={value} onChange={handleChange}>
       <div className="relative">
@@ -49,19 +57,25 @@ const Select: React.FC<ISelect> = ({
             >
               <path
                 d="M18.0066 0.5L9.50659 8.5L1.00659 0.5"
-                stroke="white"
+                stroke={`${isWhiteBlock() ? '#26262B' : 'white'}`}
                 strokeLinecap="round"
               />
             </svg>
           </span>
         </Listbox.Button>
-        <Listbox.Options className="text-regular absolute top-[100%] z-10 max-h-[300px] w-full overflow-auto bg-dark">
+        <Listbox.Options
+          className={`text-regular absolute top-[100%] z-10 max-h-[300px] w-full overflow-auto 
+            ${isWhiteBlock() ? 'bg-white' : 'bg-dark'} 
+          `}
+        >
           {variants.length > 0 &&
             variants.map((variant) => (
               <Listbox.Option
                 key={variant.id}
                 value={variant}
-                className="flex h-[60px] w-full cursor-pointer items-center bg-dark pl-[18px] hover:bg-dark-hover"
+                className={`flex h-[60px] w-full cursor-pointer items-center pl-[18px] 
+                  ${isWhiteBlock() ? 'bg-white' : 'bg-dark hover:bg-dark-hover'}
+                `}
               >
                 {variant.name}
               </Listbox.Option>
