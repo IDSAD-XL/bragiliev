@@ -7,13 +7,13 @@ jobs:
   build_and_deploy:
     runs-on: ubuntu-latest
     steps:
-      - name: Build
-      - run: npm ci && npm run build
-
       - name: Set up Node.js
         uses: actions/setup-node@v2
         with:
           node-version: 16
+
+      - name: Build
+        run: npm ci && npm run build
 
       - name: Install Firebase CLI
         run: npm install -g firebase-tools
