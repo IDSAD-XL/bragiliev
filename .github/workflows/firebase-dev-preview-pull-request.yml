@@ -1,0 +1,41 @@
+name: Deploy to Firebase Hosting on dev PR
+'on':
+  pull_request:
+    branches:
+      - dev
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - run: npm ci && npm run build
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: 14
+
+      - name: Install Firebase CLI
+        run: npm install -g firebase-tools
+
+      - name: Generate unique subdomain
+        id: subdomain
+        run: |
+          echo "subdomain=$(date +%s)" >> $GITHUB_ENV
+
+      - name: Deploy to Firebase
+        run: |
+          firebase use --add ${{ secrets.FIREBASE_PROJECT_ID }}
+          firebase hosting:channel:deploy ${{ steps.subdomain.outputs.subdomain }}
+
+      - name: Add Comment to Pull Request
+        run: |
+          curl -X POST \
+            -H "Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}" \
+            -H "Accept: application/vnd.github.v3+json" \
+            -d '{"body": "${{steps.subdomain.outputs.subdomain}}"}' \
+            "https://api.github.com/repos/${{ github.repository }}/issues/${{ github.event.pull_request.number }}/comments"
