@@ -7,9 +7,8 @@ jobs:
   build_and_deploy:
     runs-on: ubuntu-latest
     steps:
+      - name: Build
       - run: npm ci && npm run build
-      - name: Checkout code
-        uses: actions/checkout@v2
 
       - name: Set up Node.js
         uses: actions/setup-node@v2
