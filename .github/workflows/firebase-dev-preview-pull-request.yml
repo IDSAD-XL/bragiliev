@@ -16,10 +16,3 @@ jobs:
           firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_BRAGILIEV }}'
           expires: 5d
           projectId: bragiliev
-      - name: Update Pull Request Description
-        run: |
-          curl -X POST \
-            -H "Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}" \
-            -H "Accept: application/vnd.github.v3+json" \
-            -d '{"body": "Live preview of this pull request here: ${{steps.firebase_deploy.outputs.summary}}"}' \
-            "https://api.github.com/repos/${{ github.repository }}/issues/${{ github.event.pull_request.number }}/comments"
