@@ -7,31 +7,19 @@ jobs:
   build_and_deploy:
     runs-on: ubuntu-latest
     steps:
-      - name: Set up Node.js
-        uses: actions/setup-node@v2
+      - uses: actions/checkout@v2
+      - run: npm ci && npm run build
+      - uses: FirebaseExtended/action-hosting-deploy@v0
+        id: firebase_deploy
         with:
-          node-version: 16
-
-      - name: Build
-        run: npm ci && npm run build
-
-      - name: Install Firebase CLI
-        run: npm install -g firebase-tools
-
-      - name: Generate unique subdomain
-        id: subdomain
-        run: |
-          echo "subdomain=$(date +%s)" >> $GITHUB_ENV
-
-      - name: Deploy to Firebase
-        run: |
-          firebase use --add ${{ secrets.FIREBASE_PROJECT_ID }}
-          firebase hosting:channel:deploy ${{ steps.subdomain.outputs.subdomain }}
-
-      - name: Add Comment to Pull Request
+          repoToken: '${{ secrets.GITHUB_TOKEN }}'
+          firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_BRAGILIEV }}'
+          expires: 5d
+          projectId: bragiliev
+      - name: Update Pull Request Description
         run: |
           curl -X POST \
             -H "Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}" \
             -H "Accept: application/vnd.github.v3+json" \
-            -d '{"body": "${{steps.subdomain.outputs.subdomain}}"}' \
+            -d '{"body": "Live preview of this pull request: ${{steps.firebase_deploy.outputs.summary}}"}' \
             "https://api.github.com/repos/${{ github.repository }}/issues/${{ github.event.pull_request.number }}/comments"
