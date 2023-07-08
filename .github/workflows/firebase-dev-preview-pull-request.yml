@@ -8,7 +8,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Build
-      - run: npm ci && npm run build
+        run: npm ci && npm run build
 
       - name: Set up Node.js
         uses: actions/setup-node@v2
