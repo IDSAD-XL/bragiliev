@@ -67,7 +67,11 @@ const Select: React.FC<ISelect> = ({
         </Listbox.Button>
         <Listbox.Options
           className={`text-regular absolute top-[100%] z-10 max-h-[300px] w-full overflow-auto 
-            ${isWhiteBlock() ? 'bg-white' : 'bg-dark'} 
+            ${
+              isWhiteBlock()
+                ? 'border-x border-b border-half-white bg-white'
+                : 'bg-dark'
+            } 
           `}
         >
           {variants.length > 0 &&
@@ -76,7 +80,11 @@ const Select: React.FC<ISelect> = ({
                 key={variant.id}
                 value={variant}
                 className={`flex h-[60px] w-full cursor-pointer items-center pl-[18px] 
-                  ${isWhiteBlock() ? 'bg-white' : 'bg-dark hover:bg-dark-hover'}
+                  ${
+                    isWhiteBlock()
+                      ? 'bg-white hover:bg-gray-50'
+                      : 'bg-dark hover:bg-dark-hover'
+                  }
                 `}
               >
                 {variant.name}

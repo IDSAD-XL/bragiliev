@@ -5,20 +5,15 @@ import Select, {
   ISelectVariantDependence,
 } from './Select'
 import ResultsReviews from './ResultsReviews'
+import { IReviewsItem } from './ReviewsItem'
 
-export interface IReviewsItem {
-  id: number
-  date: string
-  name: string
-  content: string
-  link: string
-  image?: string
+export interface IReviewsFiltesItem extends IReviewsItem {
   dependencies: ISelectVariantDependence[]
 }
 
 export interface IFiltersReviewsBlockContent {
   selects: ISelectContent[]
-  slides: IReviewsItem[]
+  slides: IReviewsFiltesItem[]
 }
 
 export interface IFiltersReviewsBlock extends IFiltersReviewsBlockContent {}
@@ -35,14 +30,13 @@ const FiltersReviewsBlock: React.FC<IFiltersReviewsBlock> = ({
     ISelectVariant[]
   >(selects[1].variants)
 
-  const [filteredRevies, setFilteredResults] = useState<IReviewsItem[] | null>(
-    slides
-  )
+  const [filteredRevies, setFilteredResults] = useState<
+    IReviewsFiltesItem[] | null
+  >(slides)
 
   const changePart = (val: ISelectVariant) => {
     setActivePart(val)
     setActiveOperation(null)
-    console.log(filteredRevies)
   }
 
   const changeOperation = useCallback(
@@ -65,16 +59,14 @@ const FiltersReviewsBlock: React.FC<IFiltersReviewsBlock> = ({
     (part: number | null | undefined, operation: number | null | undefined) => {
       let filter, result
       if (part && operation) {
-        filter = (item: IReviewsItem) => {
-          console.log(item)
-
+        filter = (item: IReviewsFiltesItem) => {
           return (
             item.dependencies.find((dep) => dep.key === 'operation')?.id ===
             operation
           )
         }
       } else if (part) {
-        filter = (item: IReviewsItem) => {
+        filter = (item: IReviewsFiltesItem) => {
           return (
             item.dependencies.find((dep) => dep.key === 'part')?.id === part
           )
@@ -101,7 +93,6 @@ const FiltersReviewsBlock: React.FC<IFiltersReviewsBlock> = ({
           (dep) => dep.key === 'part' && dep.id === activePart.id
         )
       )
-      // console.log(filteredRevies)
     }
 
     setFilteredOperations(filteredOperations)
@@ -118,7 +109,7 @@ const FiltersReviewsBlock: React.FC<IFiltersReviewsBlock> = ({
       className={`text-dark flex w-full justify-center bg-white text-left dsk:justify-center`}
     >
       <div className="container pb-[60px] md:pb-[90px] dsk:pb-[120px] dsk:pt-[90px]">
-        <div className="z-10 grid w-full grid-cols-1 gap-x-[20px] lg:grid-cols-2 dsk:grid-cols-4">
+        <div className="z-10 grid w-full grid-cols-1 gap-x-[20px] dsk:grid-cols-4">
           <div>
             <Select
               variants={selects[0].variants}
@@ -136,19 +127,12 @@ const FiltersReviewsBlock: React.FC<IFiltersReviewsBlock> = ({
             />
           </div>
           <div className="hidden dsk:block"></div>
-          <div className="hidden dsk:block">
-            <div className="button1 flex h-[80px] items-center justify-center">
-              <span className="link-plus no-underline">оставить отзыв</span>
-            </div>
-          </div>
-        </div>
-        <div className="dsk:none mt-[30px] dsk:mt-[27px]">
-          <ResultsReviews slides={filteredRevies} />
-        </div>
-        <div className="mt-[30px] flex justify-center md:mt-[60px] dsk:hidden">
-          <div className="button1 flex h-[60px] w-[300px] items-center justify-center md:h-[80px]">
+          <div className="button1 mt-[20px] flex h-[80px] items-center justify-center dsk:mt-[0px]">
             <span className="link-plus no-underline">оставить отзыв</span>
           </div>
+        </div>
+        <div className="dsk:none mt-[30px] dsk:mt-[60px]">
+          <ResultsReviews slides={filteredRevies} />
         </div>
       </div>
     </div>
