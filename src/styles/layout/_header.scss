@@ -1,17 +1,17 @@
 .header {
-  transition: background .3s ease;
+  transition: background 0.3s ease;
   background: rgba(255, 255, 255, 0);
-  span {
-    transition: color .2s ease;
+  .title-logo {
+    transition: color 0.2s ease;
   }
   &__item {
     justify-content: center;
     align-items: center;
     width: min(212px, 20%);
-    transition: color .2s ease, opacity .2s ease;
+    transition: color 0.2s ease, opacity 0.2s ease;
     opacity: 1;
     &--hover {
-      transition: background .2s;
+      transition: background 0.2s;
       &:hover {
         background: rgba(255, 255, 255, 0.15);
       }
@@ -28,8 +28,8 @@
     justify-content: flex-end;
   }
   &--menu-open {
-    span {
-      color: #10100E;
+    .title-logo {
+      color: #10100e;
     }
     .header__item--hover {
       opacity: 0;
@@ -37,8 +37,9 @@
   }
   &--have-bg {
     background: rgba(255, 255, 255, 1);
+    .title-logo,
     span {
-      color: #10100E;
+      color: #10100e;
     }
   }
 }
