@@ -13,9 +13,13 @@ export interface IHeaderContent {
   }>
 }
 
-interface IHeader extends IHeaderContent {}
+export type HeaderBg = 'transparent' | 'white' | 'black'
 
-const Header: React.FC<IHeader> = ({ items }) => {
+export interface IHeader extends IHeaderContent {
+  background: HeaderBg
+}
+
+const Header: React.FC<IHeader> = ({ items, background }) => {
   const { menuOpen } = useAppSelector((state) => state.appSlice)
 
   const [haveBg, setHaveBg] = useState<boolean>(false)
