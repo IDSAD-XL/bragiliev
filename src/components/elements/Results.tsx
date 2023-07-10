@@ -9,6 +9,7 @@ import 'swiper/css/navigation'
 import 'swiper/css/scrollbar'
 import ResultsSlider from './ResultsSlider'
 import Link from 'next/link'
+import { useRouter } from 'next/router'
 
 export interface IResultsSlides {
   id: number
@@ -51,6 +52,8 @@ const Results: React.FC<IResults> = ({
   const [filteredResults, setFilteredResults] = useState<
     IResultsSlides[] | null
   >(results)
+
+  const router = useRouter()
 
   const changePart = (val: ISelectVariant) => {
     setActivePart(val)
@@ -101,6 +104,14 @@ const Results: React.FC<IResults> = ({
     [results]
   )
 
+  function isResultPage(): boolean {
+    if (router.pathname === '/results') {
+      return true
+    } else {
+      return false
+    }
+  }
+
   useEffect(() => {
     let filteredOperations
     if (activePart === null) {
@@ -126,7 +137,10 @@ const Results: React.FC<IResults> = ({
     <div
       className={`flex w-full justify-center bg-dark text-left text-white dsk:justify-center`}
     >
-      <div className="container pb-[60px] pt-[60px] md:pb-[90px] dsk:pb-[120px] dsk:pt-[90px]">
+      <div
+        className={`container pb-[60px] pt-[60px] md:pb-[90px] dsk:pb-[120px] dsk:pt-[90px]
+          ${isResultPage() ? 'mt-[60px] md:mt-[100px]' : 'mt-[0px]'}`}
+      >
         <p className="text-section-title">{name}</p>
         <p className="title2 mt-[20px]">{title}</p>
         <div className="z-10 grid w-full grid-cols-1 gap-x-[20px] lg:grid-cols-2 dsk:grid-cols-4">
