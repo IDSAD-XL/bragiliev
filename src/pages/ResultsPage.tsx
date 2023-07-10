@@ -11,7 +11,7 @@ const ResultsPage: React.FC<IResultsPage> = ({
   regFormBlock,
 }) => {
   return (
-    <Layout background="black">
+    <Layout background="#26262B" textColor="white">
       <Results {...resultsBlock} />
       <RegForm {...regFormBlock} />
     </Layout>
