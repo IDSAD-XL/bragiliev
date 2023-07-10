@@ -1,4 +1,4 @@
-import React, { useRef, useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import ReviewsItem, { IReviewsItem } from './ReviewsItem'
 
 export interface IResultReviews {
@@ -7,17 +7,22 @@ export interface IResultReviews {
 
 const ResultsReviews: React.FC<IResultReviews> = ({ slides }) => {
   const [filteredReviews] = useState<IReviewsItem[] | null>(slides)
+  const [itemsToShow, setItemsToShow] = useState<number>(1)
   const [currnetNumber, setCurrnetNumber] = useState<number>(1)
-  const refItemToshow = useRef<number>(1)
 
   function showMore(): void {
-    setCurrnetNumber(currnetNumber + refItemToshow.current)
+    console.log(currnetNumber, slides?.length)
+    if (currnetNumber >= slides?.length) {
+      console.log(slides?.length)
+      return
+    }
+    setCurrnetNumber(currnetNumber + itemsToShow)
   }
 
   useEffect(() => {
     if (window.innerWidth > 1350) {
       setCurrnetNumber(6)
-      refItemToshow.current = 6
+      setItemsToShow(6)
     }
   }, [])
   return (
@@ -41,14 +46,16 @@ const ResultsReviews: React.FC<IResultReviews> = ({ slides }) => {
           )
         })}
       </div>
-      <div
-        onClick={showMore}
-        className="mt-[30px] flex justify-center md:mt-[60px]"
-      >
-        <div className="button1 flex h-[60px] w-[300px] items-center justify-center md:h-[80px]">
-          <span className="link-plus no-underline">показать ещё</span>
+      {!(currnetNumber >= slides.length) && (
+        <div
+          onClick={showMore}
+          className="mt-[30px] flex justify-center md:mt-[60px]"
+        >
+          <div className="button1 flex h-[60px] w-[300px] items-center justify-center md:h-[80px]">
+            <span className="link-plus no-underline">показать ещё</span>
+          </div>
         </div>
-      </div>
+      )}
     </div>
   )
 }

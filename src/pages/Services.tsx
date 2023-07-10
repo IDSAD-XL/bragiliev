@@ -13,7 +13,7 @@ const Services: React.FC<IServices> = ({
   regFormBlock,
 }) => {
   return (
-    <Layout>
+    <Layout background="white">
       <TitleBlock name={infoBlock.name} title={infoBlock.title} />
       <TabsInfo {...servicesBlock} />
       <RegForm {...regFormBlock} />
