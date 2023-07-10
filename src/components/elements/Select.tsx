@@ -1,5 +1,6 @@
 import React from 'react'
 import { Listbox } from '@headlessui/react'
+import { useRouter } from 'next/router'
 
 export interface ISelectVariantDependence {
   id: number
@@ -28,6 +29,7 @@ const Select: React.FC<ISelect> = ({
   onChange,
   value,
 }) => {
+  const router = useRouter()
   const handleChange = (value: ISelectVariant) => {
     if (onChange) {
       onChange(value)
@@ -35,7 +37,7 @@ const Select: React.FC<ISelect> = ({
   }
 
   function isWhiteBlock(): boolean {
-    if (window.location.pathname === '/reviews') {
+    if (router.pathname === '/reviews') {
       return true
     } else {
       return false
