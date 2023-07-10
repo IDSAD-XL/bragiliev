@@ -4,6 +4,7 @@ import Select, {
   ISelectVariant,
   ISelectVariantDependence,
 } from './Select'
+import ResultsReviews from './ResultsReviews'
 
 export interface IReviewsItem {
   id: number
@@ -41,6 +42,7 @@ const FiltersReviewsBlock: React.FC<IFiltersReviewsBlock> = ({
   const changePart = (val: ISelectVariant) => {
     setActivePart(val)
     setActiveOperation(null)
+    console.log(filteredRevies)
   }
 
   const changeOperation = useCallback(
@@ -99,6 +101,7 @@ const FiltersReviewsBlock: React.FC<IFiltersReviewsBlock> = ({
           (dep) => dep.key === 'part' && dep.id === activePart.id
         )
       )
+      // console.log(filteredRevies)
     }
 
     setFilteredOperations(filteredOperations)
@@ -139,7 +142,9 @@ const FiltersReviewsBlock: React.FC<IFiltersReviewsBlock> = ({
             </div>
           </div>
         </div>
-        <div className="mt-[30px] dsk:mt-[27px]"></div>
+        <div className="dsk:none mt-[30px] dsk:mt-[27px]">
+          <ResultsReviews slides={filteredRevies} />
+        </div>
         <div className="mt-[30px] flex justify-center md:mt-[60px] dsk:hidden">
           <div className="button1 flex h-[60px] w-[300px] items-center justify-center md:h-[80px]">
             <span className="link-plus no-underline">оставить отзыв</span>
