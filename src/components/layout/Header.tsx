@@ -13,9 +13,15 @@ export interface IHeaderContent {
   }>
 }
 
-interface IHeader extends IHeaderContent {}
+export type HeaderBg = 'transparent' | 'white' | '#26262B'
+export type HeaderTextColor = 'white' | '#26262B'
 
-const Header: React.FC<IHeader> = ({ items }) => {
+export interface IHeader extends IHeaderContent {
+  background: HeaderBg
+  textColor: HeaderTextColor
+}
+
+const Header: React.FC<IHeader> = ({ items, background, textColor }) => {
   const { menuOpen } = useAppSelector((state) => state.appSlice)
 
   const [haveBg, setHaveBg] = useState<boolean>(false)
@@ -30,15 +36,7 @@ const Header: React.FC<IHeader> = ({ items }) => {
     }
   }
 
-  const setBg = () => {
-    setHaveBg(true)
-  }
-
   useEffect(() => {
-    if (window.location.pathname === '/services') {
-      setBg()
-      return
-    }
     handleScroll()
     window.addEventListener('scroll', handleScroll)
     return () => {
@@ -49,7 +47,7 @@ const Header: React.FC<IHeader> = ({ items }) => {
   return (
     <React.Fragment>
       <header
-        className={`header fixed z-20 flex h-[60px] w-full border-b-1 border-half-gray text-white md:h-[100px] ${
+        className={`bg-[${background}] header fixed z-20 flex h-[60px] w-full border-b-1 border-half-gray text-${textColor} md:h-[100px] ${
           debouncedValueBg ? 'header--have-bg' : ''
         } ${menuOpen ? 'header--menu-open' : 'header--menu-closed'}`}
       >
