@@ -47,7 +47,7 @@ const Header: React.FC<IHeader> = ({ items, background, textColor }) => {
   return (
     <React.Fragment>
       <header
-        className={`bg-[${background}] text-[${textColor}] header fixed z-20 flex h-[60px] w-full border-b-1 border-half-gray md:h-[100px] ${
+        className={`bg-[${background}] header fixed z-20 flex h-[60px] w-full border-b-1 border-half-gray text-${textColor} md:h-[100px] ${
           debouncedValueBg ? 'header--have-bg' : ''
         } ${menuOpen ? 'header--menu-open' : 'header--menu-closed'}`}
       >
