@@ -11,10 +11,8 @@ const ResultsReviews: React.FC<IResultReviews> = ({ slides }) => {
   const [currnetNumber, setCurrnetNumber] = useState<number>(1)
 
   function showMore(): void {
-    if (currnetNumber >= slides.length) {
-      console.log(slides?.length)
-      return
-    }
+    if (currnetNumber >= slides?.length) return
+
     setCurrnetNumber(currnetNumber + itemsToShow)
   }
 

@@ -150,6 +150,10 @@ const Results: React.FC<IResults> = ({
               placeholder={selects[0].placeholder}
               onChange={changePart}
               value={activePart}
+              background="bg-dark"
+              textColor="white"
+              hoverBg="hover:bg-dark-hover"
+              border="border-none"
             />
           </div>
           <div>
@@ -158,6 +162,10 @@ const Results: React.FC<IResults> = ({
               placeholder={selects[1].placeholder}
               onChange={changeOperation}
               value={activeOperation}
+              background="bg-dark"
+              textColor="white"
+              hoverBg="hover:bg-dark-hover"
+              border="border-none"
             />
           </div>
           <div className="hidden dsk:block"></div>

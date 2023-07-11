@@ -1,6 +1,5 @@
 import React from 'react'
 import { Listbox } from '@headlessui/react'
-import { useRouter } from 'next/router'
 
 export interface ISelectVariantDependence {
   id: number
@@ -18,9 +17,18 @@ export interface ISelectContent {
   placeholder?: string
 }
 
+export type Background = 'bg-white' | 'bg-dark'
+export type SelectTextColor = 'white' | '#26262B'
+export type HoverBg = 'hover:bg-gray-50' | 'hover:bg-dark-hover'
+export type Border = 'border-x border-b border-half-white' | 'border-none'
+
 export interface ISelect extends ISelectContent {
   value: ISelectVariant | null
   onChange?: (val: ISelectVariant) => void
+  background: Background
+  textColor: SelectTextColor
+  hoverBg: HoverBg
+  border: Border
 }
 
 const Select: React.FC<ISelect> = ({
@@ -28,19 +36,14 @@ const Select: React.FC<ISelect> = ({
   placeholder,
   onChange,
   value,
+  background,
+  textColor,
+  hoverBg,
+  border,
 }) => {
-  const router = useRouter()
   const handleChange = (value: ISelectVariant) => {
     if (onChange) {
       onChange(value)
-    }
-  }
-
-  function isWhiteBlock(): boolean {
-    if (router.pathname === '/reviews') {
-      return true
-    } else {
-      return false
     }
   }
 
@@ -59,33 +62,21 @@ const Select: React.FC<ISelect> = ({
             >
               <path
                 d="M18.0066 0.5L9.50659 8.5L1.00659 0.5"
-                stroke={`${isWhiteBlock() ? '#26262B' : 'white'}`}
+                stroke={`${textColor}`}
                 strokeLinecap="round"
               />
             </svg>
           </span>
         </Listbox.Button>
         <Listbox.Options
-          className={`text-regular absolute top-[100%] z-10 max-h-[300px] w-full overflow-auto 
-            ${
-              isWhiteBlock()
-                ? 'border-x border-b border-half-white bg-white'
-                : 'bg-dark'
-            } 
-          `}
+          className={`text-regular absolute top-[100%] z-10 max-h-[300px] w-full overflow-auto ${background} ${border}`}
         >
           {variants.length > 0 &&
             variants.map((variant) => (
               <Listbox.Option
                 key={variant.id}
                 value={variant}
-                className={`flex h-[60px] w-full cursor-pointer items-center pl-[18px] 
-                  ${
-                    isWhiteBlock()
-                      ? 'bg-white hover:bg-gray-50'
-                      : 'bg-dark hover:bg-dark-hover'
-                  }
-                `}
+                className={`flex h-[60px] w-full cursor-pointer items-center pl-[18px] ${background} ${hoverBg}`}
               >
                 {variant.name}
               </Listbox.Option>
