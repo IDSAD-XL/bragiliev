@@ -13,7 +13,7 @@ const Price: React.FC<IPrice> = ({
   regFormBlock,
 }) => {
   return (
-    <Layout>
+    <Layout background="white" textColor="#26262B">
       <TitleBlock name={titleBlock.name} title={titleBlock.title} />
       <FiltersPriceBlock {...filtersPriceBlock} />
       <RegForm {...regFormBlock} />
