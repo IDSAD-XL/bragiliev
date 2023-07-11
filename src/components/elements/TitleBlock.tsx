@@ -8,7 +8,7 @@ export interface ITitleBlock {
 const TitleBlock: React.FC<ITitleBlock> = ({ name, title }) => {
   return (
     <div className="bg-primary  flex w-full justify-center  dsk:justify-center">
-      <div className="container mb-[5px]  mt-[120px] flex flex-col md:mt-[160px] dsk:mb-[60px]">
+      <div className="container mb-[5px]  mt-[120px] flex flex-col md:mt-[160px] dsk:mb-[20px]">
         {!!name && (
           <p className="text-section-title mb-[10px] md:mb-[20px]">
             {name ?? ''}

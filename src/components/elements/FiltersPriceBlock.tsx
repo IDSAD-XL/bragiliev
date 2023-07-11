@@ -4,6 +4,7 @@ import Select, {
   ISelectVariant,
   ISelectVariantDependence,
 } from './Select'
+import PriceList from './PriceList'
 
 export interface IPriceItem {
   id: number
@@ -35,9 +36,7 @@ const FiltersPriceBlock: React.FC<IFiltersPriceBlock> = ({
     ISelectVariant[]
   >(selects[1].variants)
 
-  const [filteredPrice, setFilteredPrice] = useState<IPriceItem[] | null>(
-    services
-  )
+  const [filteredPrice, setFilteredPrice] = useState<IPriceItem>(services[0])
 
   const changePart = (val: ISelectVariant) => {
     setActivePart(val)
@@ -81,8 +80,9 @@ const FiltersPriceBlock: React.FC<IFiltersPriceBlock> = ({
       if (filter) {
         result = services.filter(filter)
       } else {
-        result = services
+        result = services[0]
       }
+
       return result
     },
     [services]
@@ -102,18 +102,18 @@ const FiltersPriceBlock: React.FC<IFiltersPriceBlock> = ({
 
     setFilteredOperations(filteredOperations)
 
-    const filteredSlides = filter(activePart?.id, activeOperation?.id)
+    const filteredItem = filter(activePart?.id, activeOperation?.id)
 
-    if (filteredSlides) {
-      setFilteredPrice(filteredSlides?.length > 0 ? filteredSlides : null)
+    if (filteredItem) {
+      setFilteredPrice(filteredPrice)
     }
-  }, [activePart, activeOperation, selects, filter])
+  }, [activePart, activeOperation, selects, filter, filteredPrice])
 
   return (
     <div
       className={`text-dark flex w-full justify-center bg-white text-left dsk:justify-center`}
     >
-      <div className="container pb-[60px] md:pb-[90px] dsk:pb-[120px] dsk:pt-[90px]">
+      <div className="container pb-[60px] md:pb-[90px] dsk:pb-[120px]">
         <div className="z-10 grid w-full grid-cols-1 gap-x-[20px] dsk:grid-cols-4">
           <div>
             <Select
@@ -121,6 +121,10 @@ const FiltersPriceBlock: React.FC<IFiltersPriceBlock> = ({
               placeholder={selects[0].placeholder}
               onChange={changePart}
               value={activePart}
+              background="bg-white"
+              textColor="#26262B"
+              hoverBg="hover:bg-gray-50"
+              border="border-x border-b border-half-white"
             />
           </div>
           <div>
@@ -129,15 +133,19 @@ const FiltersPriceBlock: React.FC<IFiltersPriceBlock> = ({
               placeholder={selects[1].placeholder}
               onChange={changeOperation}
               value={activeOperation}
+              background="bg-white"
+              textColor="#26262B"
+              hoverBg="hover:bg-gray-50"
+              border="border-x border-b border-half-white"
             />
           </div>
           <div className="hidden dsk:block"></div>
           <div className="button1 mt-[20px] flex h-[80px] items-center justify-center dsk:mt-[0px]">
-            <span className="link-plus no-underline">оставить отзыв</span>
+            <span className="link-plus no-underline">запись на прием</span>
           </div>
         </div>
         <div className="dsk:none mt-[30px] dsk:mt-[60px]">
-          {/* <ResultsReviews slides={filteredRevies} /> */}
+          <PriceList list={filteredPrice} />
         </div>
       </div>
     </div>
