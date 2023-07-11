@@ -7,7 +7,7 @@ import RegForm from '../components/elements/RegForm'
 
 interface IReviews extends IReviewsContent {}
 
-const Services: React.FC<IReviews> = ({
+const Reviews: React.FC<IReviews> = ({
   infoBlock,
   filtersReviewsBlock,
   regFormBlock,
@@ -21,4 +21,4 @@ const Services: React.FC<IReviews> = ({
   )
 }
 
-export default Services
+export default Reviews

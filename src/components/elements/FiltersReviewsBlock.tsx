@@ -116,6 +116,10 @@ const FiltersReviewsBlock: React.FC<IFiltersReviewsBlock> = ({
               placeholder={selects[0].placeholder}
               onChange={changePart}
               value={activePart}
+              background="bg-white"
+              textColor="#26262B"
+              hoverBg="hover:bg-gray-50"
+              border="border-x border-b border-half-white"
             />
           </div>
           <div>
@@ -124,6 +128,10 @@ const FiltersReviewsBlock: React.FC<IFiltersReviewsBlock> = ({
               placeholder={selects[1].placeholder}
               onChange={changeOperation}
               value={activeOperation}
+              background="bg-white"
+              textColor="#26262B"
+              hoverBg="hover:bg-gray-50"
+              border="border-x border-b border-half-white"
             />
           </div>
           <div className="hidden dsk:block"></div>
