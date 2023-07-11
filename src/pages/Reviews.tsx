@@ -1,24 +1,24 @@
 import React from 'react'
 import Layout from '../components/layout/Layout'
 import TitleBlock from '../components/elements/TitleBlock'
-import { IServicesContent } from '../types/content/ServicesPage'
-import TabsInfo from '../components/elements/TabsInfo'
+import FiltersReviewsBlock from '../components/elements/FiltersReviewsBlock'
+import { IReviewsContent } from '../types/content/ReviewsPage'
 import RegForm from '../components/elements/RegForm'
 
-interface IServices extends IServicesContent {}
+interface IReviews extends IReviewsContent {}
 
-const Services: React.FC<IServices> = ({
+const Reviews: React.FC<IReviews> = ({
   infoBlock,
-  servicesBlock,
+  filtersReviewsBlock,
   regFormBlock,
 }) => {
   return (
     <Layout background="white" textColor="#26262B">
       <TitleBlock name={infoBlock.name} title={infoBlock.title} />
-      <TabsInfo {...servicesBlock} />
+      <FiltersReviewsBlock {...filtersReviewsBlock} />
       <RegForm {...regFormBlock} />
     </Layout>
   )
 }
 
-export default Services
+export default Reviews

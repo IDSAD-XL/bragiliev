@@ -26,7 +26,7 @@ const Main: React.FC<IMain> = ({
   regFormBlock,
 }) => {
   return (
-    <Layout>
+    <Layout background="transparent" textColor="white">
       <PageHead {...pageHead}>
         <p
           className="mt-[20px] text-light-gray md:mt-[17px] dsk:mt-[31px]"
