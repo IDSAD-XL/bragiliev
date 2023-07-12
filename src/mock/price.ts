@@ -29,7 +29,7 @@ export const priceContent: IPricePageContent = {
         variants: [
           {
             id: 1,
-            name: 'Лицо 1',
+            name: 'Ринопластика',
             dependencies: [
               {
                 id: 1,
@@ -39,7 +39,7 @@ export const priceContent: IPricePageContent = {
           },
           {
             id: 2,
-            name: 'Лицо 2',
+            name: 'Ринопластика 2',
             dependencies: [
               {
                 id: 1,
@@ -49,7 +49,7 @@ export const priceContent: IPricePageContent = {
           },
           {
             id: 3,
-            name: 'Лицо 3',
+            name: 'Ринопластика 3',
             dependencies: [
               {
                 id: 1,
@@ -59,7 +59,7 @@ export const priceContent: IPricePageContent = {
           },
           {
             id: 4,
-            name: 'Лицо 4',
+            name: 'Ринопластика 4',
             dependencies: [
               {
                 id: 1,
@@ -69,7 +69,7 @@ export const priceContent: IPricePageContent = {
           },
           {
             id: 5,
-            name: 'Лицо 5',
+            name: 'Ринопластика 5',
             dependencies: [
               {
                 id: 1,
@@ -79,7 +79,7 @@ export const priceContent: IPricePageContent = {
           },
           {
             id: 6,
-            name: 'Грудь 1',
+            name: 'Грудь',
             dependencies: [
               {
                 id: 2,
@@ -109,7 +109,7 @@ export const priceContent: IPricePageContent = {
           },
           {
             id: 9,
-            name: 'Тело 1',
+            name: 'Тело',
             dependencies: [
               {
                 id: 3,
@@ -184,7 +184,7 @@ export const priceContent: IPricePageContent = {
       },
       {
         id: 2,
-        title: 'Ринопластика',
+        title: 'Ринопластика 2',
         prices: [
           {
             id: 1,
@@ -238,14 +238,14 @@ export const priceContent: IPricePageContent = {
             key: 'part',
           },
           {
-            id: 1,
+            id: 2,
             key: 'operation',
           },
         ],
       },
       {
         id: 3,
-        title: 'Ринопластика',
+        title: 'Ринопластика 3',
         prices: [
           {
             id: 1,
@@ -299,14 +299,14 @@ export const priceContent: IPricePageContent = {
             key: 'part',
           },
           {
-            id: 1,
+            id: 3,
             key: 'operation',
           },
         ],
       },
       {
         id: 4,
-        title: 'Ринопластика',
+        title: 'Ринопластика 4',
         prices: [
           {
             id: 1,
@@ -356,18 +356,18 @@ export const priceContent: IPricePageContent = {
         ],
         dependencies: [
           {
-            id: 2,
+            id: 1,
             key: 'part',
           },
           {
-            id: 6,
+            id: 4,
             key: 'operation',
           },
         ],
       },
       {
         id: 5,
-        title: 'Ринопластика',
+        title: 'Ринопластика 5',
         prices: [
           {
             id: 1,
@@ -417,18 +417,18 @@ export const priceContent: IPricePageContent = {
         ],
         dependencies: [
           {
-            id: 2,
+            id: 1,
             key: 'part',
           },
           {
-            id: 6,
+            id: 5,
             key: 'operation',
           },
         ],
       },
       {
         id: 6,
-        title: 'Ринопластика',
+        title: 'Грудь',
         prices: [
           {
             id: 1,
@@ -478,18 +478,18 @@ export const priceContent: IPricePageContent = {
         ],
         dependencies: [
           {
-            id: 1,
+            id: 2,
             key: 'part',
           },
           {
-            id: 2,
+            id: 6,
             key: 'operation',
           },
         ],
       },
       {
         id: 7,
-        title: 'Ринопластика',
+        title: 'Грудь 2',
         prices: [
           {
             id: 1,
@@ -539,18 +539,18 @@ export const priceContent: IPricePageContent = {
         ],
         dependencies: [
           {
-            id: 1,
+            id: 2,
             key: 'part',
           },
           {
-            id: 2,
+            id: 7,
             key: 'operation',
           },
         ],
       },
       {
         id: 8,
-        title: 'Ринопластика',
+        title: 'Грудь 3',
         prices: [
           {
             id: 1,
@@ -600,11 +600,72 @@ export const priceContent: IPricePageContent = {
         ],
         dependencies: [
           {
-            id: 1,
+            id: 2,
             key: 'part',
           },
           {
+            id: 8,
+            key: 'operation',
+          },
+        ],
+      },
+      {
+        id: 9,
+        title: 'Тело',
+        prices: [
+          {
+            id: 1,
+            subtitle: 'Пластика крыльев носа',
+            price: '45 000',
+          },
+          {
             id: 2,
+            subtitle: 'Реконструкция носа',
+            price: '200 000',
+          },
+          {
+            id: 3,
+            subtitle: 'Пластика носа с костным этапом',
+            price: '65 000',
+          },
+          {
+            id: 4,
+            subtitle: 'Пластика кончика носа',
+            price: '80 000',
+          },
+          {
+            id: 5,
+            subtitle: 'Повторная ринопластика',
+            price: '150 000',
+          },
+          {
+            id: 6,
+            subtitle: 'Септопластика',
+            price: '200 000',
+          },
+          {
+            id: 7,
+            subtitle: 'Реконструкция носовой перегородки',
+            price: '65 500',
+          },
+          {
+            id: 8,
+            subtitle: 'Полипэктомия',
+            price: '80 000',
+          },
+          {
+            id: 9,
+            subtitle: 'Лечение храпа / увулопалатофарингопластика',
+            price: '150 000',
+          },
+        ],
+        dependencies: [
+          {
+            id: 3,
+            key: 'part',
+          },
+          {
+            id: 9,
             key: 'operation',
           },
         ],
