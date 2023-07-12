@@ -6,8 +6,6 @@ export interface IPriceList {
 }
 
 const PriceList: React.FC<IPriceList> = ({ list }) => {
-  console.log(list)
-
   return (
     <div>
       <h4 className="mb-[2px] text-3xl md:text-5xl dsk:mb-[20px]">

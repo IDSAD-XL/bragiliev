@@ -46,6 +46,7 @@ const FiltersPriceBlock: React.FC<IFiltersPriceBlock> = ({
   const changeOperation = useCallback(
     (val: ISelectVariant) => {
       const findDep = val?.dependencies?.find(({ key }) => key === 'part')
+
       if (findDep) {
         if (activePart?.id !== findDep.id) {
           const findValue = selects[0].variants.find(
@@ -61,24 +62,19 @@ const FiltersPriceBlock: React.FC<IFiltersPriceBlock> = ({
 
   const filter = useCallback(
     (part: number | null | undefined, operation: number | null | undefined) => {
-      let filter, result
+      let result, filter
+
       if (part && operation) {
-        filter = (item: IPriceItem) => {
-          return (
-            item.dependencies.find((dep) => dep.key === 'operation')?.id ===
-            operation
-          )
-        }
+        filter = (item: IPriceItem) =>
+          item.dependencies.find((dep) => dep.key === 'operation')?.id ===
+          operation
       } else if (part) {
-        filter = (item: IPriceItem) => {
-          return (
-            item.dependencies.find((dep) => dep.key === 'part')?.id === part
-          )
-        }
+        filter = (item: IPriceItem) =>
+          item.dependencies.find((dep) => dep.key === 'part')?.id === part
       }
 
       if (filter) {
-        result = services.filter(filter)
+        result = services.filter(filter)[0]
       } else {
         result = services[0]
       }
@@ -105,9 +101,9 @@ const FiltersPriceBlock: React.FC<IFiltersPriceBlock> = ({
     const filteredItem = filter(activePart?.id, activeOperation?.id)
 
     if (filteredItem) {
-      setFilteredPrice(filteredPrice)
+      setFilteredPrice(filteredItem)
     }
-  }, [activePart, activeOperation, selects, filter, filteredPrice])
+  }, [activePart, activeOperation, selects, filter])
 
   return (
     <div
