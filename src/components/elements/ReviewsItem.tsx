@@ -19,7 +19,7 @@ const ReviewsItem: React.FC<IReviewsItem> = ({
   image,
 }) => {
   return (
-    <div className="group flex aspect-[300/385] w-[365px] max-w-[412px] flex-col border-1 border-light-gray bg-light-gray pb-[60px] pl-[30px] pr-[31px] pt-[40px] transition-[background] hover:border-[#D6D6D6] hover:bg-white md:aspect-[365/482] md:pt-[60px] dsk:aspect-[412/590] dsk:w-full dsk:pb-[154px] dsk:pl-[40px] dsk:pt-[160px]">
+    <div className="group flex aspect-[300/385] w-[300px] max-w-[412px] flex-col border-1 border-light-gray bg-light-gray pb-[60px] pl-[30px] pr-[31px] pt-[40px] transition-[background] hover:border-[#D6D6D6] hover:bg-white md:aspect-[365/482] md:w-[365px] md:pt-[60px] dsk:aspect-[412/590] dsk:w-full dsk:pb-[154px] dsk:pl-[40px] dsk:pt-[160px]">
       <p className="font-[Inter] text-[12px] leading-[18px] md:text-[18px] dsk:text-[12px]">
         {date}
       </p>

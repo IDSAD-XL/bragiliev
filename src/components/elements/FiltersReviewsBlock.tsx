@@ -4,42 +4,23 @@ import Select, {
   ISelectVariant,
   ISelectVariantDependence,
 } from './Select'
-import 'swiper/css'
-import 'swiper/css/navigation'
-import 'swiper/css/scrollbar'
-import ResultsSlider from './ResultsSlider'
-import Link from 'next/link'
-import { useRouter } from 'next/router'
+import ResultsReviews from './ResultsReviews'
+import { IReviewsItem } from './ReviewsItem'
 
-export interface IResultsSlides {
-  id: number
-  title: string
-  subtitle?: string
-  images: {
-    before1: string
-    before2: string
-    after1: string
-    after2: string
-  }
+export interface IReviewsFiltesItem extends IReviewsItem {
   dependencies: ISelectVariantDependence[]
 }
 
-export interface IResultsContent {
-  name: string
-  title: string
+export interface IFiltersReviewsBlockContent {
   selects: ISelectContent[]
-  results: IResultsSlides[]
-  link: string
+  slides: IReviewsFiltesItem[]
 }
 
-export interface IResults extends IResultsContent {}
+export interface IFiltersReviewsBlock extends IFiltersReviewsBlockContent {}
 
-const Results: React.FC<IResults> = ({
-  name,
-  title,
+const FiltersReviewsBlock: React.FC<IFiltersReviewsBlock> = ({
   selects = [],
-  results,
-  link,
+  slides,
 }) => {
   const [activePart, setActivePart] = useState<ISelectVariant | null>(null)
   const [activeOperation, setActiveOperation] = useState<ISelectVariant | null>(
@@ -49,11 +30,9 @@ const Results: React.FC<IResults> = ({
     ISelectVariant[]
   >(selects[1].variants)
 
-  const [filteredResults, setFilteredResults] = useState<
-    IResultsSlides[] | null
-  >(results)
-
-  const router = useRouter()
+  const [filteredRevies, setFilteredResults] = useState<
+    IReviewsFiltesItem[] | null
+  >(slides)
 
   const changePart = (val: ISelectVariant) => {
     setActivePart(val)
@@ -80,14 +59,14 @@ const Results: React.FC<IResults> = ({
     (part: number | null | undefined, operation: number | null | undefined) => {
       let filter, result
       if (part && operation) {
-        filter = (item: IResultsSlides) => {
+        filter = (item: IReviewsFiltesItem) => {
           return (
             item.dependencies.find((dep) => dep.key === 'operation')?.id ===
             operation
           )
         }
       } else if (part) {
-        filter = (item: IResultsSlides) => {
+        filter = (item: IReviewsFiltesItem) => {
           return (
             item.dependencies.find((dep) => dep.key === 'part')?.id === part
           )
@@ -95,22 +74,14 @@ const Results: React.FC<IResults> = ({
       }
 
       if (filter) {
-        result = results.filter(filter)
+        result = slides.filter(filter)
       } else {
-        result = results
+        result = slides
       }
       return result
     },
-    [results]
+    [slides]
   )
-
-  function isResultPage(): boolean {
-    if (router.pathname === '/results') {
-      return true
-    } else {
-      return false
-    }
-  }
 
   useEffect(() => {
     let filteredOperations
@@ -135,25 +106,20 @@ const Results: React.FC<IResults> = ({
 
   return (
     <div
-      className={`flex w-full justify-center bg-dark text-left text-white dsk:justify-center`}
+      className={`text-dark flex w-full justify-center bg-white text-left dsk:justify-center`}
     >
-      <div
-        className={`container pb-[60px] pt-[60px] md:pb-[90px] dsk:pb-[120px] dsk:pt-[90px]
-          ${isResultPage() ? 'mt-[60px] md:mt-[100px]' : 'mt-[0px]'}`}
-      >
-        <p className="text-section-title">{name}</p>
-        <p className="title2 mt-[20px]">{title}</p>
-        <div className="z-10 grid w-full grid-cols-1 gap-x-[20px] lg:grid-cols-2 dsk:grid-cols-4">
+      <div className="container pb-[60px] md:pb-[90px] dsk:pb-[120px] dsk:pt-[90px]">
+        <div className="z-10 grid w-full grid-cols-1 gap-x-[20px] dsk:grid-cols-4">
           <div>
             <Select
               variants={selects[0].variants}
               placeholder={selects[0].placeholder}
               onChange={changePart}
               value={activePart}
-              background="bg-dark"
-              textColor="white"
-              hoverBg="hover:bg-dark-hover"
-              border="border-none"
+              background="bg-white"
+              textColor="#26262B"
+              hoverBg="hover:bg-gray-50"
+              border="border-x border-b border-half-white"
             />
           </div>
           <div>
@@ -162,38 +128,23 @@ const Results: React.FC<IResults> = ({
               placeholder={selects[1].placeholder}
               onChange={changeOperation}
               value={activeOperation}
-              background="bg-dark"
-              textColor="white"
-              hoverBg="hover:bg-dark-hover"
-              border="border-none"
+              background="bg-white"
+              textColor="#26262B"
+              hoverBg="hover:bg-gray-50"
+              border="border-x border-b border-half-white"
             />
           </div>
           <div className="hidden dsk:block"></div>
-          <div className="hidden dsk:block">
-            <Link
-              href={link ?? '#'}
-              className="button1 flex h-[80px] items-center justify-center"
-            >
-              <span className="link-plus no-underline">Все кейсы</span>
-            </Link>
+          <div className="button1 mt-[20px] flex h-[80px] items-center justify-center dsk:mt-[0px]">
+            <span className="link-plus no-underline">оставить отзыв</span>
           </div>
         </div>
-        <div className="mt-[30px] dsk:mt-[27px]">
-          <ResultsSlider slides={filteredResults} />
-        </div>
-        <div className="mt-[30px] flex justify-center md:mt-[60px] dsk:hidden">
-          <div>
-            <Link
-              className="button1 flex h-[60px] w-[300px] items-center justify-center md:h-[80px]"
-              href={link ?? '#'}
-            >
-              <span className="link-plus no-underline">Все кейсы</span>
-            </Link>
-          </div>
+        <div className="dsk:none mt-[30px] dsk:mt-[60px]">
+          <ResultsReviews slides={filteredRevies} />
         </div>
       </div>
     </div>
   )
 }
 
-export default Results
+export default FiltersReviewsBlock
