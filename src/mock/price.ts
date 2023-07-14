@@ -1,6 +1,11 @@
-import { IPricePageContent } from '../types/content/PricePage'
+import { IPricePageContent } from '../types/content/pages/PricePage'
 
 export const priceContent: IPricePageContent = {
+  layout: {
+    header: {
+      variant: 'light',
+    },
+  },
   titleBlock: {
     name: '[ прайс ]',
     title: 'Стоимость',

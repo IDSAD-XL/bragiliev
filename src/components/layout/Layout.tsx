@@ -1,22 +1,17 @@
 import React from 'react'
 import Header, { IHeader } from './Header'
-import type { ReactNode } from '../../types/ReactNode'
 import Footer from './Footer'
 import Menu from './Menu'
 import { headerContent } from '../../mock/layout'
 
-interface ILayout extends IHeader {
-  children: ReactNode
+export interface ILayout {
+  header: IHeader
 }
 
-const Layout: React.FC<ILayout> = ({ children, background, textColor }) => {
+const Layout: React.FC<ILayout> = ({ children, header }) => {
   return (
     <React.Fragment>
-      <Header
-        background={background}
-        textColor={textColor}
-        items={headerContent.items}
-      />
+      <Header items={headerContent.items} {...header} />
       <Menu />
       <div className="h-full flex-1">{children}</div>
       <Footer />

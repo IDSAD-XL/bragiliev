@@ -1,6 +1,11 @@
-import { IServicesContent } from '../types/content/ServicesPage'
+import { IServicesContent } from '../types/content/pages/ServicesPage'
 
 export const servicesContent: IServicesContent = {
+  layout: {
+    header: {
+      variant: 'light',
+    },
+  },
   infoBlock: {
     name: '[ операции ]',
     title: 'Услуги',

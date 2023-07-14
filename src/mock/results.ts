@@ -1,6 +1,11 @@
-import { IResultsPageContent } from '../types/content/ResultsPage'
+import { IResultsPageContent } from '../types/content/pages/ResultsPage'
 
 export const resultsContent: IResultsPageContent = {
+  layout: {
+    header: {
+      variant: 'dark',
+    },
+  },
   resultsBlock: {
     name: '[ кейсы ]',
     title: 'До/После',

@@ -2,18 +2,19 @@ import React from 'react'
 import Layout from '../components/layout/Layout'
 import TitleBlock from '../components/elements/TitleBlock'
 import FiltersReviewsBlock from '../components/elements/FiltersReviewsBlock'
-import { IReviewsContent } from '../types/content/ReviewsPage'
+import { IReviewsContent } from '../types/content/pages/ReviewsPage'
 import RegForm from '../components/elements/RegForm'
 
 interface IReviews extends IReviewsContent {}
 
-const Reviews: React.FC<IReviews> = ({
+const ReviewsPage: React.FC<IReviews> = ({
+  layout,
   infoBlock,
   filtersReviewsBlock,
   regFormBlock,
 }) => {
   return (
-    <Layout background="white" textColor="#26262B">
+    <Layout {...layout}>
       <TitleBlock name={infoBlock.name} title={infoBlock.title} />
       <FiltersReviewsBlock {...filtersReviewsBlock} />
       <RegForm {...regFormBlock} />
@@ -21,4 +22,4 @@ const Reviews: React.FC<IReviews> = ({
   )
 }
 
-export default Reviews
+export default ReviewsPage
