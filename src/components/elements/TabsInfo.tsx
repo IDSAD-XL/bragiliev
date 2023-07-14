@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-import { useRouter } from 'next/router'
 import Image from 'next/image'
 import { Tab } from '@headlessui/react'
 import Accordion, { IAccordionContent } from './Accordion'
@@ -9,14 +8,20 @@ interface ITabInfoItem {
   content: IAccordionContent[]
 }
 
-export interface ITabsInfo {
+export interface ITabsInfoContent {
   tabs?: ITabInfoItem[]
 }
 
-const TabsInfo: React.FC<ITabsInfo> = ({ tabs }) => {
+export interface ITabsInfo extends ITabsInfoContent {
+  spacing: 'big' | 'small'
+}
+
+const TabsInfo: React.FC<ITabsInfo> = ({ tabs, spacing }) => {
+  const spacingStyle =
+    spacing === 'big' ? 'pt-[60px] dsk:pt-[90px]' : 'pt-[0px]'
+
   const [openTab, setOpenTab] = useState<number | null>(null)
   const [imagePath, setImagePath] = useState<string>('/assets/main-image-1.png')
-  const router = useRouter()
 
   const setImageByIndex = (tabIdx: number, itemIdx: number) => {
     if (tabs) {
@@ -25,21 +30,11 @@ const TabsInfo: React.FC<ITabsInfo> = ({ tabs }) => {
     }
   }
 
-  function isHeadBlock(): boolean {
-    if (router.pathname !== '/services') {
-      return true
-    } else {
-      return false
-    }
-  }
-
   return (
     <div className="relative flex w-full flex-col items-center md:h-auto dsk:h-[1130px]">
       <div className="flex-cols-2 container dsk:h-[900px]">
         <div
-          className={`flex-[100%] flex-shrink-0 flex-grow-0 dsk:flex-[50%] ${
-            isHeadBlock() ? 'pt-[60px] dsk:pt-[90px]' : 'pt-[0px]'
-          }`}
+          className={`flex-[100%] flex-shrink-0 flex-grow-0 dsk:flex-[50%] ${spacingStyle}`}
         >
           <Tab.Group
             onChange={() => {

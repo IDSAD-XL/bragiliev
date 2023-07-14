@@ -1,9 +1,9 @@
 import React from 'react'
-import Price from '../src/pages/PricePage'
+import PricePage from '../src/pages/PricePage'
 import { priceContent } from '../src/mock/price'
 
-const PricePage: React.FC = () => {
-  return <Price {...priceContent} />
+const PriceNextPage: React.FC = () => {
+  return <PricePage {...priceContent} />
 }
 
-export default PricePage
+export default PriceNextPage

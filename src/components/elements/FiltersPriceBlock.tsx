@@ -117,10 +117,7 @@ const FiltersPriceBlock: React.FC<IFiltersPriceBlock> = ({
               placeholder={selects[0].placeholder}
               onChange={changePart}
               value={activePart}
-              background="bg-white"
-              textColor="#26262B"
-              hoverBg="hover:bg-gray-50"
-              border="border-x border-b border-half-white"
+              variant={'light'}
             />
           </div>
           <div>
@@ -129,10 +126,7 @@ const FiltersPriceBlock: React.FC<IFiltersPriceBlock> = ({
               placeholder={selects[1].placeholder}
               onChange={changeOperation}
               value={activeOperation}
-              background="bg-white"
-              textColor="#26262B"
-              hoverBg="hover:bg-gray-50"
-              border="border-x border-b border-half-white"
+              variant={'light'}
             />
           </div>
           <div className="hidden dsk:block"></div>

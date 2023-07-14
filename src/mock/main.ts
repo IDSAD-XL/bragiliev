@@ -1,6 +1,11 @@
-import { IMainContent } from '../types/content/MainPage'
+import { IMainContent } from '../types/content/pages/MainPage'
 
 export const mainContent: IMainContent = {
+  layout: {
+    header: {
+      variant: 'transparent',
+    },
+  },
   pageHead: {
     title: `<b class="font-[700]">Брагилев</b> <br> Вадим <br> Алексеевич`,
     name: '[ Пластический хирург ]',

@@ -2,7 +2,7 @@ import React from 'react'
 import Layout from '../components/layout/Layout'
 import PageHead from '../components/elements/PageHead'
 import InfoBlock from '../components/elements/InfoBlock'
-import { IMainContent } from '../types/content/MainPage'
+import { IMainContent } from '../types/content/pages/MainPage'
 import TabsInfo from '../components/elements/TabsInfo'
 import Results from '../components/elements/Results'
 import ReviewsBlock from '../components/elements/ReviewsBlock'
@@ -15,7 +15,8 @@ import RegForm from '../components/elements/RegForm'
 
 interface IMain extends IMainContent {}
 
-const Main: React.FC<IMain> = ({
+const MainPage: React.FC<IMain> = ({
+  layout,
   pageHead,
   infoBlock,
   servicesBlock,
@@ -26,7 +27,7 @@ const Main: React.FC<IMain> = ({
   regFormBlock,
 }) => {
   return (
-    <Layout background="transparent" textColor="white">
+    <Layout {...layout}>
       <PageHead {...pageHead}>
         <p
           className="mt-[20px] text-light-gray md:mt-[17px] dsk:mt-[31px]"
@@ -54,8 +55,8 @@ const Main: React.FC<IMain> = ({
           )
         })}
       </InfoBlock>
-      <TabsInfo {...servicesBlock} />
-      <Results {...resultsBlock} />
+      <TabsInfo {...servicesBlock} spacing={'big'} />
+      <Results {...resultsBlock} spacing={'small'} />
       <ReviewsBlock {...reviewsBlock} />
       <InfoBlockWithImage {...aboutBlock}>
         <div className="gap-y[45px] hidden flex-grow justify-end gap-x-[75px] md:flex md:flex-col dsk:flex-grow-0 dsk:flex-row dsk:flex-nowrap dsk:justify-start">
@@ -88,4 +89,4 @@ const Main: React.FC<IMain> = ({
   )
 }
 
-export default Main
+export default MainPage

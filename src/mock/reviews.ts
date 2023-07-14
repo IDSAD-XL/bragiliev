@@ -1,6 +1,11 @@
-import { IReviewsContent } from '../types/content/ReviewsPage'
+import { IReviewsContent } from '../types/content/pages/ReviewsPage'
 
 export const reviewsContent: IReviewsContent = {
+  layout: {
+    header: {
+      variant: 'light',
+    },
+  },
   infoBlock: {
     name: '[ обратная связь ]',
     title: 'Отзывы',

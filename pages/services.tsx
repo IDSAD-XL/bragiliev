@@ -1,9 +1,9 @@
 import React from 'react'
-import Services from '../src/pages/Services'
+import ServicesPage from '../src/pages/ServicesPage'
 import { servicesContent } from '../src/mock/services'
 
-const ServicesPage: React.FC = () => {
-  return <Services {...servicesContent} />
+const ServicesNextPage: React.FC = () => {
+  return <ServicesPage {...servicesContent} />
 }
 
-export default ServicesPage
+export default ServicesNextPage

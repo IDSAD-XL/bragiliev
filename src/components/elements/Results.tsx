@@ -9,7 +9,6 @@ import 'swiper/css/navigation'
 import 'swiper/css/scrollbar'
 import ResultsSlider from './ResultsSlider'
 import Link from 'next/link'
-import { useRouter } from 'next/router'
 
 export interface IResultsSlides {
   id: number
@@ -32,7 +31,9 @@ export interface IResultsContent {
   link: string
 }
 
-export interface IResults extends IResultsContent {}
+export interface IResults extends IResultsContent {
+  spacing: 'big' | 'small'
+}
 
 const Results: React.FC<IResults> = ({
   name,
@@ -40,7 +41,10 @@ const Results: React.FC<IResults> = ({
   selects = [],
   results,
   link,
+  spacing,
 }) => {
+  const spacingStyle = spacing === 'big' ? 'mt-[60px] md:mt-[100px]' : 'mt-0'
+
   const [activePart, setActivePart] = useState<ISelectVariant | null>(null)
   const [activeOperation, setActiveOperation] = useState<ISelectVariant | null>(
     null
@@ -52,8 +56,6 @@ const Results: React.FC<IResults> = ({
   const [filteredResults, setFilteredResults] = useState<
     IResultsSlides[] | null
   >(results)
-
-  const router = useRouter()
 
   const changePart = (val: ISelectVariant) => {
     setActivePart(val)
@@ -104,14 +106,6 @@ const Results: React.FC<IResults> = ({
     [results]
   )
 
-  function isResultPage(): boolean {
-    if (router.pathname === '/results') {
-      return true
-    } else {
-      return false
-    }
-  }
-
   useEffect(() => {
     let filteredOperations
     if (activePart === null) {
@@ -138,8 +132,7 @@ const Results: React.FC<IResults> = ({
       className={`flex w-full justify-center bg-dark text-left text-white dsk:justify-center`}
     >
       <div
-        className={`container pb-[60px] pt-[60px] md:pb-[90px] dsk:pb-[120px] dsk:pt-[90px]
-          ${isResultPage() ? 'mt-[60px] md:mt-[100px]' : 'mt-[0px]'}`}
+        className={`container pb-[60px] pt-[60px] md:pb-[90px] dsk:pb-[120px] dsk:pt-[90px] ${spacingStyle}`}
       >
         <p className="text-section-title">{name}</p>
         <p className="title2 mt-[20px]">{title}</p>
@@ -150,10 +143,7 @@ const Results: React.FC<IResults> = ({
               placeholder={selects[0].placeholder}
               onChange={changePart}
               value={activePart}
-              background="bg-dark"
-              textColor="white"
-              hoverBg="hover:bg-dark-hover"
-              border="border-none"
+              variant={'dark'}
             />
           </div>
           <div>
@@ -162,10 +152,7 @@ const Results: React.FC<IResults> = ({
               placeholder={selects[1].placeholder}
               onChange={changeOperation}
               value={activeOperation}
-              background="bg-dark"
-              textColor="white"
-              hoverBg="hover:bg-dark-hover"
-              border="border-none"
+              variant={'dark'}
             />
           </div>
           <div className="hidden dsk:block"></div>
