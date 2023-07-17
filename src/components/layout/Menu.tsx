@@ -39,7 +39,7 @@ const Menu: React.FC = () => {
           <Link href="/reviews" onClick={linkHandler} className="link-menu">
             Отзывы
           </Link>
-          <Link href="/" className="link-menu">
+          <Link href="/price" className="link-menu">
             Стоимость
           </Link>
           <Link href="/" className="link-menu">

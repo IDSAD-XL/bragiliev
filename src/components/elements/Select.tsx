@@ -1,15 +1,10 @@
 import React from 'react'
 import { Listbox } from '@headlessui/react'
+import { ItemWithDependencies } from '../../types/elements/ItemsWithDependecies'
 
-export interface ISelectVariantDependence {
-  id: number
-  key: 'part' | 'operation'
-}
-
-export interface ISelectVariant {
-  id: number
-  name: string
-  dependencies?: ISelectVariantDependence[]
+export interface ISelectVariant extends ItemWithDependencies {
+  id: string
+  value: string
 }
 
 export interface ISelectContent {
@@ -65,7 +60,7 @@ const Select: React.FC<ISelect> = ({
     <Listbox value={value} onChange={handleChange}>
       <div className="relative">
         <Listbox.Button className="text-regular z-10 flex h-[80px] w-full items-center justify-between border-b-1 border-half-white pl-[18px] text-left md:!text-[21px] dsk:!text-[14px]">
-          <span>{value ? value.name : placeholder}</span>
+          <span>{value ? value.value : placeholder}</span>
           <span className="transition-transform ui-open:rotate-180">
             <svg
               width="19"
@@ -92,7 +87,7 @@ const Select: React.FC<ISelect> = ({
                 value={variant}
                 className={`flex h-[60px] w-full cursor-pointer items-center pl-[18px] ${styles.background} ${styles.hoverBg}`}
               >
-                {variant.name}
+                {variant.value}
               </Listbox.Option>
             ))}
         </Listbox.Options>
