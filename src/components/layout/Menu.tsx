@@ -1,14 +1,17 @@
 import Link from 'next/link'
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useAppDispatch, useAppSelector } from '../../hooks/redux'
 import { closeMenu } from '../../redux/Actions/appActions'
+import { useRouter } from 'next/router'
 
 const Menu: React.FC = () => {
+  const router = useRouter()
   const { menuOpen } = useAppSelector((state) => state.appSlice)
   const dispatch = useAppDispatch()
-  const linkHandler = () => {
+
+  useEffect(() => {
     dispatch(closeMenu)
-  }
+  }, [router.route])
 
   return (
     <menu
@@ -20,14 +23,10 @@ const Menu: React.FC = () => {
     >
       <div className="menu__body mt-[100px] flex flex-col justify-center pt-[62px]">
         <div className="menu__items flex flex-col justify-center gap-[30px] text-center">
-          <Link
-            href="/ServicesPage"
-            onClick={linkHandler}
-            className="link-menu"
-          >
+          <Link href="/ServicesPage" className="link-menu">
             Услуги
           </Link>
-          <Link href="/results" onClick={linkHandler} className="link-menu">
+          <Link href="/results" className="link-menu">
             До/после
           </Link>
           <Link href="/" className="link-menu">
@@ -36,7 +35,7 @@ const Menu: React.FC = () => {
           <Link href="/" className="link-menu">
             О клинике
           </Link>
-          <Link href="/reviews" onClick={linkHandler} className="link-menu">
+          <Link href="/reviews" className="link-menu">
             Отзывы
           </Link>
           <Link href="/price" className="link-menu">
