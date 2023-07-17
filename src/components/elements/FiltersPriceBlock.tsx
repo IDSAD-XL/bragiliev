@@ -1,20 +1,16 @@
-import React, { useCallback, useEffect, useState } from 'react'
-import Select, {
-  ISelectContent,
-  ISelectVariant,
-  ISelectVariantDependence,
-} from './Select'
+import React from 'react'
+import Select, { ISelectContent } from './Select'
 import PriceList from './PriceList'
+import { useResultSlides } from '../../hooks/useResultSlides'
+import { ItemWithDependencies } from '../../types/elements/ItemsWithDependecies'
 
-export interface IPriceItem {
-  id: number
+export interface IPriceItem extends ItemWithDependencies {
   title: string
   prices: Array<{
     id: number
     subtitle: string
     price: string
   }>
-  dependencies: ISelectVariantDependence[]
 }
 
 export interface IFiltersPriceBlockContent {
@@ -28,82 +24,14 @@ const FiltersPriceBlock: React.FC<IFiltersPriceBlock> = ({
   selects = [],
   services,
 }) => {
-  const [activePart, setActivePart] = useState<ISelectVariant | null>(null)
-  const [activeOperation, setActiveOperation] = useState<ISelectVariant | null>(
-    null
-  )
-  const [filteredOperations, setFilteredOperations] = useState<
-    ISelectVariant[]
-  >(selects[1].variants)
-
-  const [filteredPrice, setFilteredPrice] = useState<IPriceItem>(services[0])
-
-  const changePart = (val: ISelectVariant) => {
-    setActivePart(val)
-    setActiveOperation(null)
-  }
-
-  const changeOperation = useCallback(
-    (val: ISelectVariant) => {
-      const findDep = val?.dependencies?.find(({ key }) => key === 'part')
-
-      if (findDep) {
-        if (activePart?.id !== findDep.id) {
-          const findValue = selects[0].variants.find(
-            ({ id }) => id === findDep.id
-          )
-          if (findValue) setActivePart(findValue)
-        }
-      }
-      setActiveOperation(val)
-    },
-    [activePart, selects]
-  )
-
-  const filter = useCallback(
-    (part: number | null | undefined, operation: number | null | undefined) => {
-      let result, filter
-
-      if (part && operation) {
-        filter = (item: IPriceItem) =>
-          item.dependencies.find((dep) => dep.key === 'operation')?.id ===
-          operation
-      } else if (part) {
-        filter = (item: IPriceItem) =>
-          item.dependencies.find((dep) => dep.key === 'part')?.id === part
-      }
-
-      if (filter) {
-        result = services.filter(filter)[0]
-      } else {
-        result = services[0]
-      }
-
-      return result
-    },
-    [services]
-  )
-
-  useEffect(() => {
-    let filteredOperations
-    if (activePart === null) {
-      filteredOperations = selects[1].variants
-    } else {
-      filteredOperations = selects[1].variants.filter((variant) =>
-        variant.dependencies?.some(
-          (dep) => dep.key === 'part' && dep.id === activePart.id
-        )
-      )
-    }
-
-    setFilteredOperations(filteredOperations)
-
-    const filteredItem = filter(activePart?.id, activeOperation?.id)
-
-    if (filteredItem) {
-      setFilteredPrice(filteredItem)
-    }
-  }, [activePart, activeOperation, selects, filter])
+  const {
+    activePart,
+    activeOperation,
+    filteredOperations,
+    filteredResults,
+    changePart,
+    changeOperation,
+  } = useResultSlides(selects, services)
 
   return (
     <div
@@ -134,9 +62,11 @@ const FiltersPriceBlock: React.FC<IFiltersPriceBlock> = ({
             <span className="link-plus no-underline">запись на прием</span>
           </div>
         </div>
-        <div className="dsk:none mt-[30px] dsk:mt-[60px]">
-          <PriceList list={filteredPrice} />
-        </div>
+        {filteredResults.map((item, index) => (
+          <div key={index} className="mt-[30px] dsk:mt-[60px]">
+            <PriceList list={item} />
+          </div>
+        ))}
       </div>
     </div>
   )

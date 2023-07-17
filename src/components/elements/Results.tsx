@@ -1,17 +1,15 @@
-import React, { useCallback, useEffect, useState } from 'react'
-import Select, {
-  ISelectContent,
-  ISelectVariant,
-  ISelectVariantDependence,
-} from './Select'
+import React from 'react'
+import Select, { ISelectContent } from './Select'
 import 'swiper/css'
 import 'swiper/css/navigation'
 import 'swiper/css/scrollbar'
 import ResultsSlider from './ResultsSlider'
 import Link from 'next/link'
+import { ItemWithDependencies } from '../../types/elements/ItemsWithDependecies'
+import { useResultSlides } from '../../hooks/useResultSlides'
 
-export interface IResultsSlides {
-  id: number
+export interface IResultsSlides extends ItemWithDependencies {
+  id: string
   title: string
   subtitle?: string
   images: {
@@ -20,7 +18,6 @@ export interface IResultsSlides {
     after1: string
     after2: string
   }
-  dependencies: ISelectVariantDependence[]
 }
 
 export interface IResultsContent {
@@ -45,87 +42,14 @@ const Results: React.FC<IResults> = ({
 }) => {
   const spacingStyle = spacing === 'big' ? 'mt-[60px] md:mt-[100px]' : 'mt-0'
 
-  const [activePart, setActivePart] = useState<ISelectVariant | null>(null)
-  const [activeOperation, setActiveOperation] = useState<ISelectVariant | null>(
-    null
-  )
-  const [filteredOperations, setFilteredOperations] = useState<
-    ISelectVariant[]
-  >(selects[1].variants)
-
-  const [filteredResults, setFilteredResults] = useState<
-    IResultsSlides[] | null
-  >(results)
-
-  const changePart = (val: ISelectVariant) => {
-    setActivePart(val)
-    setActiveOperation(null)
-  }
-
-  const changeOperation = useCallback(
-    (val: ISelectVariant) => {
-      const findDep = val?.dependencies?.find(({ key }) => key === 'part')
-      if (findDep) {
-        if (activePart?.id !== findDep.id) {
-          const findValue = selects[0].variants.find(
-            ({ id }) => id === findDep.id
-          )
-          if (findValue) setActivePart(findValue)
-        }
-      }
-      setActiveOperation(val)
-    },
-    [activePart, selects]
-  )
-
-  const filter = useCallback(
-    (part: number | null | undefined, operation: number | null | undefined) => {
-      let filter, result
-      if (part && operation) {
-        filter = (item: IResultsSlides) => {
-          return (
-            item.dependencies.find((dep) => dep.key === 'operation')?.id ===
-            operation
-          )
-        }
-      } else if (part) {
-        filter = (item: IResultsSlides) => {
-          return (
-            item.dependencies.find((dep) => dep.key === 'part')?.id === part
-          )
-        }
-      }
-
-      if (filter) {
-        result = results.filter(filter)
-      } else {
-        result = results
-      }
-      return result
-    },
-    [results]
-  )
-
-  useEffect(() => {
-    let filteredOperations
-    if (activePart === null) {
-      filteredOperations = selects[1].variants
-    } else {
-      filteredOperations = selects[1].variants.filter((variant) =>
-        variant.dependencies?.some(
-          (dep) => dep.key === 'part' && dep.id === activePart.id
-        )
-      )
-    }
-
-    setFilteredOperations(filteredOperations)
-
-    const filteredSlides = filter(activePart?.id, activeOperation?.id)
-
-    if (filteredSlides) {
-      setFilteredResults(filteredSlides?.length > 0 ? filteredSlides : null)
-    }
-  }, [activePart, activeOperation, selects, filter])
+  const {
+    activePart,
+    activeOperation,
+    filteredOperations,
+    filteredResults,
+    changePart,
+    changeOperation,
+  } = useResultSlides(selects, results)
 
   return (
     <div

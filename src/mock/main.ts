@@ -174,16 +174,16 @@ export const mainContent: IMainContent = {
         placeholder: 'Часть тела',
         variants: [
           {
-            id: 1,
-            name: 'Лицо',
+            id: '1',
+            value: 'Лицо',
           },
           {
-            id: 2,
-            name: 'Грудь',
+            id: '2',
+            value: 'Грудь',
           },
           {
-            id: 3,
-            name: 'Тело',
+            id: '3',
+            value: 'Тело',
           },
         ],
       },
@@ -191,91 +191,91 @@ export const mainContent: IMainContent = {
         placeholder: 'Операция',
         variants: [
           {
-            id: 1,
-            name: 'Лицо 1',
+            id: '1',
+            value: 'Лицо 1',
             dependencies: [
               {
-                id: 1,
+                id: '1',
                 key: 'part',
               },
             ],
           },
           {
-            id: 2,
-            name: 'Лицо 2',
+            id: '2',
+            value: 'Лицо 2',
             dependencies: [
               {
-                id: 1,
+                id: '1',
                 key: 'part',
               },
             ],
           },
           {
-            id: 3,
-            name: 'Лицо 3',
+            id: '3',
+            value: 'Лицо 3',
             dependencies: [
               {
-                id: 1,
+                id: '1',
                 key: 'part',
               },
             ],
           },
           {
-            id: 4,
-            name: 'Лицо 4',
+            id: '4',
+            value: 'Лицо 4',
             dependencies: [
               {
-                id: 1,
+                id: '1',
                 key: 'part',
               },
             ],
           },
           {
-            id: 5,
-            name: 'Лицо 5',
+            id: '5',
+            value: 'Лицо 5',
             dependencies: [
               {
-                id: 1,
+                id: '1',
                 key: 'part',
               },
             ],
           },
           {
-            id: 6,
-            name: 'Грудь 1',
+            id: '6',
+            value: 'Грудь 1',
             dependencies: [
               {
-                id: 2,
+                id: '2',
                 key: 'part',
               },
             ],
           },
           {
-            id: 7,
-            name: 'Грудь 2',
+            id: '7',
+            value: 'Грудь 2',
             dependencies: [
               {
-                id: 2,
+                id: '2',
                 key: 'part',
               },
             ],
           },
           {
-            id: 8,
-            name: 'Грудь 3',
+            id: '8',
+            value: 'Грудь 3',
             dependencies: [
               {
-                id: 2,
+                id: '2',
                 key: 'part',
               },
             ],
           },
           {
-            id: 9,
-            name: 'Тело 1',
+            id: '9',
+            value: 'Тело 1',
             dependencies: [
               {
-                id: 3,
+                id: '3',
                 key: 'part',
               },
             ],
@@ -285,7 +285,7 @@ export const mainContent: IMainContent = {
     ],
     results: [
       {
-        id: 1,
+        id: '1',
         title: 'Ринопластика 1',
         subtitle: 'Закрытая хранящая риносептопластика, 1 год после операции',
         images: {
@@ -296,17 +296,17 @@ export const mainContent: IMainContent = {
         },
         dependencies: [
           {
-            id: 1,
+            id: '1',
             key: 'part',
           },
           {
-            id: 1,
+            id: '1',
             key: 'operation',
           },
         ],
       },
       {
-        id: 2,
+        id: '2',
         title: 'Ринопластика 2',
         subtitle: 'Закрытая хранящая риносептопластика, 1 год после операции',
         images: {
@@ -317,17 +317,17 @@ export const mainContent: IMainContent = {
         },
         dependencies: [
           {
-            id: 1,
+            id: '1',
             key: 'part',
           },
           {
-            id: 1,
+            id: '1',
             key: 'operation',
           },
         ],
       },
       {
-        id: 3,
+        id: '3',
         title: 'Ринопластика 3',
         subtitle: 'Закрытая хранящая риносептопластика, 1 год после операции',
         images: {
@@ -338,17 +338,17 @@ export const mainContent: IMainContent = {
         },
         dependencies: [
           {
-            id: 1,
+            id: '1',
             key: 'part',
           },
           {
-            id: 1,
+            id: '1',
             key: 'operation',
           },
         ],
       },
       {
-        id: 4,
+        id: '4',
         title: 'Операция 2',
         subtitle: 'Закрытая хранящая риносептопластика, 1 год после операции',
         images: {
@@ -359,17 +359,17 @@ export const mainContent: IMainContent = {
         },
         dependencies: [
           {
-            id: 2,
+            id: '2',
             key: 'part',
           },
           {
-            id: 6,
+            id: '6',
             key: 'operation',
           },
         ],
       },
       {
-        id: 5,
+        id: '5',
         title: 'Операция 3',
         subtitle: 'Закрытая хранящая риносептопластика, 1 год после операции',
         images: {
@@ -380,17 +380,17 @@ export const mainContent: IMainContent = {
         },
         dependencies: [
           {
-            id: 2,
+            id: '2',
             key: 'part',
           },
           {
-            id: 6,
+            id: '6',
             key: 'operation',
           },
         ],
       },
       {
-        id: 6,
+        id: '6',
         title: 'Операция лицо 2 (1)',
         subtitle: 'Закрытая хранящая риносептопластика, 1 год после операции',
         images: {
@@ -401,17 +401,17 @@ export const mainContent: IMainContent = {
         },
         dependencies: [
           {
-            id: 1,
+            id: '1',
             key: 'part',
           },
           {
-            id: 2,
+            id: '2',
             key: 'operation',
           },
         ],
       },
       {
-        id: 7,
+        id: '7',
         title: 'Операция лицо 2 (2)',
         subtitle: 'Закрытая хранящая риносептопластика, 1 год после операции',
         images: {
@@ -422,17 +422,17 @@ export const mainContent: IMainContent = {
         },
         dependencies: [
           {
-            id: 1,
+            id: '1',
             key: 'part',
           },
           {
-            id: 2,
+            id: '2',
             key: 'operation',
           },
         ],
       },
       {
-        id: 8,
+        id: '8',
         title: 'Операция лицо 2 (3)',
         subtitle: 'Закрытая хранящая риносептопластика, 1 год после операции',
         images: {
@@ -443,11 +443,11 @@ export const mainContent: IMainContent = {
         },
         dependencies: [
           {
-            id: 1,
+            id: '1',
             key: 'part',
           },
           {
-            id: 2,
+            id: '2',
             key: 'operation',
           },
         ],
@@ -461,7 +461,7 @@ export const mainContent: IMainContent = {
     link: '/',
     slides: [
       {
-        id: 1,
+        id: '1',
         date: '[ 01/12/22 ]',
         name: 'Анастасия Макеева',
         content:
@@ -470,7 +470,7 @@ export const mainContent: IMainContent = {
         image: '/assets/review-icon.png',
       },
       {
-        id: 2,
+        id: '2',
         date: '[ 01/12/22 ]',
         name: 'Анастасия Макеева',
         content:
@@ -479,7 +479,7 @@ export const mainContent: IMainContent = {
         image: '/assets/review-icon.png',
       },
       {
-        id: 3,
+        id: '3',
         date: '[ 01/12/22 ]',
         name: 'Анастасия Макеева',
         content:
@@ -488,7 +488,7 @@ export const mainContent: IMainContent = {
         image: '/assets/review-icon.png',
       },
       {
-        id: 4,
+        id: '4',
         date: '[ 01/12/22 ]',
         name: 'Анастасия Макеева',
         content:
@@ -497,7 +497,7 @@ export const mainContent: IMainContent = {
         image: '/assets/review-icon.png',
       },
       {
-        id: 5,
+        id: '5',
         date: '[ 01/12/22 ]',
         name: 'Анастасия Макеева',
         content:
@@ -506,7 +506,7 @@ export const mainContent: IMainContent = {
         image: '/assets/review-icon.png',
       },
       {
-        id: 6,
+        id: '6',
         date: '[ 01/12/22 ]',
         name: 'Анастасия Макеева',
         content:

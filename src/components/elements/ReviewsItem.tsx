@@ -3,7 +3,7 @@ import Link from 'next/link'
 import Image from 'next/image'
 
 export interface IReviewsItem {
-  id: number
+  id: string
   date: string
   name: string
   content: string

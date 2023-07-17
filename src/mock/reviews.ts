@@ -16,16 +16,16 @@ export const reviewsContent: IReviewsContent = {
         placeholder: 'Часть тела',
         variants: [
           {
-            id: 1,
-            name: 'Лицо',
+            id: '1',
+            value: 'Лицо',
           },
           {
-            id: 2,
-            name: 'Грудь',
+            id: '2',
+            value: 'Грудь',
           },
           {
-            id: 3,
-            name: 'Тело',
+            id: '3',
+            value: 'Тело',
           },
         ],
       },
@@ -33,91 +33,91 @@ export const reviewsContent: IReviewsContent = {
         placeholder: 'Операция',
         variants: [
           {
-            id: 1,
-            name: 'Лицо 1',
+            id: '1',
+            value: 'Лицо 1',
             dependencies: [
               {
-                id: 1,
+                id: '1',
                 key: 'part',
               },
             ],
           },
           {
-            id: 2,
-            name: 'Лицо 2',
+            id: '2',
+            value: 'Лицо 2',
             dependencies: [
               {
-                id: 1,
+                id: '1',
                 key: 'part',
               },
             ],
           },
           {
-            id: 3,
-            name: 'Лицо 3',
+            id: '3',
+            value: 'Лицо 3',
             dependencies: [
               {
-                id: 1,
+                id: '1',
                 key: 'part',
               },
             ],
           },
           {
-            id: 4,
-            name: 'Лицо 4',
+            id: '4',
+            value: 'Лицо 4',
             dependencies: [
               {
-                id: 1,
+                id: '1',
                 key: 'part',
               },
             ],
           },
           {
-            id: 5,
-            name: 'Лицо 5',
+            id: '5',
+            value: 'Лицо 5',
             dependencies: [
               {
-                id: 1,
+                id: '1',
                 key: 'part',
               },
             ],
           },
           {
-            id: 6,
-            name: 'Грудь 1',
+            id: '6',
+            value: 'Грудь 1',
             dependencies: [
               {
-                id: 2,
+                id: '2',
                 key: 'part',
               },
             ],
           },
           {
-            id: 7,
-            name: 'Грудь 2',
+            id: '7',
+            value: 'Грудь 2',
             dependencies: [
               {
-                id: 2,
+                id: '2',
                 key: 'part',
               },
             ],
           },
           {
-            id: 8,
-            name: 'Грудь 3',
+            id: '8',
+            value: 'Грудь 3',
             dependencies: [
               {
-                id: 2,
+                id: '2',
                 key: 'part',
               },
             ],
           },
           {
-            id: 9,
-            name: 'Тело 1',
+            id: '9',
+            value: 'Тело 1',
             dependencies: [
               {
-                id: 3,
+                id: '3',
                 key: 'part',
               },
             ],
@@ -127,7 +127,7 @@ export const reviewsContent: IReviewsContent = {
     ],
     slides: [
       {
-        id: 1,
+        id: '1',
         date: '[ 01/12/22 ]',
         name: 'Анастасия Макеева',
         content:
@@ -136,17 +136,17 @@ export const reviewsContent: IReviewsContent = {
         image: '/assets/review-icon.png',
         dependencies: [
           {
-            id: 1,
+            id: '1',
             key: 'part',
           },
           {
-            id: 1,
+            id: '1',
             key: 'operation',
           },
         ],
       },
       {
-        id: 2,
+        id: '2',
         date: '[ 01/12/22 ]',
         name: 'Анастасия Макеева',
         content:
@@ -155,17 +155,17 @@ export const reviewsContent: IReviewsContent = {
         image: '/assets/review-icon.png',
         dependencies: [
           {
-            id: 1,
+            id: '1',
             key: 'part',
           },
           {
-            id: 1,
+            id: '1',
             key: 'operation',
           },
         ],
       },
       {
-        id: 3,
+        id: '3',
         date: '[ 01/12/22 ]',
         name: 'Анастасия Макеева',
         content:
@@ -174,17 +174,17 @@ export const reviewsContent: IReviewsContent = {
         image: '/assets/review-icon.png',
         dependencies: [
           {
-            id: 1,
+            id: '1',
             key: 'part',
           },
           {
-            id: 1,
+            id: '1',
             key: 'operation',
           },
         ],
       },
       {
-        id: 4,
+        id: '4',
         date: '[ 01/12/22 ]',
         name: 'Анастасия Макеева',
         content:
@@ -193,17 +193,17 @@ export const reviewsContent: IReviewsContent = {
         image: '/assets/review-icon.png',
         dependencies: [
           {
-            id: 1,
+            id: '1',
             key: 'part',
           },
           {
-            id: 1,
+            id: '1',
             key: 'operation',
           },
         ],
       },
       {
-        id: 5,
+        id: '5',
         date: '[ 01/12/22 ]',
         name: 'Анастасия Макеева',
         content:
@@ -212,17 +212,17 @@ export const reviewsContent: IReviewsContent = {
         image: '/assets/review-icon.png',
         dependencies: [
           {
-            id: 1,
+            id: '1',
             key: 'part',
           },
           {
-            id: 1,
+            id: '1',
             key: 'operation',
           },
         ],
       },
       {
-        id: 6,
+        id: '6',
         date: '[ 01/12/22 ]',
         name: 'Анастасия Макеева',
         content:
@@ -231,17 +231,17 @@ export const reviewsContent: IReviewsContent = {
         image: '/assets/review-icon.png',
         dependencies: [
           {
-            id: 1,
+            id: '1',
             key: 'part',
           },
           {
-            id: 1,
+            id: '1',
             key: 'operation',
           },
         ],
       },
       {
-        id: 7,
+        id: '7',
         date: '[ 01/12/22 ]',
         name: 'Анастасия Макеева',
         content:
@@ -250,17 +250,17 @@ export const reviewsContent: IReviewsContent = {
         image: '/assets/review-icon.png',
         dependencies: [
           {
-            id: 1,
+            id: '1',
             key: 'part',
           },
           {
-            id: 1,
+            id: '1',
             key: 'operation',
           },
         ],
       },
       {
-        id: 8,
+        id: '8',
         date: '[ 01/12/22 ]',
         name: 'Анастасия Макеева',
         content:
@@ -269,17 +269,17 @@ export const reviewsContent: IReviewsContent = {
         image: '/assets/review-icon.png',
         dependencies: [
           {
-            id: 1,
+            id: '1',
             key: 'part',
           },
           {
-            id: 1,
+            id: '1',
             key: 'operation',
           },
         ],
       },
       {
-        id: 9,
+        id: '9',
         date: '[ 01/12/22 ]',
         name: 'Анастасия Макеева',
         content:
@@ -288,17 +288,17 @@ export const reviewsContent: IReviewsContent = {
         image: '/assets/review-icon.png',
         dependencies: [
           {
-            id: 1,
+            id: '1',
             key: 'part',
           },
           {
-            id: 1,
+            id: '2',
             key: 'operation',
           },
         ],
       },
       {
-        id: 10,
+        id: '10',
         date: '[ 01/12/22 ]',
         name: 'Анастасия Макеева',
         content:
@@ -307,17 +307,17 @@ export const reviewsContent: IReviewsContent = {
         image: '/assets/review-icon.png',
         dependencies: [
           {
-            id: 1,
+            id: '1',
             key: 'part',
           },
           {
-            id: 1,
+            id: '2',
             key: 'operation',
           },
         ],
       },
       {
-        id: 11,
+        id: '11',
         date: '[ 01/12/22 ]',
         name: 'Анастасия Макеева',
         content:
@@ -326,17 +326,17 @@ export const reviewsContent: IReviewsContent = {
         image: '/assets/review-icon.png',
         dependencies: [
           {
-            id: 1,
+            id: '1',
             key: 'part',
           },
           {
-            id: 1,
+            id: '2',
             key: 'operation',
           },
         ],
       },
       {
-        id: 12,
+        id: '12',
         date: '[ 01/12/22 ]',
         name: 'Анастасия Макеева',
         content:
@@ -345,11 +345,11 @@ export const reviewsContent: IReviewsContent = {
         image: '/assets/review-icon.png',
         dependencies: [
           {
-            id: 1,
+            id: '1',
             key: 'part',
           },
           {
-            id: 1,
+            id: '2',
             key: 'operation',
           },
         ],
