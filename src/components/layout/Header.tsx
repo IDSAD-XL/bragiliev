@@ -13,15 +13,33 @@ export interface IHeaderContent {
   }>
 }
 
-export type HeaderBg = 'transparent' | 'white' | '#26262B'
-export type HeaderTextColor = 'white' | '#26262B'
-
 export interface IHeader extends IHeaderContent {
-  background: HeaderBg
-  textColor: HeaderTextColor
+  variant: 'dark' | 'light' | 'transparent'
 }
 
-const Header: React.FC<IHeader> = ({ items, background, textColor }) => {
+interface headerVariantSettings {
+  background: string
+  textColor: string
+}
+
+const headerVariants: Record<IHeader['variant'], headerVariantSettings> = {
+  dark: {
+    background: 'bg-dark-gray',
+    textColor: 'text-white',
+  },
+  light: {
+    background: 'bg-white',
+    textColor: 'text-dark-gray',
+  },
+  transparent: {
+    background: 'bg-transparent',
+    textColor: 'text-white',
+  },
+}
+
+const Header: React.FC<IHeader> = ({ items, variant }) => {
+  const styles = headerVariants[variant]
+
   const { menuOpen } = useAppSelector((state) => state.appSlice)
 
   const [haveBg, setHaveBg] = useState<boolean>(false)
@@ -47,7 +65,9 @@ const Header: React.FC<IHeader> = ({ items, background, textColor }) => {
   return (
     <React.Fragment>
       <header
-        className={`bg-[${background}] header fixed z-20 flex h-[60px] w-full border-b-1 border-half-gray text-${textColor} md:h-[100px] ${
+        className={`${styles.background} ${
+          styles.textColor
+        } header fixed z-20 flex h-[60px] w-full border-b-1 border-half-gray md:h-[100px] ${
           debouncedValueBg ? 'header--have-bg' : ''
         } ${menuOpen ? 'header--menu-open' : 'header--menu-closed'}`}
       >
@@ -62,7 +82,7 @@ const Header: React.FC<IHeader> = ({ items, background, textColor }) => {
               return (
                 <Link
                   key={idx}
-                  className="header__item header__item--hover  relative hidden border-l-1 border-half-gray dsk:flex"
+                  className="header__item header__item--hover relative hidden border-l-1 border-half-gray dsk:flex"
                   href={item.link ?? '#'}
                 >
                   <span className="text-regular">{item.name}</span>
