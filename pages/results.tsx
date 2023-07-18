@@ -1,9 +1,9 @@
 import React from 'react'
-import Results from '../src/pages/ResultsPage'
+import ResultsPage from '../src/pages/ResultsPage'
 import { resultsContent } from '../src/mock/results'
 
-const ResultsPage: React.FC = () => {
-  return <Results {...resultsContent} />
+const ResultsNextPage: React.FC = () => {
+  return <ResultsPage {...resultsContent} />
 }
 
-export default ResultsPage
+export default ResultsNextPage

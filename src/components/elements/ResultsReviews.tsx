@@ -6,26 +6,29 @@ export interface IResultReviews {
 }
 
 const ResultsReviews: React.FC<IResultReviews> = ({ slides }) => {
-  const [filteredReviews] = useState<IReviewsItem[] | null>(slides)
   const [itemsToShow, setItemsToShow] = useState<number>(1)
-  const [currnetNumber, setCurrnetNumber] = useState<number>(1)
 
   function showMore(): void {
-    if (currnetNumber >= slides?.length) return
+    if (!slides) return
+    if (itemsToShow >= slides?.length) return
 
-    setCurrnetNumber(currnetNumber + itemsToShow)
+    setItemsToShow((prev) => prev + 6)
   }
 
   useEffect(() => {
     if (window.innerWidth > 1350) {
-      setCurrnetNumber(6)
       setItemsToShow(6)
     }
   }, [])
+
+  useEffect(() => {
+    setItemsToShow(6)
+  }, [])
+
   return (
     <div>
       <div className="mx-auto grid grid-cols-1 gap-[20px] dsk:w-[1276px] dsk:grid-cols-3">
-        {filteredReviews?.slice(0, currnetNumber).map((item) => {
+        {slides?.slice(0, itemsToShow).map((item) => {
           return (
             <div
               key={item.id}
@@ -43,7 +46,7 @@ const ResultsReviews: React.FC<IResultReviews> = ({ slides }) => {
           )
         })}
       </div>
-      {!(currnetNumber >= slides.length) && (
+      {!(slides && itemsToShow >= slides.length) && (
         <div
           onClick={showMore}
           className="mt-[30px] flex justify-center md:mt-[60px]"

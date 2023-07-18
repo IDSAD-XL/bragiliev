@@ -1,9 +1,9 @@
 import React from 'react'
-import Reviews from '../src/pages/Reviews'
+import ReviewsPage from '../src/pages/ReviewsPage'
 import { reviewsContent } from '../src/mock/reviews'
 
-const ReviewsPage: React.FC = () => {
-  return <Reviews {...reviewsContent} />
+const ReviewsNextPage: React.FC = () => {
+  return <ReviewsPage {...reviewsContent} />
 }
 
-export default ReviewsPage
+export default ReviewsNextPage
