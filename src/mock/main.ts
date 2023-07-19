@@ -4,9 +4,11 @@ export const mainContent: IMainContent = {
   layout: {
     header: {
       variant: 'transparent',
+      transparencyAtTop: true,
     },
   },
   pageHead: {
+    variant: 'main',
     title: `<b class="font-[700]">Брагилев</b> <br> Вадим <br> Алексеевич`,
     name: '[ Пластический хирург ]',
     image: '/assets/main-bg.jpg',

@@ -16,7 +16,7 @@ const ServicesPage: React.FC<IServices> = ({
   return (
     <Layout {...layout}>
       <TitleBlock name={infoBlock.name} title={infoBlock.title} />
-      <TabsInfo {...servicesBlock} spacing={'small'} />
+      <TabsInfo {...servicesBlock} spacing={'small'} variant={'halfScreen'} />
       <RegForm {...regFormBlock} />
     </Layout>
   )
