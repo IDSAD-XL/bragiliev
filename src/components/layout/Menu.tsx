@@ -11,7 +11,7 @@ const Menu: React.FC = () => {
 
   useEffect(() => {
     dispatch(closeMenu)
-  }, [router.route])
+  }, [router.route, dispatch])
 
   return (
     <menu

@@ -15,6 +15,7 @@ export interface IHeaderContent {
 
 export interface IHeader extends IHeaderContent {
   variant: 'dark' | 'light' | 'transparent'
+  transparencyAtTop?: boolean
 }
 
 interface headerVariantSettings {
@@ -37,12 +38,16 @@ const headerVariants: Record<IHeader['variant'], headerVariantSettings> = {
   },
 }
 
-const Header: React.FC<IHeader> = ({ items, variant }) => {
+const Header: React.FC<IHeader> = ({
+  items,
+  variant,
+  transparencyAtTop = false,
+}) => {
   const styles = headerVariants[variant]
 
   const { menuOpen } = useAppSelector((state) => state.appSlice)
 
-  const [haveBg, setHaveBg] = useState<boolean>(false)
+  const [haveBg, setHaveBg] = useState<boolean>(!transparencyAtTop)
 
   const debouncedValueBg = useDebounce<boolean>(haveBg, 50)
 
@@ -55,12 +60,13 @@ const Header: React.FC<IHeader> = ({ items, variant }) => {
   }
 
   useEffect(() => {
+    if (!transparencyAtTop) return
     handleScroll()
     window.addEventListener('scroll', handleScroll)
     return () => {
       window.removeEventListener('scroll', handleScroll)
     }
-  }, [debouncedValueBg])
+  }, [debouncedValueBg, transparencyAtTop])
 
   return (
     <React.Fragment>

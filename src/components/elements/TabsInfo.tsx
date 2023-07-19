@@ -2,26 +2,81 @@ import React, { useState } from 'react'
 import Image from 'next/image'
 import { Tab } from '@headlessui/react'
 import Accordion, { IAccordionContent } from './Accordion'
+import Select, { ISelectVariant } from './Select'
 
 interface ITabInfoItem {
-  title?: string
+  title: string
   content: IAccordionContent[]
 }
 
 export interface ITabsInfoContent {
   tabs?: ITabInfoItem[]
+  sectionName?: string
 }
 
 export interface ITabsInfo extends ITabsInfoContent {
   spacing: 'big' | 'small'
+  variant: 'halfScreen' | 'fullScreen'
 }
 
-const TabsInfo: React.FC<ITabsInfo> = ({ tabs, spacing }) => {
-  const spacingStyle =
-    spacing === 'big' ? 'pt-[60px] dsk:pt-[90px]' : 'pt-[0px]'
+interface tabsSettings {
+  wrapperOuter: string
+  wrapperInner: string
+  container: string
+  tabsClasses: string
+  panelSpacing: string
+  mobileDropdown: boolean
+}
 
+const tabsStylesVariant: Record<ITabsInfo['variant'], tabsSettings> = {
+  halfScreen: {
+    wrapperOuter: 'md:h-auto dsk:h-[1130px]',
+    wrapperInner: 'dsk:h-[900px]',
+    container: 'flex-[100%] flex-shrink-0 flex-grow-0 dsk:flex-[50%]',
+    mobileDropdown: false,
+    tabsClasses: 'flex w-full',
+    panelSpacing: 'mt-[72px] h-full overflow-auto',
+  },
+  fullScreen: {
+    wrapperOuter: '',
+    wrapperInner: '',
+    container: 'flex-[100%] flex-shrink-0 flex-grow-0',
+    mobileDropdown: true,
+    tabsClasses: 'lg:flex w-full hidden',
+    panelSpacing: 'mt-[33px] h-full overflow-auto',
+  },
+}
+
+interface ITabsSelectVariants extends ISelectVariant, ITabInfoItem {}
+
+const TabsInfo: React.FC<ITabsInfo> = ({
+  tabs,
+  spacing,
+  sectionName,
+  variant = 'halfScreen',
+}) => {
+  const spacingStyle =
+    spacing === 'big' || variant === 'halfScreen'
+      ? 'pt-[60px] dsk:pt-[90px]'
+      : 'pt-[0px]'
+
+  const styles = tabsStylesVariant[variant]
+
+  const [openPanel, setOpenPanel] = useState<number>(0)
   const [openTab, setOpenTab] = useState<number | null>(null)
   const [imagePath, setImagePath] = useState<string>('/assets/main-image-1.png')
+
+  const tabsWithIds = (): ITabsSelectVariants[] => {
+    if (!tabs) return []
+    return tabs.map((item, index) => {
+      return {
+        id: index.toString(),
+        value: item.title,
+        title: item.title,
+        content: item.content,
+      }
+    })
+  }
 
   const setImageByIndex = (tabIdx: number, itemIdx: number) => {
     if (tabs) {
@@ -31,18 +86,38 @@ const TabsInfo: React.FC<ITabsInfo> = ({ tabs, spacing }) => {
   }
 
   return (
-    <div className="relative flex w-full flex-col items-center md:h-auto dsk:h-[1130px]">
-      <div className="flex-cols-2 container dsk:h-[900px]">
-        <div
-          className={`flex-[100%] flex-shrink-0 flex-grow-0 dsk:flex-[50%] ${spacingStyle}`}
-        >
+    <div
+      className={`relative flex w-full flex-col items-center ${styles.wrapperOuter}`}
+    >
+      <div className={`flex-cols-2 container ${styles.wrapperInner}`}>
+        <div className={`${styles.container} ${spacingStyle}`}>
+          {tabs && styles.mobileDropdown && (
+            <div className="lg:hidden">
+              <Select
+                value={
+                  {
+                    id: openPanel.toString(),
+                    value: tabs[openPanel].title,
+                  } as ISelectVariant
+                }
+                variant={'light'}
+                variants={tabsWithIds()}
+                onChange={(val) => {
+                  setOpenTab(null)
+                  setOpenPanel(parseInt(val.id))
+                }}
+              />
+            </div>
+          )}
           <Tab.Group
-            onChange={() => {
+            selectedIndex={openPanel}
+            onChange={(val) => {
               setOpenTab(null)
+              setOpenPanel(val)
             }}
           >
-            <Tab.List className="flex w-full">
-              {tabs?.map((item, index) => {
+            <Tab.List className={`${styles.tabsClasses}`}>
+              {tabsWithIds()?.map((item, index) => {
                 return (
                   <Tab
                     key={index}
@@ -55,7 +130,13 @@ const TabsInfo: React.FC<ITabsInfo> = ({ tabs, spacing }) => {
                 )
               })}
             </Tab.List>
-            <Tab.Panels className="mt-[72px] h-full overflow-auto">
+            <div className="mt-[40px] lg:mt-[60px]">
+              {sectionName && (
+                <p className="text-section-title mb-[20px]">{sectionName}</p>
+              )}
+              <p className="title2">{tabsWithIds()[openPanel].title}</p>
+            </div>
+            <Tab.Panels className={styles.panelSpacing}>
               {tabs?.map((item, idx) => {
                 return (
                   <Tab.Panel key={idx}>
@@ -74,7 +155,9 @@ const TabsInfo: React.FC<ITabsInfo> = ({ tabs, spacing }) => {
                             open={openTab === index}
                             onClick={() => {
                               setOpenTab(index)
-                              setImageByIndex(idx, index)
+                              if (variant === 'halfScreen') {
+                                setImageByIndex(idx, index)
+                              }
                             }}
                           />
                         </div>
@@ -88,17 +171,19 @@ const TabsInfo: React.FC<ITabsInfo> = ({ tabs, spacing }) => {
         </div>
         <div className="flex-[50%] flex-grow-0"></div>
       </div>
-      <div className="flex-cols-2 relative -z-10 !hidden h-auto w-full dsk:absolute dsk:!flex dsk:h-full">
-        <div className="flex-grow-1 flex-[100%] flex-shrink-0 dsk:flex-[50%]"></div>
-        <div className="relative flex aspect-square flex-[100%] flex-grow-0 overflow-hidden dsk:aspect-auto dsk:flex-[50%]">
-          <Image
-            className="object-cover object-center"
-            src={imagePath}
-            fill={true}
-            alt={''}
-          />
+      {variant === 'halfScreen' && (
+        <div className="flex-cols-2 relative -z-10 !hidden h-auto w-full dsk:absolute dsk:!flex dsk:h-full">
+          <div className="flex-grow-1 flex-[100%] flex-shrink-0 dsk:flex-[50%]"></div>
+          <div className="relative flex aspect-square flex-[100%] flex-grow-0 overflow-hidden dsk:aspect-auto dsk:flex-[50%]">
+            <Image
+              className="object-cover object-center"
+              src={imagePath}
+              fill={true}
+              alt={''}
+            />
+          </div>
         </div>
-      </div>
+      )}
     </div>
   )
 }

@@ -1,6 +1,7 @@
 import React from 'react'
 import { type ReactNode } from '../../types/ReactNode'
 import Image from 'next/image'
+import Link from 'next/link'
 
 export interface IPageHead {
   name?: string
@@ -8,6 +9,20 @@ export interface IPageHead {
   image?: string
   imageMobile?: string
   children?: ReactNode
+  variant: 'main' | 'simple'
+}
+
+interface pageHeadSettings {
+  title: string
+}
+
+const pageHeadStyles: Record<IPageHead['variant'], pageHeadSettings> = {
+  main: {
+    title: 'uppercase md:normal-case dsk:uppercase',
+  },
+  simple: {
+    title: 'font-[600] title2',
+  },
 }
 
 const PageHead: React.FC<IPageHead> = ({
@@ -16,7 +31,10 @@ const PageHead: React.FC<IPageHead> = ({
   image = '',
   imageMobile,
   children,
+  variant = 'simple',
 }) => {
+  const styles = pageHeadStyles[variant]
+
   return (
     <div className="relative flex h-screen w-full justify-start md:justify-center">
       <Image
@@ -38,8 +56,20 @@ const PageHead: React.FC<IPageHead> = ({
         />
       )}
       <div className="flex-cols-2 container">
-        <div className="hidden flex-[50%] flex-shrink-0 flex-grow-0 dsk:flex"></div>
-        <div className="flex flex-[50%] flex-col justify-end pb-[56px] text-white md:pb-[93px] dsk:justify-center dsk:pb-0">
+        {variant === 'main' && (
+          <div className="hidden flex-[50%] flex-shrink-0 flex-grow-0 dsk:flex"></div>
+        )}
+        <div className="flex flex-[50%] flex-col justify-end pb-[56px] text-white md:pb-[93px] lg:flex-grow-0 dsk:justify-center dsk:pb-0">
+          {variant === 'simple' && (
+            <div className="absolute top-[160px]">
+              <Link
+                href="#"
+                className="link-hover-effect font-[Inter] uppercase"
+              >
+                ← Назад к услугам
+              </Link>
+            </div>
+          )}
           {!!name && (
             <p className="text-section-title mb-[10px] md:mb-[23px] dsk:mb-[35px]">
               {name ?? ''}
@@ -47,7 +77,7 @@ const PageHead: React.FC<IPageHead> = ({
           )}
           {!!title && (
             <h1
-              className="uppercase md:normal-case dsk:uppercase"
+              className={`${styles.title}`}
               dangerouslySetInnerHTML={{ __html: title ?? '' }}
             />
           )}

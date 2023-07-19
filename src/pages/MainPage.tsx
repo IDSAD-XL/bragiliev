@@ -55,7 +55,7 @@ const MainPage: React.FC<IMain> = ({
           )
         })}
       </InfoBlock>
-      <TabsInfo {...servicesBlock} spacing={'big'} />
+      <TabsInfo {...servicesBlock} spacing={'big'} variant={'halfScreen'} />
       <Results {...resultsBlock} spacing={'small'} />
       <ReviewsBlock {...reviewsBlock} />
       <InfoBlockWithImage {...aboutBlock}>
