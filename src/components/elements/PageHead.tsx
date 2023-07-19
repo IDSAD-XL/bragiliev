@@ -9,6 +9,8 @@ export interface IPageHead {
   image?: string
   imageMobile?: string
   children?: ReactNode
+  topLinkText?: string
+  topLinkUrl?: string
   variant: 'main' | 'simple'
 }
 
@@ -31,6 +33,8 @@ const PageHead: React.FC<IPageHead> = ({
   image = '',
   imageMobile,
   children,
+  topLinkText,
+  topLinkUrl,
   variant = 'simple',
 }) => {
   const styles = pageHeadStyles[variant]
@@ -60,13 +64,13 @@ const PageHead: React.FC<IPageHead> = ({
           <div className="hidden flex-[50%] flex-shrink-0 flex-grow-0 dsk:flex"></div>
         )}
         <div className="flex flex-[50%] flex-col justify-end pb-[56px] text-white md:pb-[93px] lg:flex-grow-0 dsk:justify-center dsk:pb-0">
-          {variant === 'simple' && (
+          {variant === 'simple' && topLinkText && topLinkUrl && (
             <div className="absolute top-[160px]">
               <Link
-                href="#"
+                href={topLinkUrl}
                 className="link-hover-effect font-[Inter] uppercase"
               >
-                ← Назад к услугам
+                {topLinkText}
               </Link>
             </div>
           )}
