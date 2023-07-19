@@ -12,6 +12,8 @@ export const serviceContent: IServiceContent = {
     imageMobile: '/assets/service-1-m.png',
     title: 'Ринопластика',
     name: '[ услуга ]',
+    topLinkText: '← Назад к услугам',
+    topLinkUrl: '/services',
     text: 'Это&nbsp;улучшение формы носа, изменение его&nbsp;размеров, исправление врождённых дефектов',
   },
   servicesBlock: {
