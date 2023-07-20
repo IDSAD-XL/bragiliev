@@ -59,7 +59,7 @@ const Select: React.FC<ISelect> = ({
   return (
     <Listbox value={value} onChange={handleChange}>
       <div className="relative">
-        <Listbox.Button className="text-regular z-10 flex h-[80px] w-full items-center justify-between border-b-1 border-half-white pl-[18px] text-left md:!text-[21px] dsk:!text-[14px]">
+        <Listbox.Button className="text-regular z-10 flex h-[80px] w-full items-center justify-between border-b-1 border-half-white text-left md:pl-[18px] md:!text-[21px] dsk:!text-[14px]">
           <span>{value ? value.value : placeholder}</span>
           <span className="transition-transform ui-open:rotate-180">
             <svg

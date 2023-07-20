@@ -4,6 +4,7 @@ export const resultsContent: IResultsPageContent = {
   layout: {
     header: {
       variant: 'dark',
+      transparencyAtTop: true,
     },
   },
   resultsBlock: {
