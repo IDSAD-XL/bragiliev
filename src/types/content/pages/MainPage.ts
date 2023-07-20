@@ -25,9 +25,9 @@ export interface IMainContent extends IPageContent {
   pageHead: IPageHeadContent
   infoBlock: IPageInfoBlock
   servicesBlock: ITabsInfoContent
-  resultsBlock: IResultsContent
   reviewsBlock: IReviewsBlockContent
   aboutBlock: IInfoBlockWithImageContent
   questionsBlock: IQuestionsBlock
+  resultsBlock: IResultsContent
   regFormBlock: IRegForm
 }
