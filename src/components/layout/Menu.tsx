@@ -41,7 +41,7 @@ const Menu: React.FC = () => {
           <Link href="/price" className="link-menu">
             Стоимость
           </Link>
-          <Link href="/" className="link-menu">
+          <Link href="/contacts" className="link-menu">
             Контакты
           </Link>
         </div>
