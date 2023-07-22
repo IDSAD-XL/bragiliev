@@ -286,7 +286,7 @@ const RegForm: React.FC<IRegForm> = ({ name, title, subtitle }) => {
                   className="input-error"
                 />
               </div>
-              <div className="lg:col-span-3">
+              <div className="mb-[40px] lg:col-span-3">
                 <Field
                   placeholder="Комментарий"
                   type="text"
