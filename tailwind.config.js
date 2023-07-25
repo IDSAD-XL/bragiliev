@@ -49,7 +49,7 @@ module.exports = {
         1: '1px',
       },
       borderColor: {
-        'half-gray': 'var(--color-half-gray)',
+        'half-gray': 'var(--color-border-half-gray)',
         'half-white': 'var(--color-half-white)',
         'light-gray': 'var(--bg-light-gray)',
       },

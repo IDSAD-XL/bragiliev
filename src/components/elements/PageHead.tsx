@@ -16,14 +16,18 @@ export interface IPageHead {
 
 interface pageHeadSettings {
   title: string
+  spacing: string
+  position?: string
 }
 
 const pageHeadStyles: Record<IPageHead['variant'], pageHeadSettings> = {
   main: {
     title: 'uppercase md:normal-case dsk:uppercase',
+    spacing: 'justify-end',
   },
   simple: {
     title: 'font-[600] title2',
+    spacing: 'justify-center top-[100px]',
   },
 }
 
@@ -63,7 +67,9 @@ const PageHead: React.FC<IPageHead> = ({
         {variant === 'main' && (
           <div className="hidden flex-[50%] flex-shrink-0 flex-grow-0 dsk:flex"></div>
         )}
-        <div className="flex flex-[50%] flex-col justify-end pb-[56px] text-white md:pb-[93px] lg:flex-grow-0 dsk:justify-center dsk:pb-0">
+        <div
+          className={`flex flex-[50%] flex-col ${styles.spacing} relative pb-[56px] text-white md:pb-[93px] lg:flex-grow-0 dsk:justify-center dsk:pb-0`}
+        >
           {variant === 'simple' && topLinkText && topLinkUrl && (
             <div className="absolute top-[160px]">
               <Link
