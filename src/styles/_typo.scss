@@ -210,3 +210,23 @@ h6 {
     pointer-events: none;
   }
 }
+
+.list {
+  li {
+    position: relative;
+    padding-left: 15px;
+    font-size: 14px;
+    line-height: 22px;
+    font-weight: 500;
+    &::before {
+      content: '';
+      position: absolute;
+      background: currentColor;
+      width: 3px;
+      height: 3px;
+      top: 8px;
+      left: 0;
+      border-radius: 50%;
+    }
+  }
+}
