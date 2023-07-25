@@ -73,6 +73,17 @@
   }
 }
 
+.text-large {
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 28px;
+  letter-spacing: -1px;
+  @include md(md) {
+    font-size: 30px;
+    line-height: 40px;
+  }
+}
+
 .text-medium {
   @extend .title5
 }
@@ -81,6 +92,12 @@
   font-weight: 500;
   font-size: 14px;
   line-height: 22px;
+}
+
+.text-light {
+  font-weight: 500;
+  font-size: 11px;
+  line-height: 14px;
 }
 
 .text-section-title {
@@ -97,12 +114,6 @@
     font-size: 12px;
     line-height: 18px;
   }
-}
-
-.text-light {
-  font-weight: 500;
-  font-size: 11px;
-  line-height: 14px;
 }
 
 h1 {
