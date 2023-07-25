@@ -14,15 +14,18 @@ const BlockWithHalfscreenImage: React.FC<IBlockWithHalfscreenImage> = ({
   src,
   mobileSrc,
   imagePosition,
+  content,
 }) => {
   return (
-    <div className="flex w-full flex-col items-center">
-      <div className="flex w-full">
+    <div
+      className={`relative flex min-h-[460px] w-full flex-col-reverse items-center overflow-hidden lg:flex-col dsk:min-h-[902px]`}
+    >
+      <div className="flex h-full w-full lg:absolute">
         {imagePosition === 'right' && (
-          <div className="hidden flex-grow-0 md:block md:flex-[50%]" />
+          <div className="hidden flex-grow-0 md:flex-[50%] lg:block" />
         )}
         <div
-          className={`relative aspect-[795/902] w-full flex-[100%] !flex-grow-0 overflow-hidden md:flex-[50%]`}
+          className={`relative aspect-[795/902] w-full flex-[100%] !flex-grow-0 overflow-hidden lg:flex-[50%]`}
         >
           <Image
             className={`object-cover object-top ${
@@ -43,6 +46,17 @@ const BlockWithHalfscreenImage: React.FC<IBlockWithHalfscreenImage> = ({
             />
           )}
         </div>
+      </div>
+      <div className="container flex h-full items-center">
+        {imagePosition === 'left' && (
+          <div className="hidden flex-shrink-0 flex-grow-0 md:block lg:flex-[50%]" />
+        )}
+        <div
+          className={`flex-[100%] !flex-grow-0 items-center pb-[30px] pt-[30px] lg:flex-[50%] ${
+            imagePosition === 'right' ? 'lg:pr-[73px]' : 'lg:pl-[73px]'
+          }`}
+          dangerouslySetInnerHTML={{ __html: content ?? '' }}
+        />
       </div>
     </div>
   )
