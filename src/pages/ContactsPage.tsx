@@ -1,10 +1,10 @@
 import React from 'react'
 import Layout from '../components/layout/Layout'
 import { IContactsContent } from '../types/content/pages/ContactsPage'
-import TitleBlock from '../components/elements/TitleBlock'
+import TitleBlock from '../components/elements/static-blocks/TitleBlock'
 import Link from 'next/link'
-import YandexMap from '../components/elements/YandexMap'
-import RegForm from '../components/elements/RegForm'
+import YandexMap from '../components/elements/static-blocks/YandexMap'
+import RegForm from '../components/elements/statefull-components/RegForm'
 
 interface IContacts extends IContactsContent {}
 

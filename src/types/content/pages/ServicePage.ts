@@ -1,9 +1,9 @@
-import { IRegForm } from '../../../components/elements/RegForm'
+import { IRegForm } from '../../../components/elements/statefull-components/RegForm'
 import { IPageContent } from '../PageContent'
-import { IPageHead } from '../../../components/elements/PageHead'
-import { ITabsInfoContent } from '../../../components/elements/TabsInfo'
-import { IPriceList } from '../../../components/elements/PriceList'
-import { IResultsContent } from '../../../components/elements/Results'
+import { IPageHead } from '../../../components/elements/static-blocks/PageHead'
+import { ITabsInfoContent } from '../../../components/elements/statefull-components/TabsInfo'
+import { IPriceList } from '../../../components/elements/static-blocks/PriceList'
+import { IResultsContent } from '../../../components/elements/statefull-components/Results'
 
 interface IPageHeadContent extends IPageHead {
   text?: string

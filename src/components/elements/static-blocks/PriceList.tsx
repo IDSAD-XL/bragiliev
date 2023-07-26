@@ -1,5 +1,5 @@
 import React from 'react'
-import { IPriceItem } from './FiltersPriceBlock'
+import { IPriceItem } from '../statefull-components/FiltersPriceBlock'
 
 export interface IPriceList {
   list: IPriceItem

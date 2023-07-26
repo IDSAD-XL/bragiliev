@@ -1,8 +1,8 @@
 import React from 'react'
 import Layout from '../components/layout/Layout'
-import Results from '../components/elements/Results'
+import Results from '../components/elements/statefull-components/Results'
 import { IResultsPageContent } from '../types/content/pages/ResultsPage'
-import RegForm from '../components/elements/RegForm'
+import RegForm from '../components/elements/statefull-components/RegForm'
 
 interface IResultsPage extends IResultsPageContent {}
 

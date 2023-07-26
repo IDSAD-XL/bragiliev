@@ -1,6 +1,6 @@
-import { ITitleBlock } from '../../../components/elements/TitleBlock'
-import { IFiltersPriceBlock } from '../../../components/elements/FiltersPriceBlock'
-import { IRegForm } from '../../../components/elements/RegForm'
+import { ITitleBlock } from '../../../components/elements/static-blocks/TitleBlock'
+import { IFiltersPriceBlock } from '../../../components/elements/statefull-components/FiltersPriceBlock'
+import { IRegForm } from '../../../components/elements/statefull-components/RegForm'
 import { IPageContent } from '../PageContent'
 
 export interface IPricePageContent extends IPageContent {

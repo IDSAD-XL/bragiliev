@@ -1,6 +1,6 @@
-import { IInfoBlock } from '../../../components/elements/InfoBlock'
-import { ITabsInfoContent } from '../../../components/elements/TabsInfo'
-import { IRegForm } from '../../../components/elements/RegForm'
+import { IInfoBlock } from '../../../components/elements/static-blocks/InfoBlock'
+import { ITabsInfoContent } from '../../../components/elements/statefull-components/TabsInfo'
+import { IRegForm } from '../../../components/elements/statefull-components/RegForm'
 import { IPageContent } from '../PageContent'
 
 interface IPageInfoBlock extends IInfoBlock {

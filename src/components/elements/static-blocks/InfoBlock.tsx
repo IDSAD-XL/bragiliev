@@ -1,5 +1,5 @@
 import React from 'react'
-import { type ReactNode } from '../../types/ReactNode'
+import { type ReactNode } from '../../../types/ReactNode'
 import Link from 'next/link'
 
 export interface IInfoBlock {

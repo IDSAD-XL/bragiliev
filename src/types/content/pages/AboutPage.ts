@@ -1,6 +1,6 @@
-import { IRegForm } from '../../../components/elements/RegForm'
+import { IRegForm } from '../../../components/elements/statefull-components/RegForm'
 import { IPageContent } from '../PageContent'
-import { IPageHead } from '../../../components/elements/PageHead'
+import { IPageHead } from '../../../components/elements/static-blocks/PageHead'
 import { IContentSection } from '../../elements/ContentSection'
 
 interface IPageHeadContent extends IPageHead {

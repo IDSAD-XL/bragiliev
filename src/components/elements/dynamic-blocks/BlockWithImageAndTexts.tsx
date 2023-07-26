@@ -62,10 +62,9 @@ const BlockWithTwoTextColumns: React.FC<IBlockWithImageAndTexts> = ({
               dangerouslySetInnerHTML={{ __html: titleRight }}
             />
           )}
-          {textsRight &&
-            textsRight.map((text) => {
-              return <p dangerouslySetInnerHTML={{ __html: text }} />
-            })}
+          {textsRight?.map((text, index) => {
+            return <p key={index} dangerouslySetInnerHTML={{ __html: text }} />
+          })}
         </div>
       </div>
     </div>

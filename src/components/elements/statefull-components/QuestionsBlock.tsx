@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import Accordion, { IAccordionContent } from './Accordion'
+import Accordion, { IAccordionContent } from '../stateless-components/Accordion'
 
 export interface IQuestionsBlock {
   name?: string
