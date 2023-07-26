@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import ReviewsItem, { IReviewsItem } from './ReviewsItem'
+import ReviewsItem, { IReviewsItem } from '../static-blocks/ReviewsItem'
 
 export interface IResultReviews {
   slides: IReviewsItem[] | null

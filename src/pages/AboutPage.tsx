@@ -1,9 +1,9 @@
 import React from 'react'
 import Layout from '../components/layout/Layout'
-import RegForm from '../components/elements/RegForm'
+import RegForm from '../components/elements/statefull-components/RegForm'
 import { IAboutContent } from '../types/content/pages/AboutPage'
-import PageHead from '../components/elements/PageHead'
-import ContentSection from '../components/elements/content-blocks/ContentSection'
+import PageHead from '../components/elements/static-blocks/PageHead'
+import ContentSection from '../components/elements/dynamic-blocks/ContentSection'
 
 interface IAbout extends IAboutContent {}
 

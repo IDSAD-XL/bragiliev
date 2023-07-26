@@ -1,8 +1,8 @@
 import React from 'react'
-import Select, { ISelectContent } from './Select'
-import PriceList from './PriceList'
-import { useResultSlides } from '../../hooks/useResultSlides'
-import { ItemWithDependencies } from '../../types/elements/ItemsWithDependecies'
+import Select, { ISelectContent } from '../stateless-components/Select'
+import PriceList from '../static-blocks/PriceList'
+import { useResultSlides } from '../../../hooks/useResultSlides'
+import { ItemWithDependencies } from '../../../types/elements/ItemsWithDependecies'
 
 export interface IPriceItem extends ItemWithDependencies {
   title: string

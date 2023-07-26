@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
 import Image from 'next/image'
 import { Tab } from '@headlessui/react'
-import Accordion, { IAccordionContent } from './Accordion'
-import Select, { ISelectVariant } from './Select'
+import Accordion, { IAccordionContent } from '../stateless-components/Accordion'
+import Select, { ISelectVariant } from '../stateless-components/Select'
 
 interface ITabInfoItem {
   title: string

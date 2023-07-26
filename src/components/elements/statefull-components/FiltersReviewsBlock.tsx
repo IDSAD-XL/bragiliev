@@ -1,9 +1,9 @@
 import React from 'react'
-import Select, { ISelectContent } from './Select'
+import Select, { ISelectContent } from '../stateless-components/Select'
 import ResultsReviews from './ResultsReviews'
-import { IReviewsItem } from './ReviewsItem'
-import { useResultSlides } from '../../hooks/useResultSlides'
-import { ItemWithDependencies } from '../../types/elements/ItemsWithDependecies'
+import { IReviewsItem } from '../static-blocks/ReviewsItem'
+import { useResultSlides } from '../../../hooks/useResultSlides'
+import { ItemWithDependencies } from '../../../types/elements/ItemsWithDependecies'
 
 export interface IReviewsFiltersItem
   extends IReviewsItem,

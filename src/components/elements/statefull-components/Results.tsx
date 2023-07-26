@@ -1,12 +1,12 @@
 import React from 'react'
-import Select, { ISelectContent } from './Select'
+import Select, { ISelectContent } from '../stateless-components/Select'
 import 'swiper/css'
 import 'swiper/css/navigation'
 import 'swiper/css/scrollbar'
-import ResultsSlider from './ResultsSlider'
+import ResultsSlider from '../static-blocks/ResultsSlider'
 import Link from 'next/link'
-import { ItemWithDependencies } from '../../types/elements/ItemsWithDependecies'
-import { useResultSlides } from '../../hooks/useResultSlides'
+import { ItemWithDependencies } from '../../../types/elements/ItemsWithDependecies'
+import { useResultSlides } from '../../../hooks/useResultSlides'
 
 export interface IResultsSlides extends ItemWithDependencies {
   id: string

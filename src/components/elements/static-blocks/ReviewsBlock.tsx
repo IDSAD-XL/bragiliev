@@ -23,7 +23,7 @@ const ReviewsBlock: React.FC<IReviewsBlock> = ({ name, title, slides }) => {
         <ReviewsSlider slides={slides} />
       </div>
       <div className="container mt-[40px] flex justify-center md:mt-[55px] dsk:mt-[60px]">
-        <Link href="/ReviewsPage" className="link-plus uppercase">
+        <Link href="/src/pages/ReviewsPage" className="link-plus uppercase">
           все отзывы
         </Link>
       </div>

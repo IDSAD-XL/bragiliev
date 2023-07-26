@@ -35,10 +35,10 @@ const ContentSection: React.FC<IContentSection> = ({
     >
       <div
         className={`flex w-full flex-col items-center ${
-          (name || title) && 'pb-[60px] pt-[60px] lg:pb-[90px] lg:pt-[90px]'
+          name ?? title ? 'pb-[60px] pt-[60px] lg:pb-[90px] lg:pt-[90px]' : ''
         }`}
       >
-        {(name || title) && (
+        {(name ?? title) && (
           <div className="container mb-[20px] md:mb-[23px]">
             {!!name && (
               <p className="text-section-title mb-[10px] md:mb-[20px]">

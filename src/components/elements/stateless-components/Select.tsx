@@ -1,6 +1,6 @@
 import React from 'react'
 import { Listbox } from '@headlessui/react'
-import { ItemWithDependencies } from '../../types/elements/ItemsWithDependecies'
+import { ItemWithDependencies } from '../../../types/elements/ItemsWithDependecies'
 
 export interface ISelectVariant extends ItemWithDependencies {
   id: string

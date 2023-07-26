@@ -2,7 +2,7 @@ import React from 'react'
 import { Navigation, Scrollbar } from 'swiper'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import Image from 'next/image'
-import { IResultsSlides } from './Results'
+import { IResultsSlides } from '../statefull-components/Results'
 
 interface IResultsSlider {
   slides: IResultsSlides[] | null
