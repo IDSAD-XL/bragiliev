@@ -17,7 +17,6 @@ export interface IPageHead {
 interface pageHeadSettings {
   title: string
   spacing: string
-  position?: string
 }
 
 const pageHeadStyles: Record<IPageHead['variant'], pageHeadSettings> = {
