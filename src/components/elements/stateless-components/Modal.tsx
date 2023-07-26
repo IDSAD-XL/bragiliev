@@ -2,6 +2,8 @@ import React, { Fragment } from 'react'
 import { Dialog, Transition } from '@headlessui/react'
 import { useAppDispatch, useAppSelector } from '../../../hooks/redux'
 import { closeModal } from '../../../redux/Actions/modalActions'
+import Image from 'next/image'
+import Link from 'next/link'
 
 const Modal: React.FC = () => {
   const { open } = useAppSelector((state) => state.modalSlice)
@@ -27,7 +29,7 @@ const Modal: React.FC = () => {
         </Transition.Child>
 
         <div className="fixed inset-0 overflow-y-auto">
-          <div className="flex min-h-full items-center justify-center p-4 text-center">
+          <div className="flex min-h-full items-center justify-center pt-[60px] text-center">
             <Transition.Child
               as={Fragment}
               enter="ease-out duration-300"
@@ -37,10 +39,13 @@ const Modal: React.FC = () => {
               leaveFrom="opacity-100 scale-100"
               leaveTo="opacity-0 scale-95"
             >
-              <Dialog.Panel className="w-full max-w-[90%] transform overflow-hidden bg-white p-6 text-left align-middle shadow-xl transition-all dsk:w-[900px]">
-                <Dialog.Title as="h3" className="flex justify-end">
+              <Dialog.Panel className="relative flex min-h-[590px] w-full max-w-[90%] transform flex-col justify-center overflow-hidden bg-light-gray p-6 text-left align-middle shadow-xl transition-all dsk:w-[900px]">
+                <Dialog.Title
+                  as="h3"
+                  className="absolute left-0 top-0 flex w-full justify-end"
+                >
                   <svg
-                    className="cursor-pointer"
+                    className="mr-[30px] mt-[30px] cursor-pointer"
                     onClick={handleCloseModal}
                     xmlns="http://www.w3.org/2000/svg"
                     width="20"
@@ -74,15 +79,24 @@ const Modal: React.FC = () => {
                     на сайте СберЗдоровье, по рейтингу.
                   </p>
                 </div>
-
-                <div className="mt-4">
+                <div className="mt-[30px] flex flex-wrap justify-start gap-[10px] md:flex-nowrap">
                   <button
-                    type="button"
-                    className="bg-blue-100 hover:bg-blue-200 inline-flex justify-center rounded-md border border-transparent px-4 py-2 text-sm font-medium text-blue-900 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
                     onClick={handleCloseModal}
+                    className="text-regular flex h-[40px] flex-[100%] !flex-grow-0 cursor-pointer items-center justify-center whitespace-nowrap bg-white pl-[15px] pr-[15px] uppercase transition-all group-hover:bg-hover-blue group-hover:text-white md:flex-[142px]"
                   >
-                    Got it, thanks!
+                    Скрыть
                   </button>
+                  <Link
+                    href={'#'}
+                    className="relative box-border flex h-[40px] flex-[100%] !flex-grow-0 justify-center border-1 border-white bg-white transition-all group-hover:border-[#cdcdcd] md:flex-[142px]"
+                  >
+                    <Image
+                      src={'/assets/review-icon.png'}
+                      fill={true}
+                      alt=""
+                      className="!relative max-w-[142px] object-cover object-center"
+                    />
+                  </Link>
                 </div>
               </Dialog.Panel>
             </Transition.Child>
