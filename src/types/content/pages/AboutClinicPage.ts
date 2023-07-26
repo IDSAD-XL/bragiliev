@@ -8,12 +8,14 @@ interface IPageHeadContent extends IPageHead {
 }
 
 interface IAboutClinicBlockContent extends IAboutClinicBlock {
-  text: string
-  subtext: string
+  text?: string
+  desc: Array<{
+    text: string
+  }>
 }
 
 export interface IAboutClinicContent extends IPageContent {
   pageHead: IPageHeadContent
-  aboutClinicBlock: IAboutClinicBlockContent
+  aboutClinicBlocks: IAboutClinicBlockContent[]
   regFormBlock: IRegForm
 }

@@ -3,7 +3,6 @@ import Layout from '../components/layout/Layout'
 import PageHead from '../components/elements/PageHead'
 import AboutClinicBlock from '../components/elements/AboutClinicBlock'
 import { IAboutClinicContent } from '../types/content/pages/AboutClinicPage'
-// import Link from 'next/link'
 import RegForm from '../components/elements/RegForm'
 
 interface IAboutClinic extends IAboutClinicContent {}
@@ -11,7 +10,7 @@ interface IAboutClinic extends IAboutClinicContent {}
 const AboutClinicPage: React.FC<IAboutClinic> = ({
   layout,
   pageHead,
-  aboutClinicBlock,
+  aboutClinicBlocks,
   regFormBlock,
 }) => {
   return (
@@ -22,16 +21,44 @@ const AboutClinicPage: React.FC<IAboutClinic> = ({
           dangerouslySetInnerHTML={{ __html: pageHead.text ?? '' }}
         />
       </PageHead>
-      <AboutClinicBlock {...aboutClinicBlock}>
-        <h5
-          className="text-[18px] leading-[28px] dsk:w-[566px] dsk:min-w-[566px] dsk:text-[30px] dsk:leading-[135%] dsk:tracking-[1px]"
-          dangerouslySetInnerHTML={{ __html: aboutClinicBlock.text }}
-        />
-        <p
-          className="text-[14px] font-[500] leading-[22px] dsk:w-[461px] dsk:min-w-[461px]"
-          dangerouslySetInnerHTML={{ __html: aboutClinicBlock.subtext }}
-        />
-      </AboutClinicBlock>
+      {aboutClinicBlocks.map((item, index) => {
+        const condition: boolean = item.desc.length > 1
+
+        return (
+          <AboutClinicBlock key={index} {...item}>
+            <div
+              className={`${
+                condition ? 'dsk:flex-col' : 'dsk:flex-row'
+              } mb-[30px] flex flex-[50%] flex-col gap-[30px] gap-[30px] dsk:mb-[93px] dsk:mt-[30px] dsk:justify-between`}
+            >
+              {!!item.text && (
+                <h5
+                  className={`${
+                    condition ? 'dsk:w-[885px]' : 'dsk:w-[566px]'
+                  } mt-[30px]  text-[18px] leading-[28px] dsk:mt-[0] dsk:w-[566px] dsk:min-w-[566px] dsk:text-[30px] dsk:leading-[135%] dsk:tracking-[1px]`}
+                  dangerouslySetInnerHTML={{ __html: item.text }}
+                />
+              )}
+              <div
+                className={`${
+                  condition ? 'dsk:mt-[49px]' : ''
+                } flex flex-col gap-[30px] dsk:flex dsk:flex-row dsk:justify-end dsk:gap-[138px]`}
+              >
+                {!!item.desc &&
+                  item.desc.map((item, index) => {
+                    return (
+                      <p
+                        key={index}
+                        className="text-[14px] font-[500] leading-[22px] dsk:w-[461px] dsk:min-w-[461px]"
+                        dangerouslySetInnerHTML={{ __html: item.text }}
+                      />
+                    )
+                  })}
+              </div>
+            </div>
+          </AboutClinicBlock>
+        )
+      })}
       <RegForm {...regFormBlock} />
     </Layout>
   )
