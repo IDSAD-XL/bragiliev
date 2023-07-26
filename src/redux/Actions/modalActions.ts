@@ -1,25 +1,12 @@
-'use client'
-import { createSlice } from '@reduxjs/toolkit'
+import { modalSlice } from '../Reducers/modalSlice'
+import { type AppDispatch } from '../store'
 
-interface IAppState {
-  menuOpen: boolean
+const openModal = (dispatch: AppDispatch) => {
+  dispatch(modalSlice.actions.openModal())
 }
 
-const initialState: IAppState = {
-  menuOpen: false,
+const closeModal = (dispatch: AppDispatch) => {
+  dispatch(modalSlice.actions.closeModal())
 }
 
-export const appSlice = createSlice({
-  name: 'alerts',
-  initialState,
-  reducers: {
-    openMenu(state) {
-      state.menuOpen = true
-    },
-    closeMenu(state) {
-      state.menuOpen = false
-    },
-  },
-})
-
-export default appSlice.reducer
+export { openModal, closeModal }
