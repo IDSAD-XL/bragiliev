@@ -14,6 +14,7 @@ export interface IReviewsItem {
 }
 
 const ReviewsItem: React.FC<IReviewsItem> = ({
+  id,
   date,
   content,
   link,
@@ -22,7 +23,17 @@ const ReviewsItem: React.FC<IReviewsItem> = ({
 }) => {
   const dispatch = useAppDispatch()
   const openModalHandler = () => {
-    dispatch(openModal)
+    openModal(dispatch, {
+      type: 'review',
+      content: {
+        id: id,
+        date: date,
+        content: content,
+        link: link,
+        name: name,
+        image: image,
+      },
+    })
   }
 
   return (
