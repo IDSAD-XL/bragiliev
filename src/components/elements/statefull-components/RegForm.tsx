@@ -8,6 +8,8 @@ import 'react-datetime-picker/dist/DateTimePicker.css'
 import 'react-calendar/dist/Calendar.css'
 import Image from 'next/image'
 import Link from 'next/link'
+import { useFileinput } from '../../../hooks/useFileinput'
+import FilesInputDragAndDrop from '../stateless-components/FilesInputDragAndDrop'
 
 export interface IRegForm {
   name: string
@@ -15,62 +17,13 @@ export interface IRegForm {
   subtitle?: string
 }
 
-interface IFilesWithPreview {
-  file: File
-  preview: string
-}
-
 const RegForm: React.FC<IRegForm> = ({ name, title, subtitle }) => {
   const [loaded, setIsLoaded] = useState<boolean>(false)
   const [dateValue, setDateValue] = useState<Date | string>(
     new Date(new Date().setHours(0, 0, 0, 0))
   )
-  const [selectedFiles, setSelectedFiles] = useState<IFilesWithPreview[]>([])
-
-  const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const { files } = event.target
-    if (files) {
-      const fileList = Array.from(files)
-      const previewFiles: IFilesWithPreview[] = []
-
-      fileList.forEach((file) => {
-        const reader = new FileReader()
-        reader.onload = () => {
-          previewFiles.push({ file, preview: reader.result as string })
-          if (previewFiles.length === fileList.length) {
-            setSelectedFiles(previewFiles)
-          }
-        }
-        reader.readAsDataURL(file)
-      })
-    }
-  }
-
-  const removeFile = (file: IFilesWithPreview) => {
-    const updatedFiles = selectedFiles.filter(
-      (selectedFile) => selectedFile !== file
-    )
-    setSelectedFiles(updatedFiles)
-  }
-
-  const addFiles = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const { files } = event.target
-    if (files) {
-      const fileList = Array.from(files)
-      const previewFiles: IFilesWithPreview[] = []
-
-      fileList.forEach((file) => {
-        const reader = new FileReader()
-        reader.onload = () => {
-          previewFiles.push({ file, preview: reader.result as string })
-          if (previewFiles.length === fileList.length) {
-            setSelectedFiles([...selectedFiles, ...previewFiles])
-          }
-        }
-        reader.readAsDataURL(file)
-      })
-    }
-  }
+  const { selectedFiles, handleFileChange, addFiles, removeFile, resetFiles } =
+    useFileinput()
 
   const russianMonths = [
     'Январь',
@@ -143,7 +96,7 @@ const RegForm: React.FC<IRegForm> = ({ name, title, subtitle }) => {
             setSubmitting(false)
             resetForm()
             setDateValue('')
-            setSelectedFiles([])
+            resetFiles()
           }}
         >
           {({ values, touched, errors, isSubmitting, handleChange }) => (
@@ -300,66 +253,11 @@ const RegForm: React.FC<IRegForm> = ({ name, title, subtitle }) => {
                   className="input-error"
                 />
               </div>
-              <div className="grid grid-cols-4 gap-[5px] lg:col-span-1">
-                {selectedFiles.map((item, index) => {
-                  return (
-                    <div
-                      key={index}
-                      className="relative aspect-square border-1 border-half-gray"
-                    >
-                      <Image
-                        src={item.preview}
-                        alt=""
-                        className="object-cover object-center"
-                        fill={true}
-                      />
-                      <button
-                        className="absolute right-[6px] top-[6px] border-0 bg-none mix-blend-difference"
-                        type="button"
-                        onClick={() => {
-                          removeFile(item)
-                        }}
-                      >
-                        <svg
-                          width="8"
-                          height="9"
-                          viewBox="0 0 8 9"
-                          fill="none"
-                          xmlns="http://www.w3.org/2000/svg"
-                        >
-                          <path
-                            d="M0.696877 8.71719L7.66565 1.54529L6.96878 0.828097L0 8L0.696877 8.71719Z"
-                            fill="white"
-                          />
-                          <path
-                            d="M7.30312 8.71719L0.334347 1.54529L1.03122 0.828097L8 8L7.30312 8.71719Z"
-                            fill="white"
-                          />
-                        </svg>
-                      </button>
-                    </div>
-                  )
-                })}
-                {selectedFiles.length > 0 && (
-                  <div className="aspect-square border-1 border-half-gray">
-                    <label
-                      htmlFor="add-file"
-                      className="flex h-full w-full flex-col items-center justify-center"
-                    >
-                      <span className="mt-[-25px] h-[50px] text-[50px]">+</span>
-                      <span className="text-light">Загрузить</span>
-                    </label>
-                    <input
-                      type="file"
-                      id="add-file"
-                      multiple
-                      accept="image/png, image/jpg, image/jpeg"
-                      className="absolute h-[1px] w-[1px] opacity-0"
-                      onChange={addFiles}
-                    />
-                  </div>
-                )}
-              </div>
+              <FilesInputDragAndDrop
+                selectedFiles={selectedFiles}
+                removeFile={removeFile}
+                addFiles={addFiles}
+              />
               <div className="mt-[30px] flex gap-[14px] md:pr-[10px] lg:col-span-1 lg:justify-end xl:pr-[30px]">
                 <div className="pt-[3px]">
                   <svg

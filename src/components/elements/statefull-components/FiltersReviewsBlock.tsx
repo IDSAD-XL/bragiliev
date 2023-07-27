@@ -4,6 +4,8 @@ import ResultsReviews from './ResultsReviews'
 import { IReviewsItem } from '../static-blocks/ReviewsItem'
 import { useResultSlides } from '../../../hooks/useResultSlides'
 import { ItemWithDependencies } from '../../../types/elements/ItemsWithDependecies'
+import { useAppDispatch } from '../../../hooks/redux'
+import { openModal } from '../../../redux/Actions/modalActions'
 
 export interface IReviewsFiltersItem
   extends IReviewsItem,
@@ -28,6 +30,12 @@ const FiltersReviewsBlock: React.FC<IFiltersReviewsBlock> = ({
     changePart,
     changeOperation,
   } = useResultSlides(selects, slides)
+
+  const dispatch = useAppDispatch()
+
+  const leaveReviewHandle = () => {
+    openModal(dispatch, { type: 'review_form' })
+  }
 
   return (
     <div
@@ -54,7 +62,10 @@ const FiltersReviewsBlock: React.FC<IFiltersReviewsBlock> = ({
             />
           </div>
           <div className="hidden dsk:block"></div>
-          <div className="button1 mt-[20px] flex h-[80px] items-center justify-center dsk:mt-[0px]">
+          <div
+            className="button1 mt-[20px] flex h-[80px] items-center justify-center dsk:mt-[0px]"
+            onClick={leaveReviewHandle}
+          >
             <span className="link-plus no-underline">оставить отзыв</span>
           </div>
         </div>

@@ -17,7 +17,7 @@ const ModalReview: React.FC<IModalReview> = ({ review }) => {
   }
 
   return (
-    <Dialog.Panel className="relative flex min-h-[590px] w-full max-w-[90%] transform flex-col justify-center overflow-hidden bg-light-gray p-6 text-left align-middle shadow-xl transition-all dsk:w-[900px]">
+    <Dialog.Panel className="relative flex w-full transform flex-col justify-center overflow-hidden bg-light-gray p-6 text-left align-middle shadow-xl transition-all">
       <Dialog.Title
         as="h3"
         className="absolute left-0 top-0 flex w-full justify-end"
