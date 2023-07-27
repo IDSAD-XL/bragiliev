@@ -1,11 +1,11 @@
 import React from 'react'
 import Layout from '../components/layout/Layout'
-import RegForm from '../components/elements/RegForm'
-import PageHead from '../components/elements/PageHead'
+import RegForm from '../components/elements/statefull-components/RegForm'
+import PageHead from '../components/elements/static-blocks/PageHead'
 import { IServiceContent } from '../types/content/pages/ServicePage'
-import TabsInfo from '../components/elements/TabsInfo'
-import PriceList from '../components/elements/PriceList'
-import Results from '../components/elements/Results'
+import TabsInfo from '../components/elements/statefull-components/TabsInfo'
+import PriceList from '../components/elements/static-blocks/PriceList'
+import Results from '../components/elements/statefull-components/Results'
 
 interface IService extends IServiceContent {}
 
