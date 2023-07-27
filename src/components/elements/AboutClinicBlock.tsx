@@ -15,7 +15,7 @@ export interface IAboutClinicBlock {
     subtext: string
   }
   noPadBottom?: boolean
-  variant: 'first' | 'second'
+  variant: 'white' | 'gray'
 }
 
 interface aboutClinicBlockSettings {
@@ -26,10 +26,10 @@ const aboutClinicBlockStyles: Record<
   IAboutClinicBlock['variant'],
   aboutClinicBlockSettings
 > = {
-  first: {
+  white: {
     background: 'bg-[#ffffff]',
   },
-  second: {
+  gray: {
     background: 'bg-[#f9f9f9]',
   },
 }
@@ -44,7 +44,7 @@ const AboutClinicBlock: React.FC<IAboutClinicBlock> = ({
   children,
   additionally,
   noPadBottom,
-  variant = 'first',
+  variant = 'gray',
 }) => {
   const styles = aboutClinicBlockStyles[variant]
 

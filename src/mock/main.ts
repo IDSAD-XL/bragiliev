@@ -533,7 +533,7 @@ export const mainContent: IMainContent = {
         text: 'Единый подход, уникальная школа пластической хирургии и&nbsp;традиции, переданные от&nbsp;отцов к&nbsp;сыновьям и&nbsp;от&nbsp;учителей кученикам, — то, что&nbsp;легло в&nbsp;основу клиники Grandmed.',
       },
     ],
-    link: '/',
+    link: '/about-clinic',
   },
   questionsBlock: {
     name: '[ помощь ]',

@@ -17,7 +17,7 @@ export const aboutClinicContent: IAboutClinicContent = {
   },
   aboutClinicBlocks: [
     {
-      variant: 'first',
+      variant: 'white',
       title: 'Как клиника за 20 лет стала супербрендом',
       name: '[ ИСТОРИЯ ]',
       image: '/assets/about-clinic/gm-doctors.jpg',
@@ -30,7 +30,7 @@ export const aboutClinicContent: IAboutClinicContent = {
       ],
     },
     {
-      variant: 'first',
+      variant: 'white',
       title: 'Для чего создавалась клиника',
       subTitle:
         'Эстетическая медицина многозадачна. Все должно начинаться как в театре — с вешалки. Вот пройдите по нашей клинике. Посмотрите, как у нас обустроены рецепции, кабинеты, палаты и операционные. Точнее — оформлены. Как подобраны картины, цветовые решения, какой свет. В этом во всем есть эстетика. А посмотрите на наших врачей, медсестёр, администраторов! Нельзя творить и дарить прекрасное без чувства прекрасного вокруг и внутри себя.',
@@ -44,7 +44,7 @@ export const aboutClinicContent: IAboutClinicContent = {
       ],
     },
     {
-      variant: 'second',
+      variant: 'gray',
       title: 'Врач – пациент',
       name: '[ ИСТОРИЯ ]',
       image: '/assets/about-clinic/doctors90th.jpg',
@@ -65,7 +65,7 @@ export const aboutClinicContent: IAboutClinicContent = {
       },
     },
     {
-      variant: 'first',
+      variant: 'white',
       title: 'Форварды медицины',
       name: '[ ИСТОРИЯ ]',
       image: '/assets/about-clinic/ward.jpg',
@@ -79,7 +79,7 @@ export const aboutClinicContent: IAboutClinicContent = {
       noPadBottom: true,
     },
     {
-      variant: 'second',
+      variant: 'gray',
       title: '«ГрандМед» сегодня',
       name: '[ ИСТОРИЯ ]',
       image: '/assets/about-clinic/doc.jpg',
