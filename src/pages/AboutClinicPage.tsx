@@ -1,9 +1,10 @@
 import React from 'react'
 import Layout from '../components/layout/Layout'
-import PageHead from '../components/elements/PageHead'
-import AboutClinicBlock from '../components/elements/AboutClinicBlock'
+
+import AboutClinicBlock from '../components/elements/static-blocks/AboutClinicBlock'
 import { IAboutClinicContent } from '../types/content/pages/AboutClinicPage'
-import RegForm from '../components/elements/RegForm'
+import PageHead from '../components/elements/static-blocks/PageHead'
+import RegForm from '../components/elements/statefull-components/RegForm'
 
 interface IAboutClinic extends IAboutClinicContent {}
 
