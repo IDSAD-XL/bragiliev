@@ -1,15 +1,15 @@
 import React from 'react'
 import Layout from '../components/layout/Layout'
-import PageHead from '../components/elements/PageHead'
-import InfoBlock from '../components/elements/InfoBlock'
+import PageHead from '../components/elements/static-blocks/PageHead'
+import InfoBlock from '../components/elements/static-blocks/InfoBlock'
 import { IMainContent } from '../types/content/pages/MainPage'
-import TabsInfo from '../components/elements/TabsInfo'
-import Results from '../components/elements/Results'
-import ReviewsBlock from '../components/elements/ReviewsBlock'
-import InfoBlockWithImage from '../components/elements/InfoBlockWithImage'
+import TabsInfo from '../components/elements/statefull-components/TabsInfo'
+import Results from '../components/elements/statefull-components/Results'
+import ReviewsBlock from '../components/elements/static-blocks/ReviewsBlock'
+import InfoBlockWithImage from '../components/elements/static-blocks/InfoBlockWithImage'
 import Link from 'next/link'
-import QuestionsBlock from '../components/elements/QuestionsBlock'
-import RegForm from '../components/elements/RegForm'
+import QuestionsBlock from '../components/elements/statefull-components/QuestionsBlock'
+import RegForm from '../components/elements/statefull-components/RegForm'
 
 // const mainContent: IMainContent = {}
 

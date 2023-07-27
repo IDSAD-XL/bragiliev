@@ -29,7 +29,7 @@ const Menu: React.FC = () => {
           <Link href="/results" className="link-menu">
             До/после
           </Link>
-          <Link href="/" className="link-menu">
+          <Link href="/about" className="link-menu">
             Обо мне
           </Link>
           <Link href="/about-clinic" className="link-menu">
