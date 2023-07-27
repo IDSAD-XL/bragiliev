@@ -2,7 +2,7 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 import { IReviewsItem } from '../../components/elements/static-blocks/ReviewsItem'
 
-interface IModalSlice {
+export interface IModalSlice {
   open: boolean
   type: 'review' | 'review_form' | null
   content?: IReviewsItem | null
