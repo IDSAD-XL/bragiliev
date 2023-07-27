@@ -55,7 +55,7 @@ const ModalDispatcher: React.FC = () => {
                 className={
                   type
                     ? modalContainerStyles[type]
-                    : modalContainerStyles['review']
+                    : modalContainerStyles.review
                 }
               >
                 {type === 'review' && content && (

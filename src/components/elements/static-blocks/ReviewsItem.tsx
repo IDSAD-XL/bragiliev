@@ -26,12 +26,12 @@ const ReviewsItem: React.FC<IReviewsItem> = ({
     openModal(dispatch, {
       type: 'review',
       content: {
-        id: id,
-        date: date,
-        content: content,
-        link: link,
-        name: name,
-        image: image,
+        id,
+        date,
+        content,
+        link,
+        name,
+        image,
       },
     })
   }
