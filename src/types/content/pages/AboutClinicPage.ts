@@ -1,7 +1,7 @@
-import { IPageHead } from '../../../components/elements/PageHead'
-import { IAboutClinicBlock } from '../../../components/elements/AboutClinicBlock'
+import { IAboutClinicBlock } from '../../../components/elements/static-blocks/AboutClinicBlock'
 import { IPageContent } from '../PageContent'
-import { IRegForm } from '../../../components/elements/RegForm'
+import { IPageHead } from '../../../components/elements/static-blocks/PageHead'
+import { IRegForm } from '../../../components/elements/statefull-components/RegForm'
 
 interface IPageHeadContent extends IPageHead {
   text?: string
