@@ -1,5 +1,8 @@
 import { useCallback, useEffect, useMemo, useState } from 'react'
-import { ISelectContent, ISelectVariant } from '../components/elements/Select'
+import {
+  ISelectContent,
+  ISelectVariant,
+} from '../components/elements/stateless-components/Select'
 import { filterItemsWithDependencies } from '../utils/filterByDependencies'
 import {
   ItemDependency,
