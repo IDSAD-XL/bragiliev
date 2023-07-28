@@ -62,17 +62,19 @@ const ModalReview: React.FC<IModalReview> = ({ review }) => {
         >
           Скрыть
         </button>
-        <Link
-          href={review.link}
-          className="relative box-border flex h-[40px] flex-[100%] !flex-grow-0 justify-center border-1 border-white bg-white transition-all group-hover:border-[#cdcdcd] md:flex-[142px]"
-        >
-          <Image
-            src={'/assets/review-icon.png'}
-            fill={true}
-            alt=""
-            className="!relative max-w-[142px] object-cover object-center"
-          />
-        </Link>
+        {review.image && review.link && (
+          <Link
+            href={review.link}
+            className="relative box-border flex h-[40px] flex-[100%] !flex-grow-0 justify-center border-1 border-white bg-white transition-all group-hover:border-[#cdcdcd] md:flex-[142px]"
+          >
+            <Image
+              src={review.image}
+              fill={true}
+              alt=""
+              className="!relative max-w-[142px] object-cover object-center"
+            />
+          </Link>
+        )}
       </div>
     </Dialog.Panel>
   )
