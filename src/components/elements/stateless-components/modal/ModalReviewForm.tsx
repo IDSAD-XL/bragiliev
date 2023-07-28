@@ -19,7 +19,7 @@ const ModalReviewForm: React.FC = () => {
     useFileinput()
 
   return (
-    <Dialog.Panel className="flex-grow-1 flex min-h-[700px] flex-col items-start justify-center bg-dark p-[30px] text-white">
+    <Dialog.Panel className="flex-grow-1 flex min-h-[700px] flex-col items-start justify-center bg-dark p-[30px] text-white dsk:pl-[170px] dsk:pr-[170px]">
       <Dialog.Title
         as="h3"
         className="absolute left-0 top-0 flex w-full justify-end"
