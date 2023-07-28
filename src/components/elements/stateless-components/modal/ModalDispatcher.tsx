@@ -24,7 +24,7 @@ const ModalDispatcher: React.FC = () => {
 
   return (
     <Transition appear show={open} as={Fragment}>
-      <Dialog as="div" className="relative z-10" onClose={handleCloseModal}>
+      <Dialog as="div" className="relative z-20" onClose={handleCloseModal}>
         <Transition.Child
           as={Fragment}
           enter="ease-out duration-300"
