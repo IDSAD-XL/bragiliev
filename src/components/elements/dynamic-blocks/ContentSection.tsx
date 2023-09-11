@@ -8,8 +8,9 @@ import FullsizeImage from './FullsizeImage'
 import BlockWithImageAndTexts from './BlockWithImageAndTexts'
 import BlockWithTwoImages from './BlockWithTwoImages'
 import BlockWithHalfscreenImage from './BlockWithHalfscreenImage'
+import {ReactNode} from "../../../types/ReactNode";
 
-const blocksLinkedToComponents: Record<AvailableBlocks['key'], React.FC> = {
+const blocksLinkedToComponents: Record<AvailableBlocks['key'], ReactNode> = {
   IBlockWithTwoTextColumns: BlockWithTwoTextColumns,
   IFullsizeImage: FullsizeImage,
   IBlockWithImageAndTexts: BlockWithImageAndTexts,
@@ -18,7 +19,7 @@ const blocksLinkedToComponents: Record<AvailableBlocks['key'], React.FC> = {
 }
 
 const getBlock = (props: AvailableBlocks) => {
-  const Block = blocksLinkedToComponents[props.key]
+  const Block = blocksLinkedToComponents[props.key] as React.FC
   return <Block {...props} />
 }
 const ContentSection: React.FC<IContentSection> = ({
