@@ -13,7 +13,10 @@ const ResultsNextPage: React.FC<pageProps> = ({ data }) => {
 export const getStaticProps = (async () => {
   const data = await Api.results()
 
-  return { props: { data } }
+  return {
+    props: { data },
+    revalidate: 60
+  }
 }) satisfies GetStaticProps<{
   data: IResultsPage
 }>
