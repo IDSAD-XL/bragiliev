@@ -1,8 +1,8 @@
 import React from 'react'
 import { Navigation, Scrollbar } from 'swiper'
 import { Swiper, SwiperSlide } from 'swiper/react'
-import Image from 'next/image'
 import { IResultsSlides } from '../statefull-components/Results'
+import ImageWithDomain from "../stateless-components/ImageWithDomain";
 
 interface IResultsSlider {
   slides: IResultsSlides[] | null
@@ -31,7 +31,7 @@ const ResultsSlider: React.FC<IResultsSlider> = ({ slides }) => {
               <div className="mt-[22px] flex w-full gap-[20px]">
                 <div className="flex flex-[100%] flex-grow-0 flex-wrap border-1 border-half-white md:flex-nowrap dsk:flex-[50%]">
                   <div className="relative aspect-[300/332] flex-[100%] flex-grow-0 border-b-1 border-half-white md:aspect-[314/459] md:h-full md:flex-[50%] md:border-b-0 md:border-r-1">
-                    <Image
+                    <ImageWithDomain
                       className="object-cover object-center"
                       src={res.images.before1}
                       alt=""
@@ -39,7 +39,7 @@ const ResultsSlider: React.FC<IResultsSlider> = ({ slides }) => {
                     />
                   </div>
                   <div className="relative aspect-[300/332] flex-[100%] flex-grow-0 md:aspect-[314/459] md:h-full md:flex-[50%]">
-                    <Image
+                    <ImageWithDomain
                       className="object-cover object-center"
                       src={res.images.after1}
                       alt=""
@@ -49,7 +49,7 @@ const ResultsSlider: React.FC<IResultsSlider> = ({ slides }) => {
                 </div>
                 <div className="hidden flex-[50%] flex-grow-0 border-1 border-half-white dsk:flex">
                   <div className="relative h-full flex-[50%] flex-grow-0 border-r-1 border-half-white">
-                    <Image
+                    <ImageWithDomain
                       className="object-cover object-center"
                       src={res.images.before2}
                       alt=""
@@ -57,7 +57,7 @@ const ResultsSlider: React.FC<IResultsSlider> = ({ slides }) => {
                     />
                   </div>
                   <div className="relative h-full flex-[50%] flex-grow-0">
-                    <Image
+                    <ImageWithDomain
                       className="object-cover object-center"
                       src={res.images.after2}
                       alt=""

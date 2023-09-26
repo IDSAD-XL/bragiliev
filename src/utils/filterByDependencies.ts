@@ -10,12 +10,8 @@ export function filterItemsWithDependencies<T extends ItemWithDependencies>(
   return items.filter((item) => {
     let res = true
     for (const dep of filterDependencies) {
-      const foundDep = item.dependencies?.find(({ key }) => key === dep.key)
-      if (foundDep) {
-        res = foundDep.id === dep.id
-      } else {
-        res = false
-      }
+      const foundDeps = item.dependencies?.filter(({ key }) => key === dep.key)
+      res = !!(foundDeps?.some(depItem => depItem.id === dep.id));
     }
     return res
   })
