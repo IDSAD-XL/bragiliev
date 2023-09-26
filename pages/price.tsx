@@ -1,9 +1,25 @@
 import React from 'react'
-import PricePage from '../src/pages/PricePage'
-import { priceContent } from '../src/mock/price'
+import PricePage, {IPrice} from '../src/pages/PricePage'
+import {Api} from "../src/api/Api";
+import {GetStaticProps} from "next";
 
-const PriceNextPage: React.FC = () => {
-  return <PricePage {...priceContent} />
+interface pageProps {
+  data: IPrice
 }
+
+const PriceNextPage: React.FC<pageProps> = ({ data }) => {
+  return <PricePage {...data} />
+}
+
+export const getStaticProps = (async () => {
+  const data = await Api.prices()
+
+  return {
+    props: { data },
+    revalidate: 60
+  }
+}) satisfies GetStaticProps<{
+  data: IPrice
+}>
 
 export default PriceNextPage

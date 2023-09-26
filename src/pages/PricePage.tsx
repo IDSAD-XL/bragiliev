@@ -5,7 +5,7 @@ import FiltersPriceBlock from '../components/elements/statefull-components/Filte
 import { IPricePageContent } from '../types/content/pages/PricePage'
 import RegForm from '../components/elements/statefull-components/RegForm'
 
-interface IPrice extends IPricePageContent {}
+export interface IPrice extends IPricePageContent {}
 
 const PricePage: React.FC<IPrice> = ({
   layout,
