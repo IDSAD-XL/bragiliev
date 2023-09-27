@@ -1,11 +1,8 @@
 import React from 'react'
-import Select, { ISelectContent } from '../stateless-components/Select'
+import { ISelectContent } from '../stateless-components/Select'
 import ResultsReviews from './ResultsReviews'
 import { IReviewsItem } from '../static-blocks/ReviewsItem'
-import { useResultSlides } from '../../../hooks/useResultSlides'
 import { ItemWithDependencies } from '../../../types/elements/ItemsWithDependecies'
-import { useAppDispatch } from '../../../hooks/redux'
-import { openModal } from '../../../redux/Actions/modalActions'
 
 export interface IReviewsFiltersItem
   extends IReviewsItem,
@@ -22,55 +19,13 @@ const FiltersReviewsBlock: React.FC<IFiltersReviewsBlock> = ({
   selects = [],
   slides,
 }) => {
-  const {
-    activePart,
-    activeOperation,
-    filteredOperations,
-    filteredResults,
-    changePart,
-    changeOperation,
-  } = useResultSlides(selects, slides)
-
-  const dispatch = useAppDispatch()
-
-  const leaveReviewHandle = () => {
-    openModal(dispatch, { type: 'review_form' })
-  }
-
   return (
     <div
       className={`text-dark flex w-full justify-center bg-white text-left dsk:justify-center`}
     >
-      <div className="container pb-[60px] md:pb-[90px] dsk:pb-[120px] dsk:pt-[90px]">
-        <div className="z-10 grid w-full grid-cols-1 gap-x-[20px] dsk:grid-cols-4">
-          <div>
-            <Select
-              variants={selects[0].variants}
-              placeholder={selects[0].placeholder}
-              onChange={changePart}
-              value={activePart}
-              variant={'light'}
-            />
-          </div>
-          <div>
-            <Select
-              variants={filteredOperations}
-              placeholder={selects[1].placeholder}
-              onChange={changeOperation}
-              value={activeOperation}
-              variant={'light'}
-            />
-          </div>
-          <div className="hidden dsk:block"></div>
-          <div
-            className="button1 mt-[20px] flex h-[80px] items-center justify-center dsk:mt-[0px]"
-            onClick={leaveReviewHandle}
-          >
-            <span className="link-plus no-underline">оставить отзыв</span>
-          </div>
-        </div>
+      <div className="container pb-[60px] md:pb-[90px] dsk:pb-[120px] dsk:pt-0">
         <div className="dsk:none mt-[30px] dsk:mt-[60px]">
-          <ResultsReviews slides={filteredResults} />
+          <ResultsReviews slides={slides} />
         </div>
       </div>
     </div>

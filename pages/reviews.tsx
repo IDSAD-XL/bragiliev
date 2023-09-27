@@ -1,9 +1,25 @@
 import React from 'react'
-import ReviewsPage from '../src/pages/ReviewsPage'
-import { reviewsContent } from '../src/mock/reviews'
+import ReviewsPage, {IReviews} from '../src/pages/ReviewsPage'
+import {Api} from "../src/api/Api";
+import {GetStaticProps} from "next";
 
-const ReviewsNextPage: React.FC = () => {
-  return <ReviewsPage {...reviewsContent} />
+interface pageProps {
+  data: IReviews
 }
+
+const ReviewsNextPage: React.FC<pageProps> = ({ data}) => {
+  return <ReviewsPage {...data} />
+}
+
+export const getStaticProps = (async () => {
+  const data = await Api.reviews()
+
+  return {
+    props: { data },
+    revalidate: 60
+  }
+}) satisfies GetStaticProps<{
+  data: IReviews
+}>
 
 export default ReviewsNextPage
