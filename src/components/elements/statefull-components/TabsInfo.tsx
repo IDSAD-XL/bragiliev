@@ -1,4 +1,4 @@
-import React, {useEffect, useLayoutEffect, useMemo, useState} from 'react'
+import React, {useLayoutEffect, useMemo, useState} from 'react'
 import Image from 'next/image'
 import { Tab } from '@headlessui/react'
 import Accordion, { IAccordionContent } from '../stateless-components/Accordion'
@@ -98,7 +98,7 @@ const TabsInfo: React.FC<ITabsInfo> = ({
         setImagePath(tabs[0]?.image)
       }
     }
-  }, []);
+  }, [tabs]);
 
   return (
     <div
