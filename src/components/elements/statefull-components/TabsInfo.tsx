@@ -1,11 +1,13 @@
-import React, { useState } from 'react'
+import React, {useEffect, useLayoutEffect, useMemo, useState} from 'react'
 import Image from 'next/image'
 import { Tab } from '@headlessui/react'
 import Accordion, { IAccordionContent } from '../stateless-components/Accordion'
 import Select, { ISelectVariant } from '../stateless-components/Select'
+import ImageWithDomain from "../stateless-components/ImageWithDomain";
 
-interface ITabInfoItem {
+export interface ITabInfoItem {
   title: string
+  image?: string
   content: IAccordionContent[]
 }
 
@@ -35,7 +37,7 @@ const tabsStylesVariant: Record<ITabsInfo['variant'], tabsSettings> = {
     container: 'flex-[100%] flex-shrink-0 flex-grow-0 dsk:flex-[50%]',
     mobileDropdown: false,
     tabsClasses: 'flex w-full',
-    panelSpacing: 'mt-[72px] h-full overflow-auto',
+    panelSpacing: 'mt-[72px] h-[calc(100%-72px)] overflow-auto',
   },
   fullScreen: {
     wrapperOuter: '',
@@ -64,9 +66,9 @@ const TabsInfo: React.FC<ITabsInfo> = ({
 
   const [openPanel, setOpenPanel] = useState<number>(0)
   const [openTab, setOpenTab] = useState<number | null>(null)
-  const [imagePath, setImagePath] = useState<string>('/assets/main-image-1.png')
+  const [imagePath, setImagePath] = useState<string | null>(null)
 
-  const tabsWithIds = (): ITabsSelectVariants[] => {
+  const tabsWithIds = useMemo((): ITabsSelectVariants[] => {
     if (!tabs) return []
     return tabs.map((item, index) => {
       return {
@@ -76,14 +78,27 @@ const TabsInfo: React.FC<ITabsInfo> = ({
         content: item.content,
       }
     })
-  }
+  }, [tabs])
 
-  const setImageByIndex = (tabIdx: number, itemIdx: number) => {
+  const setImageByIndex = (byTab: boolean, tabIdx: number, itemIdx?: number) => {
     if (tabs) {
-      const img = tabs[tabIdx].content[itemIdx].image
+      let img
+      if (byTab) {
+        img = tabs[tabIdx].image
+      } else if (itemIdx) {
+        img = tabs[tabIdx].content[itemIdx].image
+      }
       if (img) setImagePath(img)
     }
   }
+
+  useLayoutEffect(() => {
+    if (tabs && tabs.length > 0) {
+      if (tabs[0]?.image) {
+        setImagePath(tabs[0]?.image)
+      }
+    }
+  }, []);
 
   return (
     <div
@@ -101,7 +116,7 @@ const TabsInfo: React.FC<ITabsInfo> = ({
                   } as ISelectVariant
                 }
                 variant={'light'}
-                variants={tabsWithIds()}
+                variants={tabsWithIds}
                 onChange={(val) => {
                   setOpenTab(null)
                   setOpenPanel(parseInt(val.id))
@@ -117,11 +132,16 @@ const TabsInfo: React.FC<ITabsInfo> = ({
             }}
           >
             <Tab.List className={`${styles.tabsClasses}`}>
-              {tabsWithIds()?.map((item, index) => {
+              {tabsWithIds?.map((item, index) => {
                 return (
                   <Tab
                     key={index}
                     className="ml-[-1px] h-[60px] flex-[33.3%] border-1 border-half-gray outline-0 ui-selected:bg-blue md:h-[100px]"
+                    onClick={() => {
+                      if (variant === 'halfScreen') {
+                        setImageByIndex(true, index)
+                      }
+                    }}
                   >
                     <span className="text-regular uppercase ui-selected:text-white">
                       {item.title}
@@ -134,13 +154,13 @@ const TabsInfo: React.FC<ITabsInfo> = ({
               {sectionName && (
                 <p className="text-section-title mb-[20px]">{sectionName}</p>
               )}
-              <p className="title2">{tabsWithIds()[openPanel].title}</p>
+              {tabsWithIds.length > 0 && <p className="title2">{tabsWithIds[openPanel].title}</p> }
             </div>
             <Tab.Panels className={styles.panelSpacing}>
               {tabs?.map((item, idx) => {
                 return (
                   <Tab.Panel key={idx}>
-                    {item.content.map((cont, index) => {
+                    {item?.content?.map((cont, index) => {
                       const num =
                         index < 9 ? `[0${index + 1}]` : `[${index + 1}]`
                       return (
@@ -156,7 +176,7 @@ const TabsInfo: React.FC<ITabsInfo> = ({
                             onClick={() => {
                               setOpenTab(index)
                               if (variant === 'halfScreen') {
-                                setImageByIndex(idx, index)
+                                setImageByIndex(false, idx, index)
                               }
                             }}
                           />
@@ -175,12 +195,22 @@ const TabsInfo: React.FC<ITabsInfo> = ({
         <div className="flex-cols-2 relative -z-10 !hidden h-auto w-full dsk:absolute dsk:!flex dsk:h-full">
           <div className="flex-grow-1 flex-[100%] flex-shrink-0 dsk:flex-[50%]"></div>
           <div className="relative flex aspect-square flex-[100%] flex-grow-0 overflow-hidden dsk:aspect-auto dsk:flex-[50%]">
-            <Image
-              className="object-cover object-center"
-              src={imagePath}
-              fill={true}
-              alt={''}
-            />
+            {imagePath &&
+              <ImageWithDomain
+                className="object-cover object-center"
+                src={imagePath}
+                fill={true}
+                alt={''}
+              />
+            }
+            {!imagePath &&
+              <Image
+                className="object-cover object-center"
+                src={'/assets/main-image-1.png'}
+                fill={true}
+                alt={''}
+              />
+            }
           </div>
         </div>
       )}

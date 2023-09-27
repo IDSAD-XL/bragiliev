@@ -7,7 +7,7 @@ import TabsInfo from '../components/elements/statefull-components/TabsInfo'
 import PriceList from '../components/elements/static-blocks/PriceList'
 import Results from '../components/elements/statefull-components/Results'
 
-interface IService extends IServiceContent {}
+export interface IService extends IServiceContent {}
 
 const ServicesPage: React.FC<IService> = ({
   layout,
