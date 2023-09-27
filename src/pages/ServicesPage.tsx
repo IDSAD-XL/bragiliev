@@ -5,7 +5,7 @@ import { IServicesContent } from '../types/content/pages/ServicesPage'
 import TabsInfo from '../components/elements/statefull-components/TabsInfo'
 import RegForm from '../components/elements/statefull-components/RegForm'
 
-interface IServices extends IServicesContent {}
+export interface IServices extends IServicesContent {}
 
 const ServicesPage: React.FC<IServices> = ({
   layout,
