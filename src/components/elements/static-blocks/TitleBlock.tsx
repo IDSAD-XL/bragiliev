@@ -26,6 +26,7 @@ const TitleBlock: React.FC<ITitleBlock> = ({
   name,
   title,
   variant = 'light',
+  children
 }) => {
   const styles = titleBlockStyles[variant]
   return (
@@ -38,12 +39,19 @@ const TitleBlock: React.FC<ITitleBlock> = ({
             {name ?? ''}
           </p>
         )}
-        {!!title && (
-          <h2
-            className="flex h-[79px] items-center"
-            dangerouslySetInnerHTML={{ __html: title ?? '' }}
-          />
-        )}
+        <div className="flex justify-between flex-wrap md:flex-nowrap">
+          {!!title && (
+            <h2
+              className="flex h-[79px] items-center"
+              dangerouslySetInnerHTML={{ __html: title ?? '' }}
+            />
+          )}
+          {children &&
+            <div className="w-full md:w-auto">
+              {children}
+            </div>
+          }
+        </div>
       </div>
     </div>
   )

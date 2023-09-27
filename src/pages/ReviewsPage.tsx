@@ -4,8 +4,10 @@ import TitleBlock from '../components/elements/static-blocks/TitleBlock'
 import FiltersReviewsBlock from '../components/elements/statefull-components/FiltersReviewsBlock'
 import { IReviewsContent } from '../types/content/pages/ReviewsPage'
 import RegForm from '../components/elements/statefull-components/RegForm'
+import {useAppDispatch} from "../hooks/redux";
+import {openModal} from "../redux/Actions/modalActions";
 
-interface IReviews extends IReviewsContent {}
+export interface IReviews extends IReviewsContent {}
 
 const ReviewsPage: React.FC<IReviews> = ({
   layout,
@@ -13,9 +15,22 @@ const ReviewsPage: React.FC<IReviews> = ({
   filtersReviewsBlock,
   regFormBlock,
 }) => {
+  const dispatch = useAppDispatch()
+
+  const leaveReviewHandle = () => {
+    openModal(dispatch, { type: 'review_form' })
+  }
+
   return (
     <Layout {...layout}>
-      <TitleBlock name={infoBlock.name} title={infoBlock.title} />
+      <TitleBlock name={infoBlock.name} title={infoBlock.title}>
+        <div
+          className="button1 mt-[20px] flex h-[80px] items-center justify-center w-full md:w-[300px] dsk:mt-[0px]"
+          onClick={leaveReviewHandle}
+        >
+          <span className="link-plus no-underline">оставить отзыв</span>
+        </div>
+      </TitleBlock>
       <FiltersReviewsBlock {...filtersReviewsBlock} />
       <RegForm {...regFormBlock} />
     </Layout>

@@ -32,7 +32,7 @@ const ResultsReviews: React.FC<IResultReviews> = ({ slides }) => {
           return (
             <div
               key={item.id}
-              className="mx-auto w-[300px] md:w-[365px] dsk:w-[auto]"
+              className="mx-auto w-[300px] md:w-[365px] dsk:w-full"
             >
               <ReviewsItem
                 id={item.id}

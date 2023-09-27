@@ -53,17 +53,19 @@ const ReviewsItem: React.FC<IReviewsItem> = ({
         >
           + ЧИТАТЬ ДАЛЕЕ
         </button>
-        <Link
-          href={link ?? '#'}
-          className="relative box-border h-[40px] flex-[142px] border-1 border-white bg-white transition-all group-hover:border-[#cdcdcd]"
-        >
-          <Image
-            src={image ?? ''}
-            fill={true}
-            alt=""
-            className="object-cover object-center"
-          />
-        </Link>
+        {link &&
+          <Link
+            href={link ?? '#'}
+            className="relative box-border h-[40px] flex-[142px] border-1 border-white bg-white transition-all group-hover:border-[#cdcdcd]"
+          >
+            <Image
+              src={image ?? ''}
+              fill={true}
+              alt=""
+              className="object-cover object-center"
+            />
+          </Link>
+        }
       </div>
     </div>
   )
