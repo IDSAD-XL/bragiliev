@@ -34,3 +34,20 @@ body {
   --color-half-black: #3a3a3a;
   --color-red: #ff4b55;
 }
+
+/* полоса прокрутки (скроллбар) */
+::-webkit-scrollbar {
+  width: 10px; /* ширина для вертикального скролла */
+  height: 8px; /* высота для горизонтального скролла */
+  background-color: #b1b1b1;
+}
+
+/* ползунок скроллбара */
+::-webkit-scrollbar-thumb {
+  background-color: #286ad3;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: #267dff;
+  cursor: pointer;
+}

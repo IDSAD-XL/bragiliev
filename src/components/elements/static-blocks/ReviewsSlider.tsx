@@ -20,7 +20,7 @@ const ReviewsSlider: React.FC<IReviewsSlider> = ({ slides }) => {
     >
       {slides.map((item) => {
         return (
-          <SwiperSlide key={item.id} className="!w-[365px] dsk:!w-[auto]">
+          <SwiperSlide key={item.id} className="!w-[300px] md:!w-[365px] dsk:!w-[412px]">
             <ReviewsItem
               id={item.id}
               name={item.name}

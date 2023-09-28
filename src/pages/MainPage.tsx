@@ -13,7 +13,7 @@ import RegForm from '../components/elements/statefull-components/RegForm'
 
 // const mainContent: IMainContent = {}
 
-interface IMain extends IMainContent {}
+export interface IMain extends IMainContent {}
 
 const MainPage: React.FC<IMain> = ({
   layout,
