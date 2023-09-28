@@ -14,9 +14,7 @@ export const getResults = async (): Promise<IResultsPage> => {
   const fetchData: resultsDTO = await resp.json()
 
   const resultsData: IResultsContent = {
-    name: '[ кейсы ]',
-    title: 'До/После',
-    link: '',
+    ...resultsContent.resultsBlock,
     results: fetchData?.results,
     selects: fetchData?.selects
   }
