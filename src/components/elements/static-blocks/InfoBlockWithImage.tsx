@@ -20,7 +20,7 @@ const InfoBlockWithImage: React.FC<IInfoBlockWithImage> = ({
   children,
 }) => {
   return (
-    <div className="relative flex min-h-[530px] w-full justify-center pt-[83px] md:h-[1468px] md:items-center md:pb-[90px] md:pt-[90px] dsk:mt-[114px] dsk:min-h-min dsk:pb-[114px]">
+    <div className="relative flex min-h-[530px] w-full justify-center pt-[83px] md:h-[1468px] md:items-center md:pb-[90px] md:pt-[90px] dsk:min-h-min dsk:pb-[114px]">
       <Image
         className={`-z-10 object-cover object-center ${
           imageMobile ? 'hidden md:block' : ''
