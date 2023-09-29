@@ -44,10 +44,10 @@ body {
 
 /* ползунок скроллбара */
 ::-webkit-scrollbar-thumb {
-  background-color: #286ad3;
+  background-color: #267dff;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background-color: #267dff;
+  background-color: #267DFF;
   cursor: pointer;
 }

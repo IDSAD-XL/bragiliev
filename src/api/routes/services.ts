@@ -3,10 +3,13 @@ import {ITabInfoItem} from "../../components/elements/statefull-components/TabsI
 import {IServices} from "../../pages/ServicesPage";
 
 export const getServices = async (): Promise<IServices> => {
+  try {
+    const fetchUrl = 'https://grandmed.ru/ajax/api/services.php'
+    const resp = await fetch(fetchUrl)
+    const fetchData: ITabInfoItem[] = await resp.json()
 
-  const fetchUrl = 'https://grandmed.ru/ajax/api/services.php'
-  const resp = await fetch(fetchUrl)
-  const fetchData: ITabInfoItem[] = await resp.json()
-
-  return { ...servicesContent, servicesBlock: { tabs: fetchData.slice(0, 3) }  }
+    return { ...servicesContent, servicesBlock: { tabs: fetchData.slice(0, 3) }  }
+  } catch (e) {
+    return servicesContent
+  }
 }

@@ -4,20 +4,24 @@ import {resultsContent} from "../../mock/results";
 import {IResultsPage} from "../../pages/ResultsPage";
 
 export const getResults = async (): Promise<IResultsPage> => {
-  interface resultsDTO {
-    selects: ISelectContent[],
-    results: IResultsSlides[]
+  try {
+    interface resultsDTO {
+      selects: ISelectContent[],
+      results: IResultsSlides[]
+    }
+
+    const fetchUrl = 'https://grandmed.ru/ajax/api/result.php?id=9110'
+    const resp = await fetch(fetchUrl)
+    const fetchData: resultsDTO = await resp.json()
+
+    const resultsData: IResultsContent = {
+      ...resultsContent.resultsBlock,
+      results: fetchData?.results,
+      selects: fetchData?.selects
+    }
+
+    return  {...resultsContent, resultsBlock: resultsData}
+  } catch (e) {
+    return resultsContent
   }
-
-  const fetchUrl = 'https://grandmed.ru/ajax/api/result.php?id=9110'
-  const resp = await fetch(fetchUrl)
-  const fetchData: resultsDTO = await resp.json()
-
-  const resultsData: IResultsContent = {
-    ...resultsContent.resultsBlock,
-    results: fetchData?.results,
-    selects: fetchData?.selects
-  }
-
-  return  {...resultsContent, resultsBlock: resultsData}
 }
