@@ -41,5 +41,14 @@
     span {
       color: #10100e;
     }
+    .header__item--hover {
+      &:hover {
+        background: var(--color-hover-blue);
+        color: #FFFFFF;
+        span {
+          color: #FFFFFF;
+        }
+      }
+    }
   }
 }

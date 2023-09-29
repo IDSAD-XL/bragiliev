@@ -56,7 +56,7 @@ const Accordion: React.FC<IAccordion> = ({
 
   return (
     <div
-      className={`w-full border-b-1 border-half-gray ${
+      className={`w-full border-b-1 border-half-gray group/accordion  ${
         open ? 'pb-[20px]' : ''
       }`}
     >
@@ -64,7 +64,7 @@ const Accordion: React.FC<IAccordion> = ({
         className={`flex min-h-[72px] w-full cursor-pointer items-center justify-between text-left`}
         onClick={onClick}
       >
-        <div>
+        <div className="group-hover/accordion:text-hover-blue transition-colors">
           <span className="title5">{name}</span>
           {!!number && <span className="text-light"> {number}</span>}
         </div>

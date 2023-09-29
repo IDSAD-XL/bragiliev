@@ -136,7 +136,7 @@ const TabsInfo: React.FC<ITabsInfo> = ({
                 return (
                   <Tab
                     key={index}
-                    className="ml-[-1px] h-[60px] flex-[33.3%] border-1 border-half-gray outline-0 ui-selected:bg-blue md:h-[100px]"
+                    className="button1 ml-[-1px] h-[60px] flex-[33.3%] border-1 border-half-gray outline-0 ui-selected:bg-blue md:h-[100px] ui-not-selected:hover:opacity-90"
                     onClick={() => {
                       if (variant === 'halfScreen') {
                         setImageByIndex(true, index)

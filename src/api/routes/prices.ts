@@ -7,19 +7,23 @@ import {
 import {priceContent} from "../../mock/price";
 
 export const getPrices = async (): Promise<IPrice> => {
-  interface pricesDTO {
-    selects: ISelectContent[],
-    services: IPriceItem[]
+  try {
+    interface pricesDTO {
+      selects: ISelectContent[],
+      services: IPriceItem[]
+    }
+
+    const fetchUrl = 'https://grandmed.ru/ajax/api/prices.php'
+    const resp = await fetch(fetchUrl)
+    const fetchData: pricesDTO = await resp.json()
+
+    const pricesData: IFiltersPriceBlock = {
+      selects: fetchData?.selects,
+      services: fetchData?.services
+    }
+
+    return { ...priceContent, filtersPriceBlock: pricesData }
+  } catch (e) {
+    return priceContent
   }
-
-  const fetchUrl = 'https://grandmed.ru/ajax/api/prices.php'
-  const resp = await fetch(fetchUrl)
-  const fetchData: pricesDTO = await resp.json()
-
-  const pricesData: IFiltersPriceBlock = {
-    selects: fetchData?.selects,
-    services: fetchData?.services
-  }
-
-  return { ...priceContent, filtersPriceBlock: pricesData }
 }
