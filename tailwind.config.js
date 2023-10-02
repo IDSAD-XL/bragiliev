@@ -40,6 +40,7 @@ module.exports = {
       colors: {
         'dark-gray': 'var(--color-dark-gray)',
         'hover-blue': 'var(--color-hover-blue)',
+        'active-blue': 'var(--color-active-blue)',
         'semi-black': 'var(--color-semi-black)',
         'light-gray': 'var(--color-light-gray)',
         'dark-hover': 'var(--color-hover-black)',

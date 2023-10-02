@@ -9,4 +9,8 @@ const closeMenu = (dispatch: AppDispatch) => {
   dispatch(appSlice.actions.closeMenu())
 }
 
-export { openMenu, closeMenu }
+const setIsAdult = (dispatch: AppDispatch, payload: boolean) => {
+  dispatch(appSlice.actions.setIsAdult(payload))
+}
+
+export { openMenu, closeMenu, setIsAdult }

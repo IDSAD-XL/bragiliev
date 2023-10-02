@@ -5,6 +5,7 @@ import { closeModal } from '../../../../redux/Actions/modalActions'
 import ModalReview from './ModalReview'
 import ModalReviewForm from './ModalReviewForm'
 import { IModalSlice } from '../../../../redux/Reducers/modalSlice'
+import ModalAdult from './ModalAdult'
 
 const ModalDispatcher: React.FC = () => {
   const { open, content, type } = useAppSelector((state) => state.modalSlice)
@@ -20,6 +21,7 @@ const ModalDispatcher: React.FC = () => {
   > = {
     review: 'min-h-[590px] max-w-[90%] dsk:w-[900px] dsk:max-w-[100%]',
     review_form: 'min-h-[700px] max-w-[90%] dsk:w-[1184px] dsk:max-w-[100%]',
+    adult: 'min-h-[400px] max-w-[90%] dsk:w-[400px] dsk:max-w-[100%]',
   }
 
   return (
@@ -62,6 +64,7 @@ const ModalDispatcher: React.FC = () => {
                   <ModalReview review={content} />
                 )}
                 {type === 'review_form' && <ModalReviewForm />}
+                {type === 'adult' && <ModalAdult />}
               </div>
             </Transition.Child>
           </div>

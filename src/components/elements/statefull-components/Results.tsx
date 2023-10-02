@@ -8,10 +8,11 @@ import Link from 'next/link'
 import { ItemWithDependencies } from '../../../types/elements/ItemsWithDependecies'
 import { useResultSlides } from '../../../hooks/useResultSlides'
 
-export interface IResultsSlides extends ItemWithDependencies {
+export interface IResultsSlide extends ItemWithDependencies {
   id: string
   title: string
   subtitle?: string
+  isAdult: boolean
   images: {
     before1: string
     before2: string
@@ -24,7 +25,7 @@ export interface IResultsContent {
   name: string
   title: string
   selects: ISelectContent[]
-  results: IResultsSlides[]
+  results: IResultsSlide[]
   link: string
 }
 

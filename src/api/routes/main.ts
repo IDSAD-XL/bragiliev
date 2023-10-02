@@ -1,7 +1,7 @@
 import {mainContent} from "../../mock/main";
 import {IMain} from "../../pages/MainPage";
 import {ISelectContent} from "../../components/elements/stateless-components/Select";
-import {IResultsContent, IResultsSlides} from "../../components/elements/statefull-components/Results";
+import {IResultsContent, IResultsSlide} from "../../components/elements/statefull-components/Results";
 import {IReviewsFiltersItem} from "../../components/elements/statefull-components/FiltersReviewsBlock";
 import {ITabInfoItem} from "../../components/elements/statefull-components/TabsInfo";
 import {resultsContent} from "../../mock/results";
@@ -10,7 +10,7 @@ export const getMain = async (): Promise<IMain> => {
   try {
     interface resultsDTO {
       selects: ISelectContent[],
-      results: IResultsSlides[]
+      results: IResultsSlide[]
     }
 
     const fetchUrlResults = 'https://grandmed.ru/ajax/api/result.php?id=9110'

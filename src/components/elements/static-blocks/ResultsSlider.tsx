@@ -1,14 +1,24 @@
 import React from 'react'
 import { Navigation, Scrollbar } from 'swiper'
 import { Swiper, SwiperSlide } from 'swiper/react'
-import { IResultsSlides } from '../statefull-components/Results'
-import ImageWithDomain from "../stateless-components/ImageWithDomain";
+import { IResultsSlide } from '../statefull-components/Results'
+import ImageWithDomain from '../stateless-components/ImageWithDomain'
+import Image from 'next/image'
+import { useAppDispatch, useAppSelector } from '../../../hooks/redux'
+import { openModal } from '../../../redux/Actions/modalActions'
 
 interface IResultsSlider {
-  slides: IResultsSlides[] | null
+  slides: IResultsSlide[] | null
 }
 
 const ResultsSlider: React.FC<IResultsSlider> = ({ slides }) => {
+  const { isAdult } = useAppSelector((state) => state.appSlice)
+  const dispatch = useAppDispatch()
+
+  const handleClickOnAdultSlide = () => {
+    openModal(dispatch, { type: 'adult' })
+  }
+
   return (
     <Swiper
       slidesPerView={1}
@@ -22,48 +32,94 @@ const ResultsSlider: React.FC<IResultsSlider> = ({ slides }) => {
     >
       {!!slides &&
         slides.map((res) => {
+          const isAdultSlide = !isAdult && res.isAdult
           return (
             <SwiperSlide key={res.id}>
               <p className="title5 !text-[30px]">{res.title}</p>
               <p className="text-light mt-[5px] !text-[14px] !leading-[22px] md:!text-[16px] dsk:!text-[14px]">
                 {res.subtitle}
               </p>
-              <div className="mt-[22px] flex w-full gap-[20px]">
-                <div className="flex flex-[100%] flex-grow-0 flex-wrap border-1 border-half-white md:flex-nowrap dsk:flex-[50%]">
-                  <div className="relative aspect-[300/332] flex-[100%] flex-grow-0 border-b-1 border-half-white md:aspect-[314/459] md:h-full md:flex-[50%] md:border-b-0 md:border-r-1">
+              <div
+                className="mt-[22px] flex w-full cursor-pointer gap-[20px]"
+                onClick={() => {
+                  if (isAdultSlide) {
+                    handleClickOnAdultSlide()
+                  }
+                }}
+              >
+                <div
+                  className={`relative flex flex-[100%] flex-grow-0 flex-wrap border-half-white md:flex-nowrap dsk:flex-[50%] ${
+                    isAdultSlide ? '' : 'border-1'
+                  }`}
+                >
+                  <div
+                    className={`relative aspect-[300/332] flex-[100%] flex-grow-0 overflow-hidden border-half-white md:aspect-[314/459] md:h-full md:flex-[50%] md:border-b-0 ${
+                      isAdultSlide ? '' : 'border-b-1 md:border-r-1'
+                    }`}
+                  >
                     <ImageWithDomain
-                      className="object-cover object-center"
+                      className={`object-cover object-center ${
+                        isAdultSlide ? 'blur-[20px]' : ''
+                      }`}
                       src={res.images.before1}
                       alt=""
                       fill={true}
                     />
                   </div>
-                  <div className="relative aspect-[300/332] flex-[100%] flex-grow-0 md:aspect-[314/459] md:h-full md:flex-[50%]">
+                  <div className="relative aspect-[300/332] flex-[100%] flex-grow-0 overflow-hidden md:aspect-[314/459] md:h-full md:flex-[50%]">
                     <ImageWithDomain
-                      className="object-cover object-center"
+                      className={`object-cover object-center ${
+                        isAdultSlide ? 'blur-[20px]' : ''
+                      }`}
                       src={res.images.after1}
                       alt=""
                       fill={true}
                     />
                   </div>
+                  {isAdultSlide && (
+                    <div className="absolute left-0 top-0 flex h-full w-full items-center justify-center">
+                      <div className="relative h-[350px] w-[350px]">
+                        <Image src="/assets/is18.svg" fill={true} alt={''} />
+                      </div>
+                    </div>
+                  )}
                 </div>
-                <div className="hidden flex-[50%] flex-grow-0 border-1 border-half-white dsk:flex">
-                  <div className="relative h-full flex-[50%] flex-grow-0 border-r-1 border-half-white">
+                <div
+                  className={`relative hidden flex-[50%] flex-grow-0 overflow-hidden border-half-white dsk:flex ${
+                    isAdultSlide ? '' : 'border-1'
+                  }`}
+                >
+                  <div
+                    className={`relative h-full flex-[50%] flex-grow-0 border-half-white ${
+                      isAdultSlide ? '' : 'border-b-1 md:border-r-1'
+                    }`}
+                  >
                     <ImageWithDomain
-                      className="object-cover object-center"
+                      className={`object-cover object-center ${
+                        isAdultSlide ? 'blur-[20px]' : ''
+                      }`}
                       src={res.images.before2}
                       alt=""
                       fill={true}
                     />
                   </div>
-                  <div className="relative h-full flex-[50%] flex-grow-0">
+                  <div className="relative h-full flex-[50%] flex-grow-0 overflow-hidden">
                     <ImageWithDomain
-                      className="object-cover object-center"
+                      className={`object-cover object-center ${
+                        isAdultSlide ? 'blur-[20px]' : ''
+                      }`}
                       src={res.images.after2}
                       alt=""
                       fill={true}
                     />
                   </div>
+                  {isAdultSlide && (
+                    <div className="absolute left-0 top-0 flex h-full w-full items-center justify-center">
+                      <div className="relative h-[350px] w-[350px]">
+                        <Image src="/assets/is18.svg" fill={true} alt={''} />
+                      </div>
+                    </div>
+                  )}
                 </div>
               </div>
             </SwiperSlide>
