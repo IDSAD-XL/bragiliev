@@ -16,7 +16,6 @@ const Layout: React.FC<ILayout> = ({ children, header }) => {
   useEffect(() => {
     const isAdultStorage = localStorage.getItem('isAdult')
     const isAdult = isAdultStorage === 'true'
-    console.log(isAdultStorage)
     if (isAdult) {
       setIsAdult(dispatch, isAdult)
     }
