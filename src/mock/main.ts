@@ -296,6 +296,7 @@ export const mainContent: IMainContent = {
           after1: '/assets/main-res-2.png',
           after2: '/assets/main-res-2.png',
         },
+        isAdult: false,
         dependencies: [
           {
             id: '1',
@@ -317,6 +318,7 @@ export const mainContent: IMainContent = {
           after1: '/assets/main-res-2.png',
           after2: '/assets/main-res-2.png',
         },
+        isAdult: false,
         dependencies: [
           {
             id: '1',
@@ -338,6 +340,7 @@ export const mainContent: IMainContent = {
           after1: '/assets/main-res-2.png',
           after2: '/assets/main-res-2.png',
         },
+        isAdult: false,
         dependencies: [
           {
             id: '1',
@@ -359,6 +362,7 @@ export const mainContent: IMainContent = {
           after1: '/assets/main-res-2.png',
           after2: '/assets/main-res-2.png',
         },
+        isAdult: true,
         dependencies: [
           {
             id: '2',
@@ -380,6 +384,7 @@ export const mainContent: IMainContent = {
           after1: '/assets/main-res-2.png',
           after2: '/assets/main-res-2.png',
         },
+        isAdult: true,
         dependencies: [
           {
             id: '2',
@@ -401,6 +406,7 @@ export const mainContent: IMainContent = {
           after1: '/assets/main-res-2.png',
           after2: '/assets/main-res-2.png',
         },
+        isAdult: true,
         dependencies: [
           {
             id: '1',
@@ -422,6 +428,7 @@ export const mainContent: IMainContent = {
           after1: '/assets/main-res-2.png',
           after2: '/assets/main-res-2.png',
         },
+        isAdult: true,
         dependencies: [
           {
             id: '1',
@@ -443,6 +450,7 @@ export const mainContent: IMainContent = {
           after1: '/assets/main-res-2.png',
           after2: '/assets/main-res-2.png',
         },
+        isAdult: true,
         dependencies: [
           {
             id: '1',
