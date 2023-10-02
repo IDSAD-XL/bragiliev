@@ -220,6 +220,22 @@ h6 {
   }
 }
 
+.button2 {
+  color: #FFFFFF;
+  border: 1px solid var(--color-hover-blue);
+  background: var(--color-hover-blue);
+  cursor: pointer;
+  transition: background-color .3s ease;
+  box-sizing: border-box;
+  &:hover {
+    background: var(--color-hover-blue);
+    border: 1px solid var(--color-hover-blue);
+  }
+  span {
+    pointer-events: none;
+  }
+}
+
 .list {
   li {
     position: relative;

@@ -4,7 +4,7 @@ import { IReviewsItem } from '../../components/elements/static-blocks/ReviewsIte
 
 export interface IModalSlice {
   open: boolean
-  type: 'review' | 'review_form' | null
+  type: 'review' | 'review_form' | 'adult' | null
   content?: IReviewsItem | null
 }
 
@@ -27,9 +27,14 @@ interface IOpenActionPayloadReviewForm extends IOpenActionPayloadBase {
   type: 'review_form'
 }
 
+interface IOpenActionPayloadAdult extends IOpenActionPayloadBase {
+  type: 'adult'
+}
+
 export type IOpenActionPayload =
   | IOpenActionPayloadReview
   | IOpenActionPayloadReviewForm
+  | IOpenActionPayloadAdult
 
 export const modalSlice = createSlice({
   name: 'alerts',

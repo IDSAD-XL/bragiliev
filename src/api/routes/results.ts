@@ -1,5 +1,5 @@
 import {ISelectContent} from "../../components/elements/stateless-components/Select";
-import {IResultsContent, IResultsSlides} from "../../components/elements/statefull-components/Results";
+import {IResultsContent, IResultsSlide} from "../../components/elements/statefull-components/Results";
 import {resultsContent} from "../../mock/results";
 import {IResultsPage} from "../../pages/ResultsPage";
 
@@ -7,7 +7,7 @@ export const getResults = async (): Promise<IResultsPage> => {
   try {
     interface resultsDTO {
       selects: ISelectContent[],
-      results: IResultsSlides[]
+      results: IResultsSlide[]
     }
 
     const fetchUrl = 'https://grandmed.ru/ajax/api/result.php?id=9110'
