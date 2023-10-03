@@ -1,12 +1,12 @@
-import React, {useLayoutEffect, useMemo, useState} from 'react'
+import React, { useLayoutEffect, useMemo, useState } from 'react'
 import Image from 'next/image'
 import { Tab } from '@headlessui/react'
 import Accordion, { IAccordionContent } from '../stateless-components/Accordion'
 import Select, { ISelectVariant } from '../stateless-components/Select'
-import ImageWithDomain from "../stateless-components/ImageWithDomain";
+import ImageWithDomain from '../stateless-components/ImageWithDomain'
 
 export interface ITabInfoItem {
-  title: string
+  name: string
   image?: string
   content: IAccordionContent[]
 }
@@ -73,14 +73,18 @@ const TabsInfo: React.FC<ITabsInfo> = ({
     return tabs.map((item, index) => {
       return {
         id: index.toString(),
-        value: item.title,
-        title: item.title,
+        value: item.name,
+        name: item.name,
         content: item.content,
       }
     })
   }, [tabs])
 
-  const setImageByIndex = (byTab: boolean, tabIdx: number, itemIdx?: number) => {
+  const setImageByIndex = (
+    byTab: boolean,
+    tabIdx: number,
+    itemIdx?: number
+  ) => {
     if (tabs) {
       let img
       if (byTab) {
@@ -98,7 +102,7 @@ const TabsInfo: React.FC<ITabsInfo> = ({
         setImagePath(tabs[0]?.image)
       }
     }
-  }, [tabs]);
+  }, [tabs])
 
   return (
     <div
@@ -112,7 +116,7 @@ const TabsInfo: React.FC<ITabsInfo> = ({
                 value={
                   {
                     id: openPanel.toString(),
-                    value: tabs[openPanel].title,
+                    value: tabs[openPanel].name,
                   } as ISelectVariant
                 }
                 variant={'light'}
@@ -136,7 +140,7 @@ const TabsInfo: React.FC<ITabsInfo> = ({
                 return (
                   <Tab
                     key={index}
-                    className="button1 ml-[-1px] h-[60px] flex-[33.3%] border-1 border-half-gray outline-0 ui-selected:bg-blue md:h-[100px] ui-not-selected:hover:opacity-90"
+                    className="button1 ml-[-1px] h-[60px] flex-[33.3%] border-1 border-half-gray outline-0 ui-selected:bg-blue ui-not-selected:hover:opacity-90 md:h-[100px]"
                     onClick={() => {
                       if (variant === 'halfScreen') {
                         setImageByIndex(true, index)
@@ -144,7 +148,7 @@ const TabsInfo: React.FC<ITabsInfo> = ({
                     }}
                   >
                     <span className="text-regular uppercase ui-selected:text-white">
-                      {item.title}
+                      {item.name}
                     </span>
                   </Tab>
                 )
@@ -154,7 +158,9 @@ const TabsInfo: React.FC<ITabsInfo> = ({
               {sectionName && (
                 <p className="text-section-title mb-[20px]">{sectionName}</p>
               )}
-              {tabsWithIds.length > 0 && <p className="title2">{tabsWithIds[openPanel].title}</p> }
+              {tabsWithIds.length > 0 && (
+                <p className="title2">{tabsWithIds[openPanel].name}</p>
+              )}
             </div>
             <Tab.Panels className={styles.panelSpacing}>
               {tabs?.map((item, idx) => {
@@ -168,7 +174,7 @@ const TabsInfo: React.FC<ITabsInfo> = ({
                           <Accordion
                             key={index}
                             name={cont.name}
-                            content={cont.content}
+                            text={cont.text}
                             link={cont.link}
                             number={num}
                             image={cont.image}
@@ -195,22 +201,22 @@ const TabsInfo: React.FC<ITabsInfo> = ({
         <div className="flex-cols-2 relative -z-10 !hidden h-auto w-full dsk:absolute dsk:!flex dsk:h-full">
           <div className="flex-grow-1 flex-[100%] flex-shrink-0 dsk:flex-[50%]"></div>
           <div className="relative flex aspect-square flex-[100%] flex-grow-0 overflow-hidden dsk:aspect-auto dsk:flex-[50%]">
-            {imagePath &&
+            {imagePath && (
               <ImageWithDomain
                 className="object-cover object-center"
                 src={imagePath}
                 fill={true}
                 alt={''}
               />
-            }
-            {!imagePath &&
+            )}
+            {!imagePath && (
               <Image
                 className="object-cover object-center"
                 src={'/assets/main-image-1.png'}
                 fill={true}
                 alt={''}
               />
-            }
+            )}
           </div>
         </div>
       )}
