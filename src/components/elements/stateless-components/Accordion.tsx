@@ -12,7 +12,7 @@ import Image from 'next/image'
 export interface IAccordionContent {
   name?: string
   number?: string
-  content?: string | ReactNode
+  text?: string | ReactNode
   image?: string
   link?: string
 }
@@ -28,7 +28,7 @@ interface contentCssProps extends CSSProperties {
 
 const Accordion: React.FC<IAccordion> = ({
   name,
-  content,
+  text,
   link,
   number,
   image,
@@ -56,7 +56,7 @@ const Accordion: React.FC<IAccordion> = ({
 
   return (
     <div
-      className={`w-full border-b-1 border-half-gray group/accordion  ${
+      className={`group/accordion w-full border-b-1 border-half-gray  ${
         open ? 'pb-[20px]' : ''
       }`}
     >
@@ -64,7 +64,7 @@ const Accordion: React.FC<IAccordion> = ({
         className={`flex min-h-[72px] w-full cursor-pointer items-center justify-between text-left`}
         onClick={onClick}
       >
-        <div className="group-hover/accordion:text-hover-blue transition-colors">
+        <div className="transition-colors group-hover/accordion:text-hover-blue">
           <span className="title5">{name}</span>
           {!!number && <span className="text-light"> {number}</span>}
         </div>
@@ -94,7 +94,7 @@ const Accordion: React.FC<IAccordion> = ({
           open ? 'max-h-[--scroll-h]' : 'max-h-0'
         }`}
       >
-        <div dangerouslySetInnerHTML={{ __html: content ?? '' }} />
+        <div dangerouslySetInnerHTML={{ __html: text ?? '' }} />
         {!!link && (
           <Link href={link} className="link-plus mt-[40px]">
             Подробнее

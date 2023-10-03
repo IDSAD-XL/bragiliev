@@ -34,7 +34,7 @@ const QuestionsBlock: React.FC<IQuestionsBlock> = ({
               <Accordion
                 key={index}
                 name={item.name}
-                content={item.content}
+                text={item.text}
                 open={openQuestion === index}
                 onClick={() => {
                   setQuestion(index)
