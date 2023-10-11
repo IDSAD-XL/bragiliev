@@ -1,58 +1,55 @@
 'use client'
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 import { IReviewsItem } from '../../components/elements/static-blocks/ReviewsItem'
+import { IModalFileinputError } from '../../components/elements/stateless-components/modal/ModalFileinputError'
 
-export interface IModalSlice {
-  open: boolean
-  type: 'review' | 'review_form' | 'adult' | null
-  content?: IReviewsItem | null
-}
-
-const initialState: IModalSlice = {
-  open: false,
-  type: null,
-  content: null,
-}
-
-interface IOpenActionPayloadBase {
-  type: IModalSlice['type']
-}
-
-interface IOpenActionPayloadReview extends IOpenActionPayloadBase {
+interface IOpenActionPayloadReview {
   type: 'review'
   content: IReviewsItem
 }
 
-interface IOpenActionPayloadReviewForm extends IOpenActionPayloadBase {
+interface IOpenActionPayloadReviewForm {
   type: 'review_form'
+  content: null
 }
 
-interface IOpenActionPayloadAdult extends IOpenActionPayloadBase {
+interface IOpenActionPayloadAdult {
   type: 'adult'
+  content: null
+}
+
+interface IOpenActionPayloadFileinputError {
+  type: 'file_input_error'
+  content: IModalFileinputError
 }
 
 export type IOpenActionPayload =
   | IOpenActionPayloadReview
   | IOpenActionPayloadReviewForm
   | IOpenActionPayloadAdult
+  | IOpenActionPayloadFileinputError
+
+export interface IModalSlice {
+  open: boolean
+  modal: IOpenActionPayload | null
+}
+
+const initialState: IModalSlice = {
+  open: false,
+  modal: null,
+}
 
 export const modalSlice = createSlice({
-  name: 'alerts',
+  name: 'modal',
   initialState,
   reducers: {
     openModal(state, action: PayloadAction<IOpenActionPayload>) {
-      state.type = action.payload.type
-      if (action.payload.type === 'review') {
-        state.content = action.payload.content
-      } else {
-        state.content = null
-      }
+      state.modal = action.payload
       state.open = true
     },
     closeModal(state) {
-      state.type = null
       state.open = false
-      state.content = null
+      state.modal = null
     },
   },
 })

@@ -22,7 +22,7 @@ const RegForm: React.FC<IRegForm> = ({ name, title, subtitle }) => {
     new Date(new Date().setHours(0, 0, 0, 0))
   )
   const { selectedFiles, handleFileChange, addFiles, removeFile, resetFiles } =
-    useFileinput()
+    useFileinput(['png', 'jpg', 'jpeg'], 5)
 
   const russianMonths = [
     'Январь',
