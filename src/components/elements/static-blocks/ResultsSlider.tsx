@@ -16,7 +16,7 @@ const ResultsSlider: React.FC<IResultsSlider> = ({ slides }) => {
   const dispatch = useAppDispatch()
 
   const handleClickOnAdultSlide = () => {
-    openModal(dispatch, { type: 'adult' })
+    openModal(dispatch, { type: 'adult', content: null })
   }
 
   return (
