@@ -67,7 +67,6 @@ const FilesInputDragAndDrop: React.FC<IFilesInputDragAndDrop> = ({
             type="file"
             id="add-file"
             multiple
-            accept="image/png, image/jpg, image/jpeg"
             className="absolute h-[1px] w-[1px] opacity-0"
             onChange={addFiles}
           />

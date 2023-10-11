@@ -4,11 +4,12 @@ import { useAppDispatch, useAppSelector } from '../../../../hooks/redux'
 import { closeModal } from '../../../../redux/Actions/modalActions'
 import ModalReview from './ModalReview'
 import ModalReviewForm from './ModalReviewForm'
-import { IModalSlice } from '../../../../redux/Reducers/modalSlice'
+import { IOpenActionPayload } from '../../../../redux/Reducers/modalSlice'
 import ModalAdult from './ModalAdult'
+import ModalFileinputError from './ModalFileinputError'
 
 const ModalDispatcher: React.FC = () => {
-  const { open, content, type } = useAppSelector((state) => state.modalSlice)
+  const { open, modal } = useAppSelector((state) => state.modalSlice)
   const dispatch = useAppDispatch()
 
   const handleCloseModal = () => {
@@ -16,12 +17,14 @@ const ModalDispatcher: React.FC = () => {
   }
 
   const modalContainerStyles: Record<
-    NonNullable<IModalSlice['type']>,
+    NonNullable<IOpenActionPayload['type']>,
     string
   > = {
     review: 'min-h-[590px] max-w-[90%] dsk:w-[900px] dsk:max-w-[100%]',
     review_form: 'min-h-[700px] max-w-[90%] dsk:w-[1184px] dsk:max-w-[100%]',
     adult: 'min-h-[400px] max-w-[90%] dsk:w-[400px] dsk:max-w-[100%]',
+    file_input_error:
+      'min-h-[200px] max-w-[90%] dsk:w-[400px] dsk:max-w-[100%]',
   }
 
   return (
@@ -55,16 +58,22 @@ const ModalDispatcher: React.FC = () => {
             >
               <div
                 className={
-                  type
-                    ? modalContainerStyles[type]
+                  modal?.type
+                    ? modalContainerStyles[modal.type]
                     : modalContainerStyles.review
                 }
               >
-                {type === 'review' && content && (
-                  <ModalReview review={content} />
+                {modal?.type === 'review' && modal && (
+                  <ModalReview review={modal.content} />
                 )}
-                {type === 'review_form' && <ModalReviewForm />}
-                {type === 'adult' && <ModalAdult />}
+                {modal?.type === 'review_form' && <ModalReviewForm />}
+                {modal?.type === 'adult' && <ModalAdult />}
+                {modal?.type === 'file_input_error' && (
+                  <ModalFileinputError
+                    errorType={modal.content.errorType}
+                    file={modal.content.file}
+                  />
+                )}
               </div>
             </Transition.Child>
           </div>
