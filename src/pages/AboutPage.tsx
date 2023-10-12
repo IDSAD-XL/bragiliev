@@ -17,7 +17,7 @@ const AboutPage: React.FC<IAbout> = ({
     <Layout {...layout}>
       <PageHead {...pageHead}>
         <p
-          className="mt-[20px] text-[30px] md:mt-[17px] dsk:mt-[31px]"
+          className="mt-[20px] text-[18px] md:mt-[17px] md:text-[30px] dsk:mt-[31px]"
           dangerouslySetInnerHTML={{ __html: pageHead.text ?? '' }}
         />
       </PageHead>

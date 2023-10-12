@@ -42,10 +42,13 @@ const ReviewsItem: React.FC<IReviewsItem> = ({
         {date}
       </p>
       <p className="title-logo mt-[18px] !font-[500]">{name}</p>
-      <p
-        dangerouslySetInnerHTML={{ __html: content }}
-        className="text-regular mt-[27px]"
-      />
+      <div className="relative mt-[27px]">
+        <p
+          dangerouslySetInnerHTML={{ __html: content }}
+          className="text-regular h-[5lh] overflow-hidden"
+        />
+        <div className="absolute bottom-0 h-[15px] w-full bg-gradient-to-b from-transparent to-[#f3f3f3] transition-colors group-hover:to-white" />
+      </div>
       <div className="mt-[30px] flex gap-[10px]">
         <button
           onClick={openModalHandler}
@@ -53,7 +56,7 @@ const ReviewsItem: React.FC<IReviewsItem> = ({
         >
           + ЧИТАТЬ ДАЛЕЕ
         </button>
-        {link &&
+        {link && (
           <Link
             href={link ?? '#'}
             className="relative box-border h-[40px] flex-[142px] border-1 border-white bg-white transition-all group-hover:border-[#cdcdcd]"
@@ -65,7 +68,7 @@ const ReviewsItem: React.FC<IReviewsItem> = ({
               className="object-cover object-center"
             />
           </Link>
-        }
+        )}
       </div>
     </div>
   )

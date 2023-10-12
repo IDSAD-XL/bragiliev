@@ -59,6 +59,11 @@ const Header: React.FC<IHeader> = ({
     }
   }
 
+  const scrollToRegForm = () => {
+    const block = document.querySelector('#reg_form')
+    block?.scrollIntoView({ behavior: 'smooth' })
+  }
+
   useEffect(() => {
     if (!transparencyAtTop) return
     handleScroll()
@@ -101,7 +106,12 @@ const Header: React.FC<IHeader> = ({
               )
             })}
           <div className="header__item header__item-big hidden border-l-1 border-half-gray md:flex md:!w-[240px] dsk:!w-[365px]">
-            <span className="link-plus link-plus--white">запись на прием</span>
+            <span
+              onClick={scrollToRegForm}
+              className="link-plus link-plus--white"
+            >
+              запись на прием
+            </span>
           </div>
           <div className="header__item header__item--burger flex border-l-1 border-half-gray">
             <Burger />

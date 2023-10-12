@@ -33,6 +33,11 @@ const FiltersPriceBlock: React.FC<IFiltersPriceBlock> = ({
     changeOperation,
   } = useResultSlides(selects, services)
 
+  const scrollToRegForm = () => {
+    const block = document.querySelector('#reg_form')
+    block?.scrollIntoView({ behavior: 'smooth' })
+  }
+
   return (
     <div
       className={`text-dark flex w-full justify-center bg-white text-left dsk:justify-center`}
@@ -59,7 +64,9 @@ const FiltersPriceBlock: React.FC<IFiltersPriceBlock> = ({
           </div>
           <div className="hidden dsk:block"></div>
           <div className="button1 mt-[20px] flex h-[80px] items-center justify-center dsk:mt-[0px]">
-            <span className="link-plus no-underline">запись на прием</span>
+            <span onClick={scrollToRegForm} className="link-plus no-underline">
+              запись на прием
+            </span>
           </div>
         </div>
         {filteredResults.map((item, index) => (
