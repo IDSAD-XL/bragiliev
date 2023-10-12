@@ -26,6 +26,11 @@ const MainPage: React.FC<IMain> = ({
   questionsBlock,
   regFormBlock,
 }) => {
+  const scrollToRegForm = () => {
+    const block = document.querySelector('#reg_form')
+    block?.scrollIntoView({ behavior: 'smooth' })
+  }
+
   return (
     <Layout {...layout}>
       <PageHead {...pageHead}>
@@ -34,7 +39,10 @@ const MainPage: React.FC<IMain> = ({
           dangerouslySetInnerHTML={{ __html: pageHead.text ?? '' }}
         />
         <p className="mt-[20px] leading-[39px] md:mt-[41px] dsk:mt-[25px]">
-          <span className="link-plus link-plus--white text-white">
+          <span
+            onClick={scrollToRegForm}
+            className="link-plus link-plus--white text-white"
+          >
             запись на прием
           </span>
         </p>

@@ -23,7 +23,7 @@ const Menu: React.FC = () => {
     >
       <div className="menu__body mt-[100px] flex flex-col justify-center pt-[62px]">
         <div className="menu__items flex flex-col justify-center gap-[30px] text-center">
-          <Link href="/ServicesPage" className="link-menu">
+          <Link href="/services" className="link-menu">
             Услуги
           </Link>
           <Link href="/results" className="link-menu">
@@ -60,10 +60,18 @@ const Menu: React.FC = () => {
             </a>
           </p>
           <p className="gap mt-[47px] flex justify-center gap-[54px]">
-            <Link href="/" className="link-underlined font-[Inter]">
+            <Link
+              href="https://t.me/grandmedholding/710/"
+              target="_blank"
+              className="link-underlined font-[Inter]"
+            >
               TELEGRAM
             </Link>
-            <Link href="/" className="link-underlined font-500 font-[Inter]">
+            <Link
+              href="https://vk.com/vabragilev"
+              target="_blank"
+              className="link-underlined font-500 font-[Inter]"
+            >
               VKONTAKTE
             </Link>
           </p>
