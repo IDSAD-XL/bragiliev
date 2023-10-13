@@ -1,6 +1,10 @@
 import { IMainContent } from '../types/content/pages/MainPage'
 
 export const mainContent: IMainContent = {
+  meta: {
+    title: 'Main page title',
+    description: 'Main page description',
+  },
   layout: {
     header: {
       variant: 'transparent',

@@ -1,13 +1,22 @@
 import React from 'react'
-import ResultsPage, {IResultsPage} from '../src/pages/ResultsPage'
-import {GetStaticProps} from "next";
-import {Api} from "../src/api/Api";
+import ResultsPage, { IResultsPage } from '../src/pages/ResultsPage'
+import { GetStaticProps } from 'next'
+import { Api } from '../src/api/Api'
+import Metadata from '../src/components/layout/Metadata'
 interface pageProps {
   data: IResultsPage
 }
 
 const ResultsNextPage: React.FC<pageProps> = ({ data }) => {
-  return <ResultsPage {...data} />
+  return (
+    <>
+      <Metadata
+        title={data?.meta?.title}
+        description={data?.meta?.description}
+      />
+      <ResultsPage {...data} />
+    </>
+  )
 }
 
 export const getStaticProps = (async () => {
@@ -15,7 +24,7 @@ export const getStaticProps = (async () => {
 
   return {
     props: { data },
-    revalidate: 60
+    revalidate: 60,
   }
 }) satisfies GetStaticProps<{
   data: IResultsPage

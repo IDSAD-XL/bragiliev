@@ -12,24 +12,8 @@ const MainNextPage: React.FC<pageProps> = ({ data }) => {
   return (
     <>
       <Metadata
-        title={'Главная'}
-        description="And a social description for our cool page"
-        og={{
-          description: 'OG description',
-          title: 'OG title',
-          image: 'OG image',
-        }}
-        social={{
-          twitter: {
-            description: 'twitter description',
-            image: 'twitter image',
-            title: 'twitter title',
-            card: 'twitter card',
-          },
-          vk: {
-            image: 'vk image',
-          },
-        }}
+        title={data?.meta?.title}
+        description={data?.meta?.description}
       />
       <MainPage {...data} />
     </>
