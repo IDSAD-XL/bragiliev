@@ -1,14 +1,23 @@
 import React from 'react'
-import ServicesPage, {IServices} from '../src/pages/ServicesPage'
-import {Api} from "../src/api/Api";
-import {GetStaticProps} from "next";
+import ServicesPage, { IServices } from '../src/pages/ServicesPage'
+import { Api } from '../src/api/Api'
+import { GetStaticProps } from 'next'
+import Metadata from '../src/components/layout/Metadata'
 
 interface pageProps {
   data: IServices
 }
 
 const ServicesNextPage: React.FC<pageProps> = ({ data }) => {
-  return <ServicesPage {...data} />
+  return (
+    <>
+      <Metadata
+        title={data?.meta?.title}
+        description={data?.meta?.description}
+      />
+      <ServicesPage {...data} />
+    </>
+  )
 }
 
 export const getStaticProps = (async () => {
@@ -16,7 +25,7 @@ export const getStaticProps = (async () => {
 
   return {
     props: { data },
-    revalidate: 60
+    revalidate: 60,
   }
 }) satisfies GetStaticProps<{
   data: IServices
