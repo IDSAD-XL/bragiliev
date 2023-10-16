@@ -14,7 +14,7 @@ const headerContent: IHeaderContent = {
     },
     {
       name: 'Обо мне',
-      link: '/services',
+      link: '/about',
     },
   ],
 }
