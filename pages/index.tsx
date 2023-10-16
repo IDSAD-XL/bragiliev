@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import MainPage, { IMain } from '../src/pages/MainPage'
 import { Api } from '../src/api/Api'
 import { GetStaticProps } from 'next'
