@@ -13,6 +13,7 @@ export interface IRegFormDTO {
 export async function postForm(formDTO: IRegFormDTO) {
   console.log(formDTO)
   const formData = new FormData()
+  formData.append('form_id', '2')
   formData.append('form_text_1', formDTO.name)
   formData.append('form_text_2', formDTO.number)
 
