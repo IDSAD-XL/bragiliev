@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import Head from 'next/head'
 
 interface MetadataProps {
@@ -7,11 +7,9 @@ interface MetadataProps {
 }
 
 const Metadata: React.FC<MetadataProps> = ({ title, description }) => {
-  const currentUrlRef = useRef<string>('')
   const [currentUrl, setCurrentUrl] = useState<string>('')
 
   useEffect(() => {
-    currentUrlRef.current = window.location.href
     setCurrentUrl(window.location.href)
   }, [])
 

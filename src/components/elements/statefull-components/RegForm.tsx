@@ -19,6 +19,8 @@ export interface IRegForm {
 }
 
 const RegForm: React.FC<IRegForm> = ({ name, title, subtitle }) => {
+  const [currentUrl, setCurrentUrl] = useState<string>('')
+
   const [loaded, setIsLoaded] = useState<boolean>(false)
   const [dateValue, setDateValue] = useState<Date | string>(
     new Date(new Date().setHours(0, 0, 0, 0))
@@ -43,6 +45,7 @@ const RegForm: React.FC<IRegForm> = ({ name, title, subtitle }) => {
 
   useEffect(() => {
     setIsLoaded(true)
+    setCurrentUrl(window.location.href)
   }, [])
 
   return (
@@ -89,7 +92,11 @@ const RegForm: React.FC<IRegForm> = ({ name, title, subtitle }) => {
             onSubmit={async (values, { setSubmitting, resetForm }) => {
               values.date = dateValue.toString()
               try {
-                await Api.postForm({ ...values, files: selectedFiles })
+                await Api.postForm({
+                  ...values,
+                  files: selectedFiles,
+                  url_source: currentUrl,
+                })
               } catch (e) {
                 console.log(e)
               }
