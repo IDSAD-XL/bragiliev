@@ -89,7 +89,7 @@ const RegForm: React.FC<IRegForm> = ({ name, title, subtitle }) => {
             onSubmit={async (values, { setSubmitting, resetForm }) => {
               values.date = dateValue.toString()
               try {
-                await Api.postRegForm({ ...values, files: selectedFiles })
+                await Api.postForm({ ...values, files: selectedFiles })
               } catch (e) {
                 console.log(e)
               }

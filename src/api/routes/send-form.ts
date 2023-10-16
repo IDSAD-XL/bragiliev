@@ -18,7 +18,11 @@ export async function postForm(formDTO: IRegFormDTO) {
 
   let comment = formDTO.comment
   if (formDTO.date) {
-    comment += ' ' + formDTO.date
+    if (comment) {
+      comment = `${comment} ${String(formDTO.date)}`
+    } else {
+      comment = `${String(formDTO.date)}`
+    }
   }
   if (comment) {
     formData.append('form_textarea_6', comment)
