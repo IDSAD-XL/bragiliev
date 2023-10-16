@@ -22,11 +22,12 @@ interface pageHeadSettings {
 const pageHeadStyles: Record<IPageHead['variant'], pageHeadSettings> = {
   main: {
     title: 'uppercase md:normal-case dsk:uppercase',
-    spacing: 'justify-end',
+    spacing: 'justify-end md:justify-center',
   },
   simple: {
     title: 'font-[600] title2',
-    spacing: 'justify-center top-[100px]',
+    spacing:
+      'pt-[40px] md:pt-[60px] top-[60px] md:top-[100px] mb-[100px] justify-between md:justify-start',
   },
 }
 
@@ -67,10 +68,10 @@ const PageHead: React.FC<IPageHead> = ({
           <div className="hidden flex-[50%] flex-shrink-0 flex-grow-0 dsk:flex"></div>
         )}
         <div
-          className={`flex flex-[50%] flex-col ${styles.spacing} relative pb-[56px] text-white md:pb-[93px] lg:flex-grow-0 dsk:justify-center dsk:pb-0`}
+          className={`flex flex-[50%] flex-col ${styles.spacing} relative pb-[56px] text-white md:pb-[93px] lg:flex-grow-0 dsk:pb-0`}
         >
           {variant === 'simple' && topLinkText && topLinkUrl && (
-            <div className="absolute top-[160px]">
+            <div className="mb-[110px]">
               <Link
                 href={topLinkUrl}
                 className="link-hover-effect font-[Inter] uppercase"
@@ -79,18 +80,20 @@ const PageHead: React.FC<IPageHead> = ({
               </Link>
             </div>
           )}
-          {!!name && (
-            <p className="text-section-title mb-[10px] md:mb-[23px] dsk:mb-[35px]">
-              {name ?? ''}
-            </p>
-          )}
-          {!!title && (
-            <h1
-              className={`${styles.title}`}
-              dangerouslySetInnerHTML={{ __html: title ?? '' }}
-            />
-          )}
-          {children}
+          <div>
+            {!!name && (
+              <p className="text-section-title mb-[10px] md:mb-[23px] dsk:mb-[35px]">
+                {name ?? ''}
+              </p>
+            )}
+            {!!title && (
+              <h1
+                className={`${styles.title}`}
+                dangerouslySetInnerHTML={{ __html: title ?? '' }}
+              />
+            )}
+            {children}
+          </div>
         </div>
       </div>
     </div>
