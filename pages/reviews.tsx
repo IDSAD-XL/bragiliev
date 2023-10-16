@@ -21,7 +21,7 @@ const ReviewsNextPage: React.FC<pageProps> = ({ data }) => {
 }
 
 export const getStaticProps = (async () => {
-  const data = await Api.reviews()
+  const data = await Api.getReviews()
 
   return {
     props: { data },

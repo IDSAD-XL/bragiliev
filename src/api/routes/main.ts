@@ -1,16 +1,25 @@
-import {mainContent} from "../../mock/main";
-import {IMain} from "../../pages/MainPage";
-import {ISelectContent} from "../../components/elements/stateless-components/Select";
-import {IResultsContent, IResultsSlide} from "../../components/elements/statefull-components/Results";
-import {IReviewsFiltersItem} from "../../components/elements/statefull-components/FiltersReviewsBlock";
-import {ITabInfoItem} from "../../components/elements/statefull-components/TabsInfo";
-import {resultsContent} from "../../mock/results";
+import { mainContent } from '../../mock/main'
+import { IMain } from '../../pages/MainPage'
+import { ISelectContent } from '../../components/elements/stateless-components/Select'
+import {
+  IResultsContent,
+  IResultsSlide,
+} from '../../components/elements/statefull-components/Results'
+import { IReviewsFiltersItem } from '../../components/elements/statefull-components/FiltersReviewsBlock'
+import { ITabInfoItem } from '../../components/elements/statefull-components/TabsInfo'
+import { resultsContent } from '../../mock/results'
+import { MetaData } from '../../types/content/pages/MetaData'
 
 export const getMain = async (): Promise<IMain> => {
   try {
     interface resultsDTO {
-      selects: ISelectContent[],
+      selects: ISelectContent[]
       results: IResultsSlide[]
+    }
+
+    interface IServicesDTO {
+      meta: MetaData
+      result: ITabInfoItem[]
     }
 
     const fetchUrlResults = 'https://grandmed.ru/ajax/api/result.php?id=9110'
@@ -20,7 +29,7 @@ export const getMain = async (): Promise<IMain> => {
     const resultsData: IResultsContent = {
       ...resultsContent.resultsBlock,
       results: fetchDataResults?.results,
-      selects: fetchDataResults?.selects
+      selects: fetchDataResults?.selects,
     }
 
     const fetchUrlReviews = 'https://grandmed.ru/ajax/api/reviews.php?id=9110'
@@ -29,19 +38,19 @@ export const getMain = async (): Promise<IMain> => {
 
     const fetchUrlServices = 'https://grandmed.ru/ajax/api/services.php'
     const respServices = await fetch(fetchUrlServices)
-    const fetchDataServices: ITabInfoItem[] = await respServices.json()
+    const fetchDataServices: IServicesDTO = await respServices.json()
 
-    return  {
+    return {
       ...mainContent,
       resultsBlock: resultsData,
       reviewsBlock: {
         ...mainContent.reviewsBlock,
-        slides: fetchDataReviews
+        slides: fetchDataReviews,
       },
       servicesBlock: {
         ...mainContent.servicesBlock,
-        tabs: fetchDataServices.slice(0, 3)
-      }
+        tabs: fetchDataServices.result.slice(0, 3),
+      },
     }
   } catch (e) {
     return mainContent

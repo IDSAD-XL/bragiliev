@@ -20,7 +20,7 @@ const ResultsNextPage: React.FC<pageProps> = ({ data }) => {
 }
 
 export const getStaticProps = (async () => {
-  const data = await Api.results()
+  const data = await Api.getResults()
 
   return {
     props: { data },
