@@ -21,7 +21,7 @@ const PriceNextPage: React.FC<pageProps> = ({ data }) => {
 }
 
 export const getStaticProps = (async () => {
-  const data = await Api.prices()
+  const data = await Api.getPrices()
 
   return {
     props: { data },

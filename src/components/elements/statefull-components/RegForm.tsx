@@ -9,6 +9,8 @@ import 'react-calendar/dist/Calendar.css'
 import Link from 'next/link'
 import { useFileinput } from '../../../hooks/useFileinput'
 import FilesInputDragAndDrop from '../stateless-components/FilesInputDragAndDrop'
+import { IRegFormDTO } from '../../../api/routes/send-form'
+import { Api } from '../../../api/Api'
 
 export interface IRegForm {
   name: string
@@ -55,13 +57,15 @@ const RegForm: React.FC<IRegForm> = ({ name, title, subtitle }) => {
             dangerouslySetInnerHTML={{ __html: subtitle ?? '' }}
           />
           <Formik
-            initialValues={{
-              name: '',
-              number: '',
-              date: '',
-              comment: '',
-              files: [],
-            }}
+            initialValues={
+              {
+                name: '',
+                number: '',
+                date: '',
+                comment: '',
+                files: [],
+              } as IRegFormDTO
+            }
             validate={(values) => {
               const errors = {} as {
                 name: string
@@ -82,17 +86,12 @@ const RegForm: React.FC<IRegForm> = ({ name, title, subtitle }) => {
               }
               return errors
             }}
-            onSubmit={(values, { setSubmitting, resetForm }) => {
-              const formData = new FormData()
+            onSubmit={async (values, { setSubmitting, resetForm }) => {
               values.date = dateValue.toString()
-              formData.append('name', values.name)
-              formData.append('phone', values.number)
-              formData.append('date', values.date)
-              formData.append('comment', values.comment)
-              for (let i = 0; i <= selectedFiles.length; i++) {
-                if (selectedFiles[i]) {
-                  formData.append(`files[${i}]`, selectedFiles[i].file)
-                }
+              try {
+                await Api.postRegForm({ ...values, files: selectedFiles })
+              } catch (e) {
+                console.log(e)
               }
               setSubmitting(false)
               resetForm()

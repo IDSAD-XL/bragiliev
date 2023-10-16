@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import MainPage, { IMain } from '../src/pages/MainPage'
 import { Api } from '../src/api/Api'
 import { GetStaticProps } from 'next'
@@ -21,7 +21,7 @@ const MainNextPage: React.FC<pageProps> = ({ data }) => {
 }
 
 export const getStaticProps = (async () => {
-  const data = await Api.main()
+  const data = await Api.getMain()
 
   return {
     props: { data },
