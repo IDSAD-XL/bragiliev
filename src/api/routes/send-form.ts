@@ -1,6 +1,6 @@
 import { IFilesWithPreview } from '../../hooks/useFileinput'
 
-const postURL = 'https://grandmed.ru/ajax/send-form.php'
+const postURL = 'https://grandmed.ru/ajax/send-form2.php'
 
 export interface IRegFormDTO {
   name: string
@@ -8,12 +8,15 @@ export interface IRegFormDTO {
   date?: string
   comment?: string
   files?: IFilesWithPreview[]
+  url_source?: string
 }
 
 export async function postForm(formDTO: IRegFormDTO) {
   console.log(formDTO)
   const formData = new FormData()
-  formData.append('form_id', '2')
+  if (formDTO.url_source) {
+    formData.append('url_source', formDTO.url_source)
+  }
   formData.append('form_text_1', formDTO.name)
   formData.append('form_text_2', formDTO.number)
 
