@@ -8,6 +8,7 @@ import ImageWithDomain from '../stateless-components/ImageWithDomain'
 export interface ITabInfoItem {
   name: string
   image?: string
+  link?: string
   content: IAccordionContent[]
 }
 

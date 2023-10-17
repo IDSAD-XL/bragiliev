@@ -22,7 +22,7 @@ const ServicesPage: React.FC<IService> = ({
       <PageHead {...pageHead}>
         <p
           className="mt-[20px] text-[30px] md:mt-[17px] dsk:mt-[31px]"
-          dangerouslySetInnerHTML={{ __html: pageHead.text ?? '' }}
+          dangerouslySetInnerHTML={{ __html: pageHead?.text ?? '' }}
         />
         <p className="mt-[13px] leading-[39px] md:mt-[41px] dsk:mt-[43px]">
           <span className="link-plus link-plus--white text-white">
@@ -30,14 +30,21 @@ const ServicesPage: React.FC<IService> = ({
           </span>
         </p>
       </PageHead>
-      <TabsInfo {...servicesBlock} spacing={'big'} variant={'fullScreen'} />
+      {servicesBlock?.tabs && servicesBlock?.tabs?.length > 0 && (
+        <TabsInfo {...servicesBlock} spacing={'big'} variant={'fullScreen'} />
+      )}
       <div className="relative mb-[20px] mt-[90px] flex w-full flex-col items-center">
-        <div className="container dsk:h-[900px]">
+        <div className="container dsk:min-h-[900px]">
           <p className="text-section-title mb-[20px]">[ операция ]</p>
-          <PriceList {...pricesBlock} />
+          {pricesBlock?.list?.prices &&
+            pricesBlock?.list?.prices?.length > 0 && (
+              <PriceList {...pricesBlock} />
+            )}
         </div>
       </div>
-      <Results {...resultsBlock} spacing={'small'} />
+      {resultsBlock?.results && resultsBlock?.results.length > 0 && (
+        <Results {...resultsBlock} spacing={'small'} />
+      )}
       <RegForm {...regFormBlock} />
     </Layout>
   )

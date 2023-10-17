@@ -7,7 +7,7 @@ import React, {
 import { type ReactNode } from '../../../types/ReactNode'
 import Link from 'next/link'
 import { CSSProperties } from 'react'
-import Image from 'next/image'
+import ImageWithDomain from './ImageWithDomain'
 
 export interface IAccordionContent {
   name?: string
@@ -102,7 +102,7 @@ const Accordion: React.FC<IAccordion> = ({
         )}
         {!!image && (
           <div className="relative mt-[36px] aspect-square w-full dsk:hidden">
-            <Image
+            <ImageWithDomain
               src={image}
               fill={true}
               alt=""

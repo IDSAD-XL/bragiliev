@@ -1,19 +1,14 @@
-import React from 'react';
-import Image, {ImageProps} from "next/image";
+import React from 'react'
+import Image, { ImageProps } from 'next/image'
 
-
-interface IImageWithDomain extends ImageProps {
-
-}
+interface IImageWithDomain extends ImageProps {}
 
 const ImageWithDomain: React.FC<IImageWithDomain> = (props) => {
-  return (
-    <Image
-      {...props}
-      alt=""
-      src={`https://grandmed.ru${String(props.src)}`}
-    />
-  );
-};
+  const prefix =
+    typeof props.src === 'string' && props?.src?.includes('/assets')
+      ? ''
+      : 'https://grandmed.ru'
+  return <Image {...props} alt="" src={`${prefix}${String(props.src)}`} />
+}
 
-export default ImageWithDomain;
+export default ImageWithDomain
