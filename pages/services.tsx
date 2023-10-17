@@ -21,7 +21,7 @@ const ServicesNextPage: React.FC<pageProps> = ({ data }) => {
 }
 
 export const getStaticProps = (async () => {
-  const data = await Api.getServices()
+  const data = await Api.getServices(true)
 
   return {
     props: { data },

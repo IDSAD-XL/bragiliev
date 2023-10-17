@@ -11,8 +11,8 @@ interface IPageHeadContent extends IPageHead {
 
 export interface IServiceContent extends IPageContent {
   pageHead: IPageHeadContent
-  servicesBlock: ITabsInfoContent
-  pricesBlock: IPriceList
-  resultsBlock: IResultsContent
+  servicesBlock?: ITabsInfoContent
+  pricesBlock?: IPriceList
+  resultsBlock?: IResultsContent
   regFormBlock: IRegForm
 }

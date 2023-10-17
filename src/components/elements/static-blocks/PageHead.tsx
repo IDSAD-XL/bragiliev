@@ -1,7 +1,7 @@
 import React from 'react'
 import { type ReactNode } from '../../../types/ReactNode'
-import Image from 'next/image'
 import Link from 'next/link'
+import ImageWithDomain from '../stateless-components/ImageWithDomain'
 
 export interface IPageHead {
   name?: string
@@ -45,7 +45,7 @@ const PageHead: React.FC<IPageHead> = ({
 
   return (
     <div className="relative flex h-screen w-full justify-start md:justify-center">
-      <Image
+      <ImageWithDomain
         className={`-z-10 object-cover object-center ${
           imageMobile ? 'hidden lg:block' : ''
         }`}
@@ -54,7 +54,7 @@ const PageHead: React.FC<IPageHead> = ({
         fill={true}
       />
       {imageMobile && (
-        <Image
+        <ImageWithDomain
           className={`-z-10 object-cover object-center ${
             imageMobile ? 'block lg:hidden' : ''
           }`}

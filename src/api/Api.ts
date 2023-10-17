@@ -4,6 +4,7 @@ import { getReviews } from './routes/reviews'
 import { getServices } from './routes/services'
 import { getMain } from './routes/main'
 import { postForm } from './routes/send-form'
+import { getService } from './routes/service'
 
 export const Api = {
   getMain,
@@ -11,5 +12,6 @@ export const Api = {
   getPrices,
   getReviews,
   getServices,
+  getService,
   postForm,
 }
