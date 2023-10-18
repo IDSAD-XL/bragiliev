@@ -86,7 +86,10 @@ const MainPage: React.FC<IMain> = ({
           )}
         </div>
         <p className="mt-[20px] leading-[39px] md:mt-[41px] dsk:mt-[48px]">
-          <Link href="/" className="link-plus link-plus--white text-white">
+          <Link
+            href={aboutBlock.link}
+            className="link-plus link-plus--white text-white"
+          >
             Узнать больше
           </Link>
         </p>

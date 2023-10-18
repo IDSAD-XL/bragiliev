@@ -22,7 +22,7 @@ const PriceList: React.FC<IPriceList> = ({ list }) => {
                 {item.subtitle}
               </div>
               <div className="text-sm font-medium text-black dsk:text-lg">
-                {item.price} руб.
+                {item.price}
               </div>
             </li>
           )

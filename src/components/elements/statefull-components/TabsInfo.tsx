@@ -181,7 +181,11 @@ const TabsInfo: React.FC<ITabsInfo> = ({
                             image={cont.image}
                             open={openTab === index}
                             onClick={() => {
-                              setOpenTab(index)
+                              if (openTab === index) {
+                                setOpenTab(null)
+                              } else {
+                                setOpenTab(index)
+                              }
                               if (variant === 'halfScreen') {
                                 setImageByIndex(false, idx, index)
                               }

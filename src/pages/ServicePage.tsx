@@ -6,12 +6,14 @@ import { IServiceContent } from '../types/content/pages/ServicePage'
 import TabsInfo from '../components/elements/statefull-components/TabsInfo'
 import PriceList from '../components/elements/static-blocks/PriceList'
 import Results from '../components/elements/statefull-components/Results'
+import ContentSection from '../components/elements/dynamic-blocks/ContentSection'
 
 export interface IService extends IServiceContent {}
 
 const ServicesPage: React.FC<IService> = ({
   layout,
   pageHead,
+  contentBlock,
   servicesBlock,
   pricesBlock,
   resultsBlock,
@@ -30,6 +32,7 @@ const ServicesPage: React.FC<IService> = ({
           </span>
         </p>
       </PageHead>
+      {contentBlock && <ContentSection {...contentBlock} />}
       {servicesBlock?.tabs && servicesBlock?.tabs?.length > 0 && (
         <TabsInfo {...servicesBlock} spacing={'big'} variant={'fullScreen'} />
       )}
