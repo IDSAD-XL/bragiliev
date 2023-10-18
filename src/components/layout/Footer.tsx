@@ -43,21 +43,33 @@ const Footer = (): JSX.Element => {
         </div>
         <div className="text-light col-span-4 md:col-span-2 lg:col-span-1">
           <span>
-            <Link href="/" className="link-hover-effect">
+            <Link
+              href="https://grandmed.ru/images/politika_konfidencial_nosti.pdf"
+              target="_blank"
+              className="link-hover-effect"
+            >
               Лицензии и сертификаты
             </Link>
           </span>
         </div>
         <div className="text-light col-span-4 md:col-span-2 lg:col-span-1">
           <span>
-            <Link href="/" className="link-hover-effect">
+            <Link
+              href="https://grandmed.ru/images/politika_konfidencial_nosti.pdf"
+              target="_blank"
+              className="link-hover-effect"
+            >
               Политика конфиденциальности
             </Link>
           </span>
         </div>
         <div className="text-light col-span-4 md:col-span-2 lg:col-span-1 lg:text-right">
           <span>
-            <Link href="/" className="link-hover-effect">
+            <Link
+              href="https://grandmed.ru/images/politika_konfidencial_nosti.pdf"
+              target="_blank"
+              className="link-hover-effect"
+            >
               Политика обработки персональных данных
             </Link>
           </span>
