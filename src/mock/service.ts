@@ -16,6 +16,11 @@ export const serviceContent: IServiceContent = {
     topLinkUrl: '/services',
     text: 'Это&nbsp;улучшение формы носа, изменение его&nbsp;размеров, исправление врождённых дефектов',
   },
+  contentBlock: {
+    color: 'white',
+    name: '[ ОБ ОПЕРАЦИИ ]',
+    blocks: [],
+  },
   servicesBlock: {
     sectionName: '[ операция ]',
     tabs: [

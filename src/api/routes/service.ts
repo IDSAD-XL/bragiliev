@@ -34,6 +34,17 @@ export const getService = async (
         imageMobile: fetchData.infoBlock.imgMobile,
         text: fetchData.infoBlock.announc,
       },
+      contentBlock: {
+        name: '[ Об операции ]',
+        color: 'white',
+        blocks: [
+          {
+            key: 'IBlockWithTwoTextColumns',
+            haveLeft: false,
+            textsRight: [fetchData.infoBlock.content],
+          },
+        ],
+      },
       pricesBlock: fetchData.pricesBlock,
       resultsBlock: fetchData.resultsBlock,
       servicesBlock: {},
