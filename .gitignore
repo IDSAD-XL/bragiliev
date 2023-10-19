@@ -7,6 +7,10 @@
 node_modules
 .next
 out
+.env
+/public/robots.txt
+/public/sitemap-0.xml
+/public/sitemap.xml
 .firebase
 next-env.d.ts
 tsconfig.tsbuildinfo
