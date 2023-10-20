@@ -44,7 +44,11 @@ const PageHead: React.FC<IPageHead> = ({
   const styles = pageHeadStyles[variant]
 
   return (
-    <div className="relative flex h-screen w-full justify-start bg-dark-gray md:justify-center">
+    <div
+      className={`relative flex h-screen w-full justify-start md:justify-center ${
+        !image && !imageMobile ? 'bg-dark-gray' : ''
+      }`}
+    >
       <ImageWithDomain
         className={`-z-10 object-cover object-center ${
           imageMobile ? 'hidden lg:block' : ''
