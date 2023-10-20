@@ -37,7 +37,11 @@ const QuestionsBlock: React.FC<IQuestionsBlock> = ({
                 text={item.text}
                 open={openQuestion === index}
                 onClick={() => {
-                  setQuestion(index)
+                  if (openQuestion === index) {
+                    setQuestion(null)
+                  } else {
+                    setQuestion(index)
+                  }
                 }}
               />
             )

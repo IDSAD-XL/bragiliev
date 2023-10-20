@@ -1,5 +1,6 @@
 import React, {
   type MouseEventHandler,
+  useCallback,
   useEffect,
   useRef,
   useState,
@@ -8,6 +9,7 @@ import { type ReactNode } from '../../../types/ReactNode'
 import Link from 'next/link'
 import { CSSProperties } from 'react'
 import ImageWithDomain from './ImageWithDomain'
+import ImagesSlider, { IImagesSlider } from '../static-blocks/ImagesSlider'
 
 export interface IAccordionContent {
   name?: string
@@ -15,6 +17,7 @@ export interface IAccordionContent {
   text?: string | ReactNode
   image?: string
   link?: string
+  slider?: IImagesSlider
 }
 
 interface IAccordion extends IAccordionContent {
@@ -33,17 +36,20 @@ const Accordion: React.FC<IAccordion> = ({
   number,
   image,
   open = false,
+  slider,
   onClick,
 }) => {
   const [scrollHeight, setScrollHeight] = useState<number>(0)
 
   const contentRef = useRef<HTMLDivElement | null>(null)
 
-  const checkScrollHeight = () => {
+  const checkScrollHeight = useCallback(() => {
     if (contentRef.current) {
-      setScrollHeight(contentRef.current.scrollHeight + 20)
+      let height = contentRef.current.scrollHeight + 20
+      if (slider) height += 100
+      setScrollHeight(height)
     }
-  }
+  }, [slider])
 
   useEffect(() => {
     checkScrollHeight()
@@ -52,7 +58,7 @@ const Accordion: React.FC<IAccordion> = ({
     return () => {
       window.removeEventListener('resize', checkScrollHeight)
     }
-  }, [])
+  }, [checkScrollHeight])
 
   return (
     <div
@@ -110,6 +116,7 @@ const Accordion: React.FC<IAccordion> = ({
             />
           </div>
         )}
+        {!!slider && <ImagesSlider {...slider} />}
       </div>
     </div>
   )

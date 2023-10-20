@@ -15,6 +15,15 @@
   }
 }
 
+.swiper-custom-scrollbar-dark {
+  @extend .swiper-custom-scrollbar;
+  background: var(--color-border-half-gray) !important;
+  & > * {
+    background-color: var(--color-half-black) !important;
+    height: 2px !important;
+  }
+}
+
 .swiper-reviews {
   display: flex;
   justify-content: center;
