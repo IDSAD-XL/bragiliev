@@ -20,6 +20,7 @@ export interface ITabsInfoContent {
 export interface ITabsInfo extends ITabsInfoContent {
   spacing: 'big' | 'small'
   variant: 'halfScreen' | 'fullScreen'
+  accordionsLinkPrefix?: string
 }
 
 interface tabsSettings {
@@ -57,6 +58,7 @@ const TabsInfo: React.FC<ITabsInfo> = ({
   spacing,
   sectionName,
   variant = 'halfScreen',
+  accordionsLinkPrefix,
 }) => {
   const spacingStyle =
     spacing === 'big' || variant === 'halfScreen'
@@ -180,6 +182,7 @@ const TabsInfo: React.FC<ITabsInfo> = ({
                             number={num}
                             image={cont.image}
                             open={openTab === index}
+                            linkPrefix={accordionsLinkPrefix}
                             onClick={() => {
                               if (openTab === index) {
                                 setOpenTab(null)
