@@ -23,6 +23,7 @@ export interface IAccordionContent {
 interface IAccordion extends IAccordionContent {
   open: boolean
   onClick: MouseEventHandler
+  linkPrefix?: string
 }
 
 interface contentCssProps extends CSSProperties {
@@ -32,12 +33,13 @@ interface contentCssProps extends CSSProperties {
 const Accordion: React.FC<IAccordion> = ({
   name,
   text,
-  link,
+  link = '',
   number,
   image,
   open = false,
   slider,
   onClick,
+  linkPrefix = '',
 }) => {
   const [scrollHeight, setScrollHeight] = useState<number>(0)
 
@@ -102,7 +104,7 @@ const Accordion: React.FC<IAccordion> = ({
       >
         <div dangerouslySetInnerHTML={{ __html: text ?? '' }} />
         {!!link && (
-          <Link href={link} className="link-plus mt-[40px]">
+          <Link href={linkPrefix + link} className="link-plus mt-[40px]">
             Подробнее
           </Link>
         )}

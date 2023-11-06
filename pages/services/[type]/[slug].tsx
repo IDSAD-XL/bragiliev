@@ -2,13 +2,22 @@ import React from 'react'
 import { Api } from '../../../src/api/Api'
 import ServicePage, { IService } from '../../../src/pages/ServicePage'
 import { GetStaticPropsContext } from 'next'
+import Metadata from '../../../src/components/layout/Metadata'
 
 interface pageProps {
   data: IService
 }
 
 const ServiceNextPage: React.FC<pageProps> = ({ data }) => {
-  return <ServicePage {...data} />
+  return (
+    <>
+      <Metadata
+        title={data?.meta?.title}
+        description={data?.meta?.description}
+      />
+      <ServicePage {...data} />
+    </>
+  )
 }
 
 export default ServiceNextPage
