@@ -1,16 +1,32 @@
-import React from 'react'
+import React, { useCallback } from 'react'
 import { Navigation, Scrollbar } from 'swiper'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import ImageWithDomain from '../stateless-components/ImageWithDomain'
 import 'swiper/css'
 import 'swiper/css/navigation'
 import 'swiper/css/scrollbar'
+import { openModal } from '../../../redux/Actions/modalActions'
+import { useAppDispatch } from '../../../hooks/redux'
 
 export interface IImagesSlider {
   slides: string[]
 }
 
 const ImagesSlider: React.FC<IImagesSlider> = ({ slides }) => {
+  const dispatch = useAppDispatch()
+
+  const openModalImage = useCallback(
+    (src: string) => {
+      openModal(dispatch, {
+        type: 'image',
+        content: {
+          image: src,
+        },
+      })
+    },
+    [dispatch]
+  )
+
   return (
     <Swiper
       slidesPerView={'auto'}
@@ -25,7 +41,13 @@ const ImagesSlider: React.FC<IImagesSlider> = ({ slides }) => {
     >
       {!!slides &&
         slides.map((slide, index) => (
-          <SwiperSlide key={index} className="aspect-[3/4] !w-[300px]">
+          <SwiperSlide
+            key={index}
+            className="aspect-[3/4] !w-[300px] cursor-pointer"
+            onClick={() => {
+              openModalImage(slide)
+            }}
+          >
             <ImageWithDomain src={slide} alt={''} fill={true} />
           </SwiperSlide>
         ))}

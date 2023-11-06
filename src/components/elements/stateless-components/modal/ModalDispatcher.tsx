@@ -7,6 +7,7 @@ import ModalReviewForm from './ModalReviewForm'
 import { IOpenActionPayload } from '../../../../redux/Reducers/modalSlice'
 import ModalAdult from './ModalAdult'
 import ModalFileinputError from './ModalFileinputError'
+import ModalImage from './ModalImage'
 
 const ModalDispatcher: React.FC = () => {
   const { open, modal } = useAppSelector((state) => state.modalSlice)
@@ -25,6 +26,8 @@ const ModalDispatcher: React.FC = () => {
     adult: 'min-h-[400px] max-w-[90%] dsk:w-[400px] dsk:max-w-[100%]',
     file_input_error:
       'min-h-[200px] max-w-[90%] dsk:w-[400px] dsk:max-w-[100%]',
+    image:
+      'min-h-[400px] h-[80vh] lg:h-[90vh] max-w-[90%] w-[90%] dsk:max-w-[1200px]',
   }
 
   return (
@@ -73,6 +76,9 @@ const ModalDispatcher: React.FC = () => {
                     errorType={modal.content.errorType}
                     file={modal.content.file}
                   />
+                )}
+                {modal?.type === 'image' && (
+                  <ModalImage image={modal.content.image} />
                 )}
               </div>
             </Transition.Child>
