@@ -2,6 +2,7 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 import { IReviewsItem } from '../../components/elements/static-blocks/ReviewsItem'
 import { IModalFileinputError } from '../../components/elements/stateless-components/modal/ModalFileinputError'
+import { IModalImage } from '../../components/elements/stateless-components/modal/ModalImage'
 
 interface IOpenActionPayloadReview {
   type: 'review'
@@ -23,11 +24,17 @@ interface IOpenActionPayloadFileinputError {
   content: IModalFileinputError
 }
 
+interface IOpenActionPayloadImage {
+  type: 'image'
+  content: IModalImage
+}
+
 export type IOpenActionPayload =
   | IOpenActionPayloadReview
   | IOpenActionPayloadReviewForm
   | IOpenActionPayloadAdult
   | IOpenActionPayloadFileinputError
+  | IOpenActionPayloadImage
 
 export interface IModalSlice {
   open: boolean
