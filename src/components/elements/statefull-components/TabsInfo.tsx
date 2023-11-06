@@ -180,6 +180,7 @@ const TabsInfo: React.FC<ITabsInfo> = ({
                             number={num}
                             image={cont.image}
                             open={openTab === index}
+                            linkPrefix={'/services'}
                             onClick={() => {
                               if (openTab === index) {
                                 setOpenTab(null)
