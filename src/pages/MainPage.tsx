@@ -63,7 +63,12 @@ const MainPage: React.FC<IMain> = ({
           )
         })}
       </InfoBlock>
-      <TabsInfo {...servicesBlock} spacing={'big'} variant={'halfScreen'} />
+      <TabsInfo
+        {...servicesBlock}
+        spacing={'big'}
+        variant={'halfScreen'}
+        accordionsLinkPrefix={'/services'}
+      />
       <Results {...resultsBlock} spacing={'small'} />
       <ReviewsBlock {...reviewsBlock} />
       <InfoBlockWithImage {...aboutBlock}>
