@@ -16,6 +16,7 @@ const Metadata: React.FC<MetadataProps> = ({ title, description }) => {
   return (
     <Head>
       {title && <title>{title}</title>}
+      <link rel="canonical" href={currentUrl} />
       {description && (
         <meta name="description" content={description} key="desc" />
       )}
