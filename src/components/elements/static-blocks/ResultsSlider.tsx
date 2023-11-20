@@ -37,7 +37,7 @@ const ResultsSlider: React.FC<IResultsSlider> = ({ slides }) => {
           return (
             <SwiperSlide key={res.id}>
               <p className="text-light title5 mt-[5px] !text-[30px] !leading-[22px] md:!text-[16px] dsk:!text-[14px]">
-                {res.services[0] && (
+                {res.services && res.services[0] && (
                   <Link
                     rel="nofollow"
                     target="_blank"
@@ -47,8 +47,10 @@ const ResultsSlider: React.FC<IResultsSlider> = ({ slides }) => {
                     {res.services[0].title}
                   </Link>
                 )}
-                {res.services[1] && <span>&nbsp;&nbsp;/&nbsp;&nbsp;</span>}
-                {res.services[1] && (
+                {res.services && res.services[1] && (
+                  <span>&nbsp;&nbsp;/&nbsp;&nbsp;</span>
+                )}
+                {res.services && res.services[1] && (
                   <Link
                     rel="nofollow"
                     target="_blank"
