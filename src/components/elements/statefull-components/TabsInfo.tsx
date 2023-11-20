@@ -39,7 +39,7 @@ const tabsStylesVariant: Record<ITabsInfo['variant'], tabsSettings> = {
     container: 'flex-[100%] flex-shrink-0 flex-grow-0 dsk:flex-[50%]',
     mobileDropdown: false,
     tabsClasses: 'flex w-full',
-    panelSpacing: 'mt-[72px] h-[calc(100%-72px)] overflow-auto',
+    panelSpacing: 'mt-[72px] h-[calc(100%-153px)] overflow-auto',
   },
   fullScreen: {
     wrapperOuter: '',

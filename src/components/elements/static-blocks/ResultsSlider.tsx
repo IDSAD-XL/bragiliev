@@ -6,6 +6,7 @@ import ImageWithDomain from '../stateless-components/ImageWithDomain'
 import Image from 'next/image'
 import { useAppDispatch, useAppSelector } from '../../../hooks/redux'
 import { openModal } from '../../../redux/Actions/modalActions'
+import Link from 'next/link'
 
 interface IResultsSlider {
   slides: IResultsSlide[] | null
@@ -35,9 +36,28 @@ const ResultsSlider: React.FC<IResultsSlider> = ({ slides }) => {
           const isAdultSlide = !isAdult && res.isAdult
           return (
             <SwiperSlide key={res.id}>
-              <p className="title5 !text-[30px]">{res.title}</p>
-              <p className="text-light mt-[5px] !text-[14px] !leading-[22px] md:!text-[16px] dsk:!text-[14px]">
-                {res.subtitle}
+              <p className="text-light title5 mt-[5px] !text-[30px] !leading-[22px] md:!text-[16px] dsk:!text-[14px]">
+                {res.services[0] && (
+                  <Link
+                    rel="nofollow"
+                    target="_blank"
+                    className="underline underline-offset-4"
+                    href={res.services[0].link}
+                  >
+                    {res.services[0].title}
+                  </Link>
+                )}
+                {res.services[1] && <span>&nbsp;&nbsp;/&nbsp;&nbsp;</span>}
+                {res.services[1] && (
+                  <Link
+                    rel="nofollow"
+                    target="_blank"
+                    className="underline underline-offset-4"
+                    href={res.services[1].link}
+                  >
+                    {res.services[1].title}
+                  </Link>
+                )}
               </p>
               <div
                 className="mt-[22px] flex w-full cursor-pointer gap-[20px]"
