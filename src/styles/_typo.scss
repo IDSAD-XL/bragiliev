@@ -255,3 +255,16 @@ h6 {
     }
   }
 }
+
+.formattable-content {
+  ul {
+    @extend .list
+  }
+  ol {
+    @extend .list;
+    list-style: upper-roman;
+    li {
+
+    }
+  }
+}

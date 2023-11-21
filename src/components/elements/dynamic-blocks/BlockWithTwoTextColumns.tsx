@@ -1,5 +1,6 @@
 import React from 'react'
 import { IContentBlock } from '../../../types/elements/ContentBlock'
+import FormattableContent from '../statefull-components/FormattableContent'
 
 export interface IBlockWithTwoTextColumns extends IContentBlock {
   key: 'IBlockWithTwoTextColumns'
@@ -31,7 +32,7 @@ const BlockWithTwoTextColumns: React.FC<IBlockWithTwoTextColumns> = ({
           }`}
         >
           {textsRight?.map((text, index) => {
-            return <p key={index} dangerouslySetInnerHTML={{ __html: text }} />
+            return <FormattableContent key={index} content={text} />
           })}
         </div>
       </div>
