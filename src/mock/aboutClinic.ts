@@ -1,6 +1,12 @@
 import { IAboutClinicContent } from '../types/content/pages/AboutClinicPage'
 
 export const aboutClinicContent: IAboutClinicContent = {
+  meta: {
+    title:
+      'Клиника высшей категории Grandmed - это многопрофильный медицинский центр в Санкт-Петербурге',
+    description:
+      'Клиника высшей категории Grandmed - это многопрофильный медицинский центр. Специалисты клиники: от пластических хирургов и косметологов до врачей стоматологов, помогают людям усовершенствовать свой внешний облик',
+  },
   layout: {
     header: {
       variant: 'transparent',

@@ -24,8 +24,8 @@ const FormattableContent: React.FC<IFormattableContent> = ({ content }) => {
     const accordionTitles = div.querySelectorAll('.title-accordion')
 
     accordionTitles.forEach((titleElement, index) => {
-      const title = titleElement.textContent?.trim() || ''
-      const content = titleElement.nextElementSibling?.innerHTML || ''
+      const title = titleElement.textContent?.trim() ?? ''
+      const content = titleElement.nextElementSibling?.innerHTML ?? ''
 
       extractedData.push({
         key: index,
