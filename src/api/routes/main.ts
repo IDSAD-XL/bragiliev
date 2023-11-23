@@ -9,6 +9,7 @@ import { IReviewsFiltersItem } from '../../components/elements/statefull-compone
 import { ITabInfoItem } from '../../components/elements/statefull-components/TabsInfo'
 import { resultsContent } from '../../mock/results'
 import { MetaData } from '../../types/content/pages/MetaData'
+import { projectConstants } from '../../constants/projectConstants'
 
 export const getMain = async (): Promise<IMain> => {
   try {
@@ -22,7 +23,7 @@ export const getMain = async (): Promise<IMain> => {
       result: ITabInfoItem[]
     }
 
-    const fetchUrlResults = 'https://grandmed.ru/ajax/api/result.php?id=9110'
+    const fetchUrlResults = `https://grandmed.ru/ajax/api/result.php?id=${projectConstants.doctorId}`
     const respResults = await fetch(fetchUrlResults)
     const fetchDataResults: resultsDTO = await respResults.json()
 
@@ -32,7 +33,7 @@ export const getMain = async (): Promise<IMain> => {
       selects: fetchDataResults?.selects,
     }
 
-    const fetchUrlReviews = 'https://grandmed.ru/ajax/api/reviews.php?id=9110'
+    const fetchUrlReviews = `https://grandmed.ru/ajax/api/reviews.php?id=${projectConstants.doctorId}`
     const respReviews = await fetch(fetchUrlReviews)
     const fetchDataReviews: IReviewsFiltersItem[] = await respReviews.json()
 
