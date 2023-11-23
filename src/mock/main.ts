@@ -2,8 +2,9 @@ import { IMainContent } from '../types/content/pages/MainPage'
 
 export const mainContent: IMainContent = {
   meta: {
-    title: 'Main page title',
-    description: 'Main page description',
+    title: 'Брагилев Вадим Алексеевич - пластический хирург',
+    description:
+      'Брагилев Вадим Алексеевич известный пластический хирург, который проводит широкий спектр пластических операций',
   },
   layout: {
     header: {

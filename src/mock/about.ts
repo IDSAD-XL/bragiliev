@@ -1,6 +1,12 @@
 import { IAboutContent } from '../types/content/pages/AboutPage'
 
 export const aboutContent: IAboutContent = {
+  meta: {
+    title:
+      'Образование и опыт работы Брагилева Вадима Алексеевича - пластического хирурга Grandmed',
+    description:
+      'Брагилев Вадим Алеексеевич выпускник Военно-медицинской академии им. С.М. Кирова. Долгие годы работает пластическим хирургом в клинике &quot;Grandmed&quot; г. Санкт-Петербурга.',
+  },
   layout: {
     header: {
       variant: 'dark',
