@@ -36,7 +36,7 @@ const FormattableContent: React.FC<IFormattableContent> = ({ content }) => {
 
     setAccordionData(extractedData)
 
-    const formattedHtml = content.replace(
+    const formattedHtml = content?.replace(
       /<h3 class="title-accordion">(.*?)<\/h3>\s*<div class="content-accordion">(.*?)<\/div>/gs,
       ''
     )

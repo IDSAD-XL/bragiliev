@@ -12,7 +12,6 @@ export interface IRegFormDTO {
 }
 
 export async function postForm(formDTO: IRegFormDTO) {
-  console.log(formDTO)
   const formData = new FormData()
   if (formDTO.url_source) {
     formData.append('url_source', formDTO.url_source)
