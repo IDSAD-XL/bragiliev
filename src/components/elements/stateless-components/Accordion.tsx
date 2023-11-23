@@ -62,6 +62,10 @@ const Accordion: React.FC<IAccordion> = ({
     }
   }, [checkScrollHeight])
 
+  const getCorrectLink = useCallback((link: string) => {
+    return link.replaceAll('//', '/')
+  }, [])
+
   return (
     <div
       className={`group/accordion w-full border-b-1 border-half-gray  ${
@@ -104,7 +108,10 @@ const Accordion: React.FC<IAccordion> = ({
       >
         <div dangerouslySetInnerHTML={{ __html: text ?? '' }} />
         {!!link && (
-          <Link href={linkPrefix + link} className="link-plus mt-[40px]">
+          <Link
+            href={getCorrectLink(linkPrefix + link)}
+            className="link-plus mt-[40px]"
+          >
             Подробнее
           </Link>
         )}

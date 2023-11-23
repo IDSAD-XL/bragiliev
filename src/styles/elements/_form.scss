@@ -83,6 +83,14 @@
   }
 }
 
+.react-datetime-picker__inputGroup__hour, .react-datetime-picker__inputGroup__minute, .react-datetime-picker__inputGroup__leadingZero {
+  display: none !important;
+}
+
+.react-datetime-picker__inputGroup__hour ~ .react-datetime-picker__inputGroup__divider {
+  display: none !important;
+}
+
 .react-calendar__month-view__weekdays__weekday {
   font-family: Inter, sans-serif;
   font-size: 12px;

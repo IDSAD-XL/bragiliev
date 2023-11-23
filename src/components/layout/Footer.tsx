@@ -24,12 +24,20 @@ const Footer = (): JSX.Element => {
         </div>
         <div className="col-span-4 flex flex-col lg:col-span-1">
           <span className="text-left lg:text-right">
-            <Link href="/" className="link-underlined font-[Inter]">
+            <Link
+              href="https://t.me/grandmedholding"
+              target="_blank"
+              className="link-underlined font-[Inter]"
+            >
               TELEGRAM
             </Link>
           </span>
           <span className="mt-[24px] inline-block text-left lg:text-right">
-            <Link href="/" className="link-underlined font-500 font-[Inter]">
+            <Link
+              href="https://vk.com/vabragilev"
+              target="_blank"
+              className="link-underlined font-500 font-[Inter]"
+            >
               VKONTAKTE
             </Link>
           </span>

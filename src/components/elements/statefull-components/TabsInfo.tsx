@@ -92,7 +92,8 @@ const TabsInfo: React.FC<ITabsInfo> = ({
       let img
       if (byTab) {
         img = tabs[tabIdx].image
-      } else if (itemIdx) {
+      } else if (itemIdx !== undefined) {
+        console.log(tabs?.[tabIdx].content)
         img = tabs[tabIdx].content[itemIdx].image
       }
       if (img) setImagePath(img)

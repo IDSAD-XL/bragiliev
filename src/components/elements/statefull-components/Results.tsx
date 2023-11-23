@@ -88,10 +88,10 @@ const Results: React.FC<IResults> = ({
           <div className="hidden dsk:block"></div>
           <div className="hidden dsk:block">
             <Link
-              href={link ?? '#'}
+              href={'/about'}
               className="button1 flex h-[80px] items-center justify-center"
             >
-              <span className="link-plus no-underline">Все кейсы</span>
+              <span className="link-plus no-underline">Обо мне</span>
             </Link>
           </div>
         </div>
@@ -102,9 +102,9 @@ const Results: React.FC<IResults> = ({
           <div>
             <Link
               className="button1 flex h-[60px] w-[300px] items-center justify-center md:h-[80px]"
-              href={link ?? '#'}
+              href={'/about'}
             >
-              <span className="link-plus no-underline">Все кейсы</span>
+              <span className="link-plus no-underline">Обо мне</span>
             </Link>
           </div>
         </div>
