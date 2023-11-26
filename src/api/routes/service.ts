@@ -21,11 +21,9 @@ export const getService = async (
     const fetchUrl = `https://grandmed.ru/ajax/api/service.php?id=/${type}/${
       slug ? slug + '/' : ''
     }`
-    console.log(type, slug)
     const resp = await fetch(fetchUrl)
     const fetchData: serviceDTO = await resp.json()
 
-    console.log(fetchData.resultsBlock)
     return {
       meta: fetchData.meta,
       layout: serviceContent.layout,
