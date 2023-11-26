@@ -11,6 +11,8 @@ import { useFileinput } from '../../../hooks/useFileinput'
 import FilesInputDragAndDrop from '../stateless-components/FilesInputDragAndDrop'
 import { IRegFormDTO } from '../../../api/routes/send-form'
 import { Api } from '../../../api/Api'
+import { useAppDispatch } from '../../../hooks/redux'
+import { openModal } from '../../../redux/Actions/modalActions'
 
 export interface IRegForm {
   name: string
@@ -20,7 +22,7 @@ export interface IRegForm {
 
 const RegForm: React.FC<IRegForm> = ({ name, title, subtitle }) => {
   const [currentUrl, setCurrentUrl] = useState<string>('')
-
+  const appDispatch = useAppDispatch()
   const [loaded, setIsLoaded] = useState<boolean>(false)
   const [dateValue, setDateValue] = useState<Date | string>(
     new Date(new Date().setHours(0, 0, 0, 0))
@@ -91,6 +93,10 @@ const RegForm: React.FC<IRegForm> = ({ name, title, subtitle }) => {
             }}
             onSubmit={async (values, { setSubmitting, resetForm }) => {
               values.date = dateValue.toString()
+              openModal(appDispatch, {
+                type: 'formSuccess',
+                content: null,
+              })
               try {
                 await Api.postForm({
                   ...values,

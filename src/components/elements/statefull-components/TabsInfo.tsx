@@ -1,4 +1,4 @@
-import React, { useLayoutEffect, useMemo, useState } from 'react'
+import React, { useEffect, useMemo, useState } from 'react'
 import Image from 'next/image'
 import { Tab } from '@headlessui/react'
 import Accordion, { IAccordionContent } from '../stateless-components/Accordion'
@@ -100,7 +100,7 @@ const TabsInfo: React.FC<ITabsInfo> = ({
     }
   }
 
-  useLayoutEffect(() => {
+  useEffect(() => {
     if (tabs && tabs.length > 0) {
       if (tabs[0]?.image) {
         setImagePath(tabs[0]?.image)

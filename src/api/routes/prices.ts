@@ -1,15 +1,17 @@
-import {ISelectContent} from "../../components/elements/stateless-components/Select";
-import {IPrice} from "../../pages/PricePage";
+import { ISelectContent } from '../../components/elements/stateless-components/Select'
+import { IPrice } from '../../pages/PricePage'
 import {
   IFiltersPriceBlock,
-  IPriceItem
-} from "../../components/elements/statefull-components/FiltersPriceBlock";
-import {priceContent} from "../../mock/price";
+  IPriceItem,
+} from '../../components/elements/statefull-components/FiltersPriceBlock'
+import { priceContent } from '../../mock/price'
+import { MetaData } from '../../types/content/pages/MetaData'
 
 export const getPrices = async (): Promise<IPrice> => {
   try {
     interface pricesDTO {
-      selects: ISelectContent[],
+      meta: MetaData
+      selects: ISelectContent[]
       services: IPriceItem[]
     }
 
@@ -19,10 +21,16 @@ export const getPrices = async (): Promise<IPrice> => {
 
     const pricesData: IFiltersPriceBlock = {
       selects: fetchData?.selects,
-      services: fetchData?.services
+      services: fetchData?.services,
     }
 
-    return { ...priceContent, filtersPriceBlock: pricesData }
+    return {
+      filtersPriceBlock: pricesData,
+      layout: priceContent.layout,
+      meta: fetchData.meta,
+      titleBlock: priceContent.titleBlock,
+      regFormBlock: priceContent.regFormBlock,
+    }
   } catch (e) {
     return priceContent
   }
