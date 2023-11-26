@@ -73,7 +73,7 @@ const ResultsSlider: React.FC<IResultsSlider> = ({ slides }) => {
                   }`}
                 >
                   <div
-                    className={`relative aspect-[300/332] flex-[100%] flex-grow-0 overflow-hidden border-half-white md:aspect-[314/459] md:h-full md:flex-[50%] md:border-b-0 ${
+                    className={`relative aspect-[300/332] flex-[100%] flex-grow-0 overflow-hidden border-half-white md:aspect-[1/1] md:h-full md:flex-[50%] md:border-b-0 ${
                       isAdultSlide ? '' : 'border-b-1 md:border-r-1'
                     }`}
                   >
@@ -86,7 +86,7 @@ const ResultsSlider: React.FC<IResultsSlider> = ({ slides }) => {
                       fill={true}
                     />
                   </div>
-                  <div className="relative aspect-[300/332] flex-[100%] flex-grow-0 overflow-hidden md:aspect-[314/459] md:h-full md:flex-[50%]">
+                  <div className="relative aspect-[1/1] flex-[100%] flex-grow-0 overflow-hidden md:h-full md:flex-[50%]">
                     <ImageWithDomain
                       className={`object-cover object-center ${
                         isAdultSlide ? 'blur-[20px]' : ''

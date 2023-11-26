@@ -37,7 +37,7 @@ const ServicesPage: React.FC<IService> = ({
         <TabsInfo {...servicesBlock} spacing={'big'} variant={'fullScreen'} />
       )}
       <div className="relative mb-[20px] mt-[90px] flex w-full flex-col items-center">
-        <div className="container dsk:min-h-[900px]">
+        <div className="container">
           <p className="text-section-title mb-[20px]">[ операция ]</p>
           {pricesBlock?.list?.prices &&
             pricesBlock?.list?.prices?.length > 0 && (

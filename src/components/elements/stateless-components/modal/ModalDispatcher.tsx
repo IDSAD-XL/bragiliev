@@ -8,6 +8,7 @@ import { IOpenActionPayload } from '../../../../redux/Reducers/modalSlice'
 import ModalAdult from './ModalAdult'
 import ModalFileinputError from './ModalFileinputError'
 import ModalImage from './ModalImage'
+import ModalFormSuccess from './ModalFormSuccess'
 
 const ModalDispatcher: React.FC = () => {
   const { open, modal } = useAppSelector((state) => state.modalSlice)
@@ -28,6 +29,7 @@ const ModalDispatcher: React.FC = () => {
       'min-h-[200px] max-w-[90%] dsk:w-[400px] dsk:max-w-[100%]',
     image:
       'min-h-[400px] h-[80vh] lg:h-[90vh] max-w-[90%] w-[90%] dsk:max-w-[1200px]',
+    formSuccess: 'min-h-[250px] max-w-[90%] dsk:w-[400px] dsk:max-w-[100%]',
   }
 
   return (
@@ -80,6 +82,7 @@ const ModalDispatcher: React.FC = () => {
                 {modal?.type === 'image' && (
                   <ModalImage image={modal.content.image} />
                 )}
+                {modal?.type === 'formSuccess' && <ModalFormSuccess />}
               </div>
             </Transition.Child>
           </div>

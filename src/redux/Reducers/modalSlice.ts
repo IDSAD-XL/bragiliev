@@ -14,6 +14,11 @@ interface IOpenActionPayloadReviewForm {
   content: null
 }
 
+interface IOpenActionPayloadFormSuccess {
+  type: 'formSuccess'
+  content: null
+}
+
 interface IOpenActionPayloadAdult {
   type: 'adult'
   content: null
@@ -35,6 +40,7 @@ export type IOpenActionPayload =
   | IOpenActionPayloadAdult
   | IOpenActionPayloadFileinputError
   | IOpenActionPayloadImage
+  | IOpenActionPayloadFormSuccess
 
 export interface IModalSlice {
   open: boolean
