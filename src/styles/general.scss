@@ -1,3 +1,7 @@
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
 @import "mixins";
 @import "typo";
 @import "flex";
@@ -7,6 +11,63 @@
 @import "elements/swiper";
 @import "elements/form";
 @import "elements/map";
+
+@import 'swiper/swiper.min.css';
+@import 'react-phone-input-2/lib/style.css';
+@import 'react-datetime-picker/dist/DateTimePicker.css';
+@import 'react-calendar/dist/Calendar.css';
+
+@layer base {
+  html {
+    font-family: 'Raleway', sans-serif;
+    font-style: normal;
+    color: #26262b;
+  }
+}
+
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Open Sans', sans-serif;
+}
+
+:root {
+  --bg-main: #ffffff;
+  --bg-secondary: #f9f9f9;
+  --bg-dark: #040302;
+  --bg-light-gray: #f3f3f3;
+  --bg-black: #040302;
+
+  --color-dark-gray: #26262b;
+  --color-hover-blue: #267dff;
+  --color-active-blue: #196dec;
+  --color-semi-black: #10100e;
+  --color-light-gray: #a8a8a8;
+  --color-hover-black: #1c1c1c;
+  --color-half-white: #7a7a7a;
+  --color-half-gray: rgba(135, 135, 135, 0.3);
+  --color-border-half-gray: rgba(217, 217, 217, 0.5);
+  --color-half-black: #3a3a3a;
+  --color-red: #ff4b55;
+}
+
+/* полоса прокрутки (скроллбар) */
+::-webkit-scrollbar {
+  width: 10px; /* ширина для вертикального скролла */
+  height: 8px; /* высота для горизонтального скролла */
+  background-color: #b1b1b1;
+}
+
+/* ползунок скроллбара */
+::-webkit-scrollbar-thumb {
+  background-color: #267dff;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: #267DFF;
+  cursor: pointer;
+}
 
 * {
   margin: 0;
