@@ -1,8 +1,5 @@
 import React from 'react'
 import Select, { ISelectContent } from '../stateless-components/Select'
-import 'swiper/css'
-import 'swiper/css/navigation'
-import 'swiper/css/scrollbar'
 import ResultsSlider from '../static-blocks/ResultsSlider'
 import Link from 'next/link'
 import { ItemWithDependencies } from '../../../types/elements/ItemsWithDependecies'

@@ -44,7 +44,9 @@ const Document: React.FC = () => {
       </Head>
       <body>
         <Main />
-        <NextScript />
+        <noindex>
+          <NextScript />
+        </noindex>
       </body>
     </Html>
   )

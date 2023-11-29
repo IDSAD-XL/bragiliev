@@ -4,41 +4,17 @@ module.exports = {
   generateRobotsTxt: true, // (optional)
   robotsTxtOptions: {
     policies: [
+      { userAgent: '*', disallow: '/' },
       {
         userAgent: '*',
-        allow: '/bitrix/components/',
-      },
-      {
-        userAgent: '*',
-        allow: '/bitrix/cache/',
-      },
-      {
-        userAgent: '*',
-        allow: '/bitrix/js/',
-      },
-      {
-        userAgent: '*',
-        allow: '/bitrix/templates/',
-      },
-      {
-        userAgent: '*',
-        allow: ' /bitrix/panel/',
-      },
-      {
-        userAgent: '*',
-        disallow: '*/index.php',
-      },
-      {
-        userAgent: '*',
-        disallow: '/*?',
-      },
-      {
-        userAgent: '*',
-        disallow: '/*&',
-      },
-      {
-        userAgent: '*',
-        disallow: '/*.pdf',
+        allow: [
+          '/bitrix/components/',
+          '/bitrix/cache/',
+          '/bitrix/js/',
+          '/bitrix/templates/',
+          '/bitrix/panel/',
+        ],
+        disallow: ['*/index.php', '/*?', '/*&', '/*.pdf'],
       },
     ],
     additionalSitemaps: ['https://v-bragilev.ru/sitemap.xml'],
