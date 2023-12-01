@@ -64,24 +64,28 @@ const Results: React.FC<IResults> = ({
         <p className="text-section-title">{name}</p>
         <p className="title2 mt-[20px]">{title}</p>
         <div className="z-10 grid w-full grid-cols-1 gap-x-[20px] lg:grid-cols-2 dsk:grid-cols-4">
-          <div>
-            <Select
-              variants={selects[0].variants}
-              placeholder={selects[0].placeholder}
-              onChange={changePart}
-              value={activePart}
-              variant={'dark'}
-            />
-          </div>
-          <div>
-            <Select
-              variants={filteredOperations}
-              placeholder={selects[1].placeholder}
-              onChange={changeOperation}
-              value={activeOperation}
-              variant={'dark'}
-            />
-          </div>
+          {selects[0].variants.length > 1 && (
+            <div>
+              <Select
+                variants={selects[0].variants}
+                placeholder={selects[0].placeholder}
+                onChange={changePart}
+                value={activePart}
+                variant={'dark'}
+              />
+            </div>
+          )}
+          {selects[1].variants.length > 1 && (
+            <div>
+              <Select
+                variants={filteredOperations}
+                placeholder={selects[1].placeholder}
+                onChange={changeOperation}
+                value={activeOperation}
+                variant={'dark'}
+              />
+            </div>
+          )}
           <div className="hidden dsk:block"></div>
           <div className="hidden dsk:block">
             <Link

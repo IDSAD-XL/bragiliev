@@ -70,6 +70,15 @@ export function useResultSlides<T extends ItemWithDependencies>(
     setFilteredOperations(filteredOperations)
   }, [activePart, activeOperation, selects])
 
+  useEffect(() => {
+    if (selects[0].variants.length === 1) {
+      changePart(selects[0].variants[0])
+    }
+    if (selects[1].variants.length === 1) {
+      changeOperation(selects[1].variants[0])
+    }
+  }, [])
+
   return {
     activePart,
     activeOperation,
