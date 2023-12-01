@@ -26,9 +26,6 @@ export const getService = async (
     const resp = await fetch(fetchUrl)
     const fetchData: serviceDTO = await resp.json()
 
-    fetchData.categoryId = '109'
-    fetchData.serviceId = '110'
-
     if (fetchData.categoryId) {
       if (fetchData?.resultsBlock?.selects?.[0]?.variants) {
         fetchData.resultsBlock.selects[0].variants =
