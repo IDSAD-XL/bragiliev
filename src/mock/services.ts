@@ -1,6 +1,7 @@
 import { IServicesContent } from '../types/content/pages/ServicesPage'
 
 export const servicesContent: IServicesContent = {
+  id: '1',
   layout: {
     header: {
       variant: 'light',

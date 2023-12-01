@@ -6,6 +6,8 @@ export const getService = async (
   slug?: string
 ): Promise<IService> => {
   interface serviceDTO extends IService {
+    categoryId: string
+    serviceId: string
     infoBlock: {
       title: string
       announc: string
@@ -24,7 +26,29 @@ export const getService = async (
     const resp = await fetch(fetchUrl)
     const fetchData: serviceDTO = await resp.json()
 
+    fetchData.categoryId = '109'
+    fetchData.serviceId = '110'
+
+    if (fetchData.categoryId) {
+      if (fetchData?.resultsBlock?.selects?.[0]?.variants) {
+        fetchData.resultsBlock.selects[0].variants =
+          fetchData?.resultsBlock?.selects?.[0]?.variants?.filter(
+            (item) => item.id === fetchData.categoryId
+          )
+      }
+    }
+
+    if (fetchData.serviceId) {
+      if (fetchData?.resultsBlock?.selects?.[1]?.variants) {
+        fetchData.resultsBlock.selects[1].variants =
+          fetchData?.resultsBlock?.selects?.[1]?.variants?.filter(
+            (item) => item.id === fetchData.serviceId
+          )
+      }
+    }
+
     return {
+      id: '1',
       meta: fetchData.meta,
       layout: serviceContent.layout,
       pageHead: {

@@ -8,6 +8,7 @@ interface IPageInfoBlock extends IInfoBlock {
 }
 
 export interface IServicesContent extends IPageContent {
+  id: string
   infoBlock: IPageInfoBlock
   servicesBlock: ITabsInfoContent
   regFormBlock: IRegForm
