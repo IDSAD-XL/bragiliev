@@ -7,7 +7,7 @@ const Footer = (): JSX.Element => {
       <div className="container mb-[75px] grid grid-cols-4 grid-rows-[min-content] gap-y-[50px]">
         <div className="col-span-4 lg:col-span-2">
           <h6>
-            г. Санкт-Петербург, <br /> Спасский 14/35 (вход с Садовой, 35)
+            г. Санкт-Петербург, <br /> ул. Садовая 35
           </h6>
         </div>
         <div className="col-span-4 lg:col-span-1">

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import PhoneInput from 'react-phone-input-2'
 import { ErrorMessage, Field, Form, Formik } from 'formik'
 import ru from 'react-phone-input-2/lang/ru.json'
-import DateTimePicker from 'react-datetime-picker'
+// import DateTimePicker from 'react-datetime-picker'
 import Link from 'next/link'
 import { useFileinput } from '../../../hooks/useFileinput'
 import FilesInputDragAndDrop from '../stateless-components/FilesInputDragAndDrop'
@@ -20,30 +20,30 @@ export interface IRegForm {
 const RegForm: React.FC<IRegForm> = ({ name, title, subtitle }) => {
   const [currentUrl, setCurrentUrl] = useState<string>('')
   const appDispatch = useAppDispatch()
-  const [loaded, setIsLoaded] = useState<boolean>(false)
+  // const [loaded, setIsLoaded] = useState<boolean>(false)
   const [dateValue, setDateValue] = useState<Date | string>(
     new Date(new Date().setHours(0, 0, 0, 0))
   )
   const { selectedFiles, handleFileChange, addFiles, removeFile, resetFiles } =
     useFileinput(['png', 'jpg', 'jpeg'], 5)
 
-  const russianMonths = [
-    'Январь',
-    'Февраль',
-    'Март',
-    'Апрель',
-    'Май',
-    'Июнь',
-    'Июль',
-    'Август',
-    'Сентябрь',
-    'Октябрь',
-    'Ноябрь',
-    'Декабрь',
-  ]
+  // const russianMonths = [
+  //   'Январь',
+  //   'Февраль',
+  //   'Март',
+  //   'Апрель',
+  //   'Май',
+  //   'Июнь',
+  //   'Июль',
+  //   'Август',
+  //   'Сентябрь',
+  //   'Октябрь',
+  //   'Ноябрь',
+  //   'Декабрь',
+  // ]
 
   useEffect(() => {
-    setIsLoaded(true)
+    // setIsLoaded(true)
     setCurrentUrl(window.location.href)
   }, [])
 
@@ -83,9 +83,9 @@ const RegForm: React.FC<IRegForm> = ({ name, title, subtitle }) => {
               if (!values.number) {
                 errors.number = 'Обязательное поле'
               }
-              if (!values.date) {
-                errors.date = 'Выберите дату приема'
-              }
+              // if (!values.date) {
+              //   errors.date = 'Выберите дату приема'
+              // }
               return errors
             }}
             onSubmit={async (values, { setSubmitting, resetForm }) => {
@@ -110,7 +110,7 @@ const RegForm: React.FC<IRegForm> = ({ name, title, subtitle }) => {
             }}
           >
             {({ values, touched, errors, isSubmitting, handleChange }) => (
-              <Form className="form grid grid-cols-1 gap-x-[20px] lg:grid-cols-3">
+              <Form className="form grid grid-cols-1 gap-x-[20px] lg:grid-cols-2">
                 <div className="relative">
                   <Field
                     placeholder="ФИО"
@@ -147,7 +147,7 @@ const RegForm: React.FC<IRegForm> = ({ name, title, subtitle }) => {
                     className="input-error"
                   />
                 </div>
-                <div className="relative">
+                {/* <div className="relative">
                   {loaded && (
                     <DateTimePicker
                       onChange={(e) => {
@@ -248,8 +248,8 @@ const RegForm: React.FC<IRegForm> = ({ name, title, subtitle }) => {
                     component="div"
                     className="input-error"
                   />
-                </div>
-                <div className="mb-[40px] lg:col-span-3">
+                </div> */}
+                <div className="mb-[40px] lg:col-span-2">
                   <Field
                     placeholder="Комментарий"
                     type="text"

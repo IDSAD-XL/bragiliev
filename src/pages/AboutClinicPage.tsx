@@ -30,7 +30,7 @@ const AboutClinicPage: React.FC<IAboutClinic> = ({
             <div
               className={`${
                 isMoreThanOneDesc ? 'dsk:flex-col' : 'dsk:flex-row'
-              } mb-[30px] flex flex-[50%] flex-col gap-[30px] gap-[30px] dsk:mb-[93px] dsk:mt-[30px] dsk:justify-between`}
+              } mb-[30px] flex flex-[50%] flex-col gap-[30px] dsk:mb-[93px] dsk:mt-[30px] dsk:justify-between`}
             >
               {!!item.text && (
                 <h5

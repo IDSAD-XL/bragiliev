@@ -16,14 +16,16 @@ const PriceList: React.FC<IPriceList> = ({ list }) => {
           return (
             <li
               key={item.id}
-              className="flex items-end justify-between border-b-1 pb-[20px] pt-[28px]"
+              className="flex items-center justify-between gap-[1rem] border-b-1 pb-[20px] pt-[28px]"
             >
-              <div className="max-w-[174px] break-words text-sm font-medium text-black dsk:max-w-none dsk:text-lg">
-                {item.subtitle}
-              </div>
-              <div className="text-sm font-medium text-black dsk:text-lg">
-                {item.price}
-              </div>
+              <div
+                className="flex-[70%] shrink-0 grow-0 break-words text-sm font-medium text-black dsk:max-w-none dsk:text-lg"
+                dangerouslySetInnerHTML={{ __html: item.subtitle }}
+              />
+              <div
+                className="flex-[30%] shrink-0 grow-0 text-sm font-medium text-black dsk:text-lg"
+                dangerouslySetInnerHTML={{ __html: item.price }}
+              />
             </li>
           )
         })}

@@ -47,7 +47,7 @@ const Menu: React.FC = () => {
         </div>
         <div className="menu__footer mb-[70px] mt-[80px] text-center">
           <p className="text-regular">
-            г. Санкт-Петербург, <br /> Спасский 14/35 (вход с Садовой, 35)
+            г. Санкт-Петербург, <br /> ул. Садовая 35
           </p>
           <p className="mt-[30px]">
             <a href="mailto:bragilev@grandmed.ru" className="text-regular">
