@@ -11,6 +11,8 @@ interface IPageHeadContent extends IPageHead {
 }
 
 export interface IServiceContent extends IPageContent {
+  categoryId?: string
+  serviceId?: string
   pageHead: IPageHeadContent
   contentBlock?: IContentSection
   servicesBlock?: ITabsInfoContent
