@@ -91,7 +91,7 @@ export function useResultSlides<T extends ItemWithDependencies>(
         changeOperation(findOperation)
       }
     }
-  }, [defaultValues, changeOperation])
+  }, [defaultValues, changeOperation, selects])
 
   return {
     activePart,
