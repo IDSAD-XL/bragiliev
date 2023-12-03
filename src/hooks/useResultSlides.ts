@@ -11,7 +11,11 @@ import {
 
 export function useResultSlides<T extends ItemWithDependencies>(
   selects: ISelectContent[],
-  results: T[]
+  results: T[],
+  defaultValues?: {
+    categoryId?: string
+    serviceId?: string
+  }
 ) {
   const [activePart, setActivePart] = useState<ISelectVariant | null>(null)
   const [activeOperation, setActiveOperation] = useState<ISelectVariant | null>(
@@ -71,13 +75,23 @@ export function useResultSlides<T extends ItemWithDependencies>(
   }, [activePart, changeOperation, activeOperation, selects])
 
   useEffect(() => {
-    if (selects[0].variants.length === 1) {
-      changePart(selects[0].variants[0])
+    if (defaultValues?.categoryId) {
+      const findPart = selects[0].variants?.find(
+        ({ id }) => id === defaultValues.categoryId
+      )
+      if (findPart) {
+        changePart(findPart)
+      }
     }
-    if (selects[1].variants.length === 1) {
-      changeOperation(selects[1].variants[0])
+    if (defaultValues?.serviceId) {
+      const findOperation = selects[1].variants?.find(
+        ({ id }) => id === defaultValues.serviceId
+      )
+      if (findOperation) {
+        changeOperation(findOperation)
+      }
     }
-  }, [selects])
+  }, [defaultValues, changeOperation])
 
   return {
     activePart,

@@ -18,6 +18,8 @@ const ServicesPage: React.FC<IService> = ({
   pricesBlock,
   resultsBlock,
   regFormBlock,
+  serviceId,
+  categoryId,
 }) => {
   return (
     <Layout {...layout}>
@@ -46,7 +48,12 @@ const ServicesPage: React.FC<IService> = ({
         </div>
       </div>
       {resultsBlock?.results && resultsBlock?.results.length > 0 && (
-        <Results {...resultsBlock} spacing={'small'} />
+        <Results
+          {...resultsBlock}
+          spacing={'small'}
+          serviceId={serviceId}
+          categoryId={categoryId}
+        />
       )}
       <RegForm {...regFormBlock} />
     </Layout>
