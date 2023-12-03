@@ -77,7 +77,7 @@ export function useResultSlides<T extends ItemWithDependencies>(
     if (selects[1].variants.length === 1) {
       changeOperation(selects[1].variants[0])
     }
-  }, [])
+  }, [selects])
 
   return {
     activePart,
