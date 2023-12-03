@@ -24,7 +24,7 @@ const BlockWithTwoTextColumns: React.FC<IBlockWithImageAndTexts> = ({
     <div className="mb-[60px] mt-[20px] flex w-full justify-center md:mt-[23px]">
       <div className="container flex flex-wrap gap-x-[20px] gap-y-[30px] lg:flex-nowrap">
         <div className="flex-[100%] flex-shrink lg:flex-[50%] lg:flex-grow-0">
-          <div className="relative ml-[-10px] mr-[-10px] aspect-[320/460] overflow-hidden md:ml-0 md:mr-0 lg:aspect-[1276/738]">
+          <div className="relative ml-[-10px] mr-[-10px] aspect-[320/280] overflow-hidden md:ml-0 md:mr-0 lg:aspect-[1276/738]">
             <Image
               className={`object-cover object-top ${
                 imageSrcMobile ? 'hidden md:block' : ''

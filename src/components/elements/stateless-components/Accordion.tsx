@@ -121,7 +121,7 @@ const Accordion: React.FC<IAccordion> = ({
               src={image}
               fill={true}
               alt=""
-              className="object-cover object-center"
+              className="object-cover object-bottom"
             />
           </div>
         )}
