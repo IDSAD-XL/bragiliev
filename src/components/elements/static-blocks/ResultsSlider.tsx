@@ -36,7 +36,7 @@ const ResultsSlider: React.FC<IResultsSlider> = ({ slides }) => {
           const isAdultSlide = !isAdult && res.isAdult
           return (
             <SwiperSlide key={res.id}>
-              <p className="text-light title5 mt-[5px] !text-[30px] !leading-[22px] md:!text-[16px] dsk:!text-[14px]">
+              <p className="text-light title5 mt-[5px] !text-[30px] !leading-[1.1em] md:!text-[16px] dsk:!text-[14px]">
                 {res?.services?.[0] && (
                   <Link
                     rel="nofollow"
