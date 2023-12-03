@@ -52,7 +52,7 @@ const BlockWithHalfscreenImage: React.FC<IBlockWithHalfscreenImage> = ({
           <div className="hidden flex-shrink-0 flex-grow-0 md:block lg:flex-[50%]" />
         )}
         <div
-          className={`flex-[100%] !flex-grow-0 items-center pb-[30px] pt-[30px] lg:flex-[50%] ${
+          className={`flex-[100%] !flex-grow-0 items-center break-words pb-[30px] pt-[30px] lg:max-w-[50%] lg:flex-[50%] ${
             imagePosition === 'right' ? 'lg:pr-[73px]' : 'lg:pl-[73px]'
           }`}
           dangerouslySetInnerHTML={{ __html: content ?? '' }}
