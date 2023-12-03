@@ -86,7 +86,9 @@ const Results: React.FC<IResults> = ({
               />
             </div>
           )}
-          <div className="hidden dsk:block"></div>
+          {selects[0].variants.length > 1 && (
+            <div className="hidden dsk:block"></div>
+          )}
           <div className="hidden dsk:block">
             <Link
               href={'/about'}

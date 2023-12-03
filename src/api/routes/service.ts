@@ -45,7 +45,6 @@ export const getService = async (
     }
 
     return {
-      id: '1',
       meta: fetchData.meta,
       layout: serviceContent.layout,
       pageHead: {
