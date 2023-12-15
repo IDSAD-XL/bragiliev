@@ -52,7 +52,7 @@ const ResultsReviews: React.FC<IResultReviews> = ({ slides }) => {
           className="mt-[30px] flex justify-center md:mt-[60px]"
         >
           <div className="button1 flex h-[60px] w-[300px] items-center justify-center md:h-[80px]">
-            <span className="link-plus no-underline">показать ещё</span>
+            <span className="link-plus no-underline">показать еще</span>
           </div>
         </div>
       )}
