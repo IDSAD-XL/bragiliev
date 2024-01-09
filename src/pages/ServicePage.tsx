@@ -21,6 +21,11 @@ const ServicesPage: React.FC<IService> = ({
   serviceId,
   categoryId,
 }) => {
+  const scrollToPrice = () => {
+    const block = document.querySelector('#servicePrices')
+    block?.scrollIntoView({ behavior: 'smooth' })
+  }
+
   return (
     <Layout {...layout}>
       <PageHead {...pageHead}>
@@ -29,7 +34,10 @@ const ServicesPage: React.FC<IService> = ({
           dangerouslySetInnerHTML={{ __html: pageHead?.text ?? '' }}
         />
         <p className="mt-[13px] leading-[39px] md:mt-[41px] dsk:mt-[43px]">
-          <span className="link-plus link-plus--white text-white">
+          <span
+            onClick={scrollToPrice}
+            className="link-plus link-plus--white text-white"
+          >
             Стоимость
           </span>
         </p>
@@ -38,6 +46,7 @@ const ServicesPage: React.FC<IService> = ({
       {servicesBlock?.tabs && servicesBlock?.tabs?.length > 0 && (
         <TabsInfo {...servicesBlock} spacing={'big'} variant={'fullScreen'} />
       )}
+      <div className="h-0 translate-y-[-50px] opacity-0" id="servicePrices" />
       <div className="relative mb-[20px] mt-[90px] flex w-full flex-col items-center">
         <div className="container">
           <p className="text-section-title mb-[20px]">[ операция ]</p>

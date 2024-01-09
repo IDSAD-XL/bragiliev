@@ -90,27 +90,9 @@ const Results: React.FC<IResults> = ({
             />
           </div>
           <div className="hidden dsk:block"></div>
-          <div className="hidden dsk:block">
-            <Link
-              href={'/about'}
-              className="button1 flex h-[80px] items-center justify-center"
-            >
-              <span className="link-plus no-underline">Обо мне</span>
-            </Link>
-          </div>
         </div>
         <div className="mt-[30px] dsk:mt-[27px]">
           <ResultsSlider slides={filteredResults} />
-        </div>
-        <div className="mt-[30px] flex justify-center md:mt-[60px] dsk:hidden">
-          <div>
-            <Link
-              className="button1 flex h-[60px] w-[300px] items-center justify-center md:h-[80px]"
-              href={'/about'}
-            >
-              <span className="link-plus no-underline">Обо мне</span>
-            </Link>
-          </div>
         </div>
       </div>
     </div>
