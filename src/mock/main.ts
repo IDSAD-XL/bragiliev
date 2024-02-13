@@ -518,7 +518,7 @@ export const mainContent: IMainContent = {
     name: '[ grandmed ]',
     title: 'О клинике',
     subtitle:
-      'Я веду прием более 20 лет в клинике GRANDMED, и являюсь учредителем холдинга вместе с пятью выдающимися врачами.',
+      'Я веду прием более 20 лет в клинике GRANDMED, и являюсь учредителем холдинга вместе с четырьмя выдающимися врачами.',
     image: '/assets/main-bg-2.jpg',
     imageMobile: '/assets/main-bg-2-mobile.jpg',
     texts: [
