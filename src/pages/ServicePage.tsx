@@ -52,7 +52,7 @@ const ServicesPage: React.FC<IService> = ({
           <p className="text-section-title mb-[20px]">[ операция ]</p>
           {pricesBlock?.list?.prices &&
             pricesBlock?.list?.prices?.length > 0 && (
-              <PriceList {...pricesBlock} />
+              <PriceList id="price" {...pricesBlock} />
             )}
         </div>
       </div>

@@ -1,6 +1,10 @@
 import { IServicesContent } from '../types/content/pages/ServicesPage'
 
 export const servicesContent: IServicesContent = {
+  meta: {
+    title: 'Услуги',
+    description: 'Услуги',
+  },
   layout: {
     header: {
       variant: 'light',
